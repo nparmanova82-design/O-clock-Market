@@ -1,39 +1,43 @@
-/* O’clock market — minimalist soat do‘koni. «Luxury» tema:
-   qora eben taxta fon, to‘q kartochkalar, fil suyagi rangidagi matn va oltin aksentlar.
+/* O’clock market — minimalist soat do‘koni. «Luxury» tema (espresso):
+   yong‘oq daraxti fon, mokko rangidagi kartochkalar, fil suyagi rangidagi matn va oltin aksentlar.
    Ranglar faqat shu yerda: --cream — sahifa foni, --paper — kartochka, --ink — matn,
-   --onyx — eng to‘q bloklar (topbar, footer), --gold — aksent. */
+   --onyx — eng to‘q bloklar (topbar, header, footer), --gold — aksent, --spot-* — soat rasmi ostidagi yorug‘lik. */
 
 :root {
   color-scheme: dark;   /* select ro‘yxati, scrollbar va boshqa brauzer elementlari ham to‘q */
-  --watch-shadow: drop-shadow(0 8px 10px rgba(0, 0, 0, .55));
-  --watch-shadow-lg: drop-shadow(0 18px 22px rgba(0, 0, 0, .6));
-  --cream: #0e0c0a;
-  --paper: #191612;
-  --paper-2: #221d18;
-  --paper-3: #2e2720;
-  --ink: #f2e8d5;
-  --ink-2: #cfc2aa;
-  --muted: #9a8c76;
-  --line: rgba(214, 182, 118, .14);
-  --line-2: rgba(214, 182, 118, .3);
-  --sale: #e3735f;
-  --sale-bg: rgba(227, 115, 95, .14);
-  --brass: #c9a35a;
-  --gold: #e2c27d;
-  --gold-grad: linear-gradient(135deg, #f3dfa6 0%, #d6b066 48%, #b38c47 100%);
-  --onyx: #090807;
-  --field: #120f0c;
-  --ok: #82b997;
-  --ok-bg: rgba(130, 185, 151, .13);
-  --warn: #e3ad58;
+  --watch-shadow: drop-shadow(0 8px 10px rgba(20, 12, 6, .5));
+  --watch-shadow-lg: drop-shadow(0 18px 22px rgba(20, 12, 6, .55));
+  --cream: #2b231d;
+  --paper: #42372e;
+  --paper-2: #4b3f35;
+  --paper-3: #594b3f;
+  --ink: #f7efe1;
+  --ink-2: #e2d6c1;
+  --muted: #bcad95;
+  --line: rgba(232, 200, 135, .2);
+  --line-2: rgba(232, 200, 135, .36);
+  --sale: #f08a73;
+  --sale-bg: rgba(240, 138, 115, .16);
+  --brass: #d3ae66;
+  --gold: #e8c985;
+  --gold-grad: linear-gradient(135deg, #f6e3ad 0%, #dcb76d 48%, #b99350 100%);
+  --onyx: #1e1814;
+  --field: #30271f;
+  --spot-1: #615143;
+  --spot-2: #42372e;
+  --deep: #251d17;
+  --deep-2: #4d3e30;
+  --ok: #94cba8;
+  --ok-bg: rgba(148, 203, 168, .15);
+  --warn: #ecb766;
 
   --serif: "Cormorant Garamond", "Times New Roman", serif;
   --sans: "Jost", "Segoe UI", system-ui, sans-serif;
 
   --r: 3px;
   --r-lg: 6px;
-  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 28px -12px rgba(0, 0, 0, .7);
-  --shadow-lg: 0 28px 70px -20px rgba(0, 0, 0, .85);
+  --shadow: 0 1px 2px rgba(20, 12, 6, .25), 0 10px 28px -12px rgba(20, 12, 6, .6);
+  --shadow-lg: 0 28px 70px -20px rgba(20, 12, 6, .75);
   --header-h: 72px;
   --gutter: 24px;
   --ease: cubic-bezier(.2, .7, .2, 1);
@@ -46,8 +50,8 @@ body {
   font: 400 15px/1.55 var(--sans);
   color: var(--ink);
   background-color: var(--cream);
-  /* Qora eben tekstura — tayyor rasm: filtrli SVG har scroll kadrida qayta hisoblanib, sahifani qotirardi */
-  background-image: url("../img/wood-dark.webp");
+  /* Yong‘oq daraxti tekstura — tayyor rasm: filtrli SVG har scroll kadrida qayta hisoblanib, sahifani qotirardi */
+  background-image: url("../img/wood-walnut.webp");
   background-size: 1200px 720px;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
@@ -150,7 +154,7 @@ dl, dd { margin: 0; }
 .badge--new { background: var(--paper); }
 .badge--hit { background: var(--gold-grad); color: var(--onyx); border-color: #c9a35a; }
 .badge--unique {
-  background: linear-gradient(100deg, #0b0a08 0%, #2a2219 55%, #0b0a08 100%);
+  background: linear-gradient(100deg, var(--deep) 0%, var(--deep-2) 55%, var(--deep) 100%);
   color: var(--gold); border-color: #7a6238;
 }
 .badge--unique::before {
@@ -172,7 +176,7 @@ dl, dd { margin: 0; }
 
 .header {
   position: sticky; top: 0; z-index: 30;
-  background: rgba(14, 12, 10, .985);
+  background: rgba(30, 24, 20, .985);
   border-bottom: 1px solid var(--line);
   transition: box-shadow .3s;
 }
@@ -370,7 +374,7 @@ dl, dd { margin: 0; }
 .section { padding-top: 72px; }
 .section:last-child { padding-bottom: 80px; }
 .section.container:last-child, main > .section:last-of-type { padding-bottom: 80px; }
-.section--band { margin-top: 72px; padding: 64px 0; background: rgba(9, 8, 7, .55); border-block: 1px solid var(--line); }
+.section--band { margin-top: 72px; padding: 64px 0; background: rgba(30, 24, 20, .38); border-block: 1px solid var(--line); }
 .section--band + .section { padding-top: 72px; }
 .section__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
 .section__title { font-family: var(--serif); font-size: clamp(32px, 4vw, 46px); line-height: 1.05; }
@@ -406,7 +410,7 @@ dl, dd { margin: 0; }
 .unique {
   display: grid; grid-template-columns: .85fr 1.15fr; gap: 48px; align-items: center;
   padding: 48px; border-radius: var(--r-lg);
-  background: radial-gradient(120% 140% at 0% 0%, #2c241a 0%, #0b0a08 62%);
+  background: radial-gradient(120% 140% at 0% 0%, var(--deep-2) 0%, var(--deep) 62%);
   border: 1px solid var(--line-2);
   color: var(--ink);
   box-shadow: var(--shadow-lg);
@@ -473,7 +477,7 @@ html.filters-off .grid--catalog { grid-template-columns: repeat(4, 1fr); }
 .card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--line-2); }
 .card__media {
   display: block; aspect-ratio: 1; overflow: hidden; border-radius: var(--r-lg) var(--r-lg) 0 0;
-  background: radial-gradient(circle at 50% 42%, #3b3229 0%, #1d1915 74%);
+  background: radial-gradient(circle at 50% 42%, var(--spot-1) 0%, var(--spot-2) 74%);
 }
 /* Soat rasmlari soyasi CSS’da: SVG ichidagi filtr har bir rasmni ochishda protsessorni band qilardi */
 .card__media img, .type img, .pdp__media img, .line__img img { filter: var(--watch-shadow); }
@@ -483,7 +487,7 @@ html.filters-off .grid--catalog { grid-template-columns: repeat(4, 1fr); }
 .card__wish { position: absolute; top: 8px; right: 8px; }
 .wish-btn {
   display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%;
-  background: rgba(14, 12, 10, .72); transition: background .2s, transform .2s;
+  background: rgba(30, 24, 20, .6); transition: background .2s, transform .2s;
 }
 .wish-btn:hover { background: var(--paper); transform: scale(1.08); }
 .wish-btn .i { width: 20px; height: 20px; transition: fill .2s, stroke .2s; }
@@ -699,7 +703,7 @@ html.filters-off .filter-toggle .i { transform: rotate(180deg); }
 .pdp__gallery { position: sticky; top: calc(var(--header-h) + 20px); }
 .pdp__media {
   position: relative; aspect-ratio: 1; overflow: hidden; cursor: zoom-in;
-  background: radial-gradient(circle at 50% 42%, #3b3229 0%, #1d1915 74%);
+  background: radial-gradient(circle at 50% 42%, var(--spot-1) 0%, var(--spot-2) 74%);
   border: 1px solid var(--line); border-radius: var(--r-lg);
 }
 .pdp__media img { width: 100%; height: 100%; object-fit: contain; padding: 7%; transition: transform .3s ease-out; transform-origin: var(--zx, 50%) var(--zy, 50%); }
@@ -755,7 +759,7 @@ html.filters-off .filter-toggle .i { transform: rotate(180deg); }
 .unique-note {
   display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start;
   padding: 18px 20px; border-radius: var(--r-lg);
-  background: linear-gradient(110deg, #0b0a08, #2a2219); border: 1px solid var(--line-2); color: rgba(239, 227, 205, .86); font-size: 14px;
+  background: linear-gradient(110deg, var(--deep), var(--deep-2)); border: 1px solid var(--line-2); color: rgba(239, 227, 205, .86); font-size: 14px;
 }
 .unique-note b { color: var(--gold); font-weight: 500; }
 
@@ -1196,7 +1200,7 @@ a.contact-card:hover { border-color: var(--ink); }
 .drawer__langs { padding: 18px 0 4px; }
 
 /* ———— Tasmalar ———— */
-.card--strap .card__media { background: radial-gradient(circle at 50% 40%, #3b3229 0%, #1d1915 74%); }
+.card--strap .card__media { background: radial-gradient(circle at 50% 40%, var(--spot-1) 0%, var(--spot-2) 74%); }
 .card--strap .card__media img { padding: 4% 14%; }
 .card--strap:hover .card__media img { transform: scale(1.05); }
 .card__fit { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; margin-top: 6px; padding: 3px 9px; border: 1px solid var(--line-2); border-radius: 12px; font-size: 11.5px; color: var(--ink-2); }
@@ -1233,7 +1237,7 @@ a.contact-card:hover { border-color: var(--ink); }
   .header__inner { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
   .header__left { padding-right: 24px; }
 }
-@media (max-width: 1520px) {
+@media (min-width: 1201px) {   /* bo‘limlar ko‘rinib turganda tugmada faqat ikonka — logotipga joy qoladi */
   .menu-btn__label { display: none; }
   .menu-btn { padding: 0 12px; }
   .header__left { gap: 22px; }
