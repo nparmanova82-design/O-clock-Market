@@ -1,0 +1,65 @@
+{% extends "pages/_info.html" %}
+{% block description %}{% translate "Yetkazib berish, to‘lov, Unique belgisi, soat o‘lchami, tasma kengligi va mexanizm turlari haqida ko‘p beriladigan savollar." %}{% endblock %}
+{% block page_title %}{% translate "Savol-javob" %}{% endblock %}
+{% block crumb %}{% translate "Savol-javob" %}{% endblock %}
+{% block heading %}{% translate "Savol-javob" %}{% endblock %}
+
+{% block body %}
+<div class="faq">
+  <h2 class="faq__group">{% translate "Buyurtma va yetkazib berish" %}</h2>
+  <details open>
+    <summary>{% translate "Yetkazib berish haqiqatan bepulmi?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% blocktranslate trimmed with zero=0|som %}Ha. O‘zbekistonning barcha viloyatlariga va Qoraqalpog‘istonga yetkazib berish {{ zero }} — buyurtma summasidan qat’i nazar. Toshkentda 1 kun, viloyatlarga 1–4 kun.{% endblocktranslate %}</div>
+  </details>
+  <details>
+    <summary>{% translate "Qanday to‘layman?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% blocktranslate trimmed with cards=site.cards|join:", " %}Qabul qilganda: naqd pul yoki karta ({{ cards }}). Kuryerda terminal bor. Oldindan to‘lov shart emas.{% endblocktranslate %}</div>
+  </details>
+  <details>
+    <summary>{% translate "Buyurtma qayerda ekanini qanday bilaman?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% url 'orders:track' as track_url %}{% blocktranslate trimmed %}<a href="{{ track_url }}">Buyurtmani kuzatish</a> sahifasida raqam va telefoningizni kiriting. Kuryer chiqqanda sizga qo‘ng‘iroq qiladi.{% endblocktranslate %}</div>
+  </details>
+  <details>
+    <summary>{% translate "Promokod qayerga yoziladi?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% blocktranslate trimmed with sum=3000000|som %}Savatcha sahifasida «Promokod» maydoniga. Masalan, <b>OCLOCK10</b> — 10% chegirma, <b>SOVGA15</b> — {{ sum }}dan yuqori xaridga 15%.{% endblocktranslate %}</div>
+  </details>
+
+  <h2 class="faq__group">{% translate "Soat tanlash" %}</h2>
+  <details>
+    <summary>{% translate "«Unique» belgisi nimani anglatadi?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% url 'shop:unique' as unique_url %}{% blocktranslate trimmed %}Bu soat erkak va ayolga birdek mos keladi: neytral dizayn, o‘rtacha (odatda 35–42 mm) korpus, ortiqcha bezaksiz siferblat. Juftlik soati yoki sovg‘a uchun eng xavfsiz tanlov. <a href="{{ unique_url }}">Unique kolleksiyasi</a>{% endblocktranslate %}</div>
+  </details>
+  <details>
+    <summary>{% translate "Qaysi o‘lcham menga mos?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% translate "Ingichka bilakka 34–38 mm, o‘rtachasiga 38–42 mm, keng bilakka 42–46 mm. Katalogdagi «Korpus diametri» filtridan foydalaning." %}</div>
+  </details>
+  <details>
+    <summary>{% translate "Kvarts, mexanik va avtomatik farqi nima?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% blocktranslate trimmed %}<b>Kvarts</b> — batareyada, eng aniq va arzon. <b>Mexanik</b> — har kuni qo‘lda buraladi. <b>Avtomatik</b> — qo‘l harakatidan o‘zi buraladi, batareya kerak emas. <b>Smart</b> — telefon bilan bog‘lanadi, zaryadlanadi.{% endblocktranslate %}</div>
+  </details>
+  <details>
+    <summary>{% translate "Suvga chidamlilik «50 m» degani suvga sho‘ng‘isa bo‘ladimi?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% translate "30 m — yomg‘ir va qo‘l yuvish. 50 m — basseynda suzish. 100 m — suzish va snorkeling. 200 m va undan yuqori — g‘avvoslik." %}</div>
+  </details>
+
+  <h2 class="faq__group">{% translate "Tasmalar" %}</h2>
+  <details>
+    <summary>{% translate "Soatimga qaysi tasma mos keladi?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% url 'shop:straps' as straps_url %}{% blocktranslate trimmed %}Asosiysi — kenglik. U soat sahifasida «Tasma kengligi» qatorida yozilgan (masalan, 20 mm). <a href="{{ straps_url }}">Tasmalar</a> bo‘limida «Kengligi» filtrida shu raqamni tanlang. Apple Watch uchun «Ulanishi» filtrida korpus o‘lchamini tanlang.{% endblocktranslate %}</div>
+  </details>
+  <details>
+    <summary>{% translate "Tasmani o‘zim almashtira olamanmi?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% translate "Ha. «Tez yechiladigan shpilka»li tasmalar asbobsiz, bir necha soniyada almashtiriladi. Oddiy shpilkali tasmaga kichik asbob kerak bo‘ladi — showroomda bepul taqib beramiz." %}</div>
+  </details>
+
+  <h2 class="faq__group">{% translate "Kafolat" %}</h2>
+  <details>
+    <summary>{% translate "Soat yoqmasa qaytarsa bo‘ladimi?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% url 'shop:warranty' as warranty_url %}{% blocktranslate trimmed with n=site.return_days %}Ha, {{ n }} kun ichida — taqilmagan va qadog‘i buzilmagan bo‘lsa. Batafsil: <a href="{{ warranty_url }}">kafolat va qaytarish</a>.{% endblocktranslate %}</div>
+  </details>
+  <details>
+    <summary>{% translate "Soatlar originalmi?" %} <svg class="i"><use href="#i-plus"/></svg></summary>
+    <div>{% translate "Ha. Har bir soat firma qutisi va rasmiy kafolat taloni bilan beriladi." %}</div>
+  </details>
+</div>
+{% endblock %}

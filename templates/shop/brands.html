@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{% translate "Brendlar" %} — {{ site.name }}{% endblock %}
+{% block description %}{% translate "Soat brendlari: Casio, Seiko, Citizen, Orient, Tissot, Hamilton, Longines, Rolex, Omega va boshqalar. O‘zbekiston bo‘ylab bepul yetkazib berish." %}{% endblock %}
+{% block body_class %}page-brands{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <nav class="crumbs" aria-label="{% translate 'Yo‘l' %}"><a href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a><span>/</span><span aria-current="page">{% translate "Brendlar" %}</span></nav>
+  <h1 class="page-title">{% translate "Brendlar" %}</h1>
+  <p class="page-lead">{% blocktranslate trimmed count n=brands|length %}{{ n }} ta brend — Shveytsariya va Yaponiya klassikasidan zamonaviy smart soatlargacha. Barcha soatlar rasmiy kafolat bilan.{% plural %}{{ n }} ta brend — Shveytsariya va Yaponiya klassikasidan zamonaviy smart soatlargacha. Barcha soatlar rasmiy kafolat bilan.{% endblocktranslate %}</p>
+</section>
+
+<div class="container">
+  {% regroup brands by name.0 as groups %}
+  <nav class="letters" aria-label="{% translate 'Harf bo‘yicha' %}">
+    {% for g in groups %}<a href="#harf-{{ forloop.counter }}">{{ g.grouper|upper }}</a>{% endfor %}
+  </nav>
+  <div class="brand-grid">
+    {% for g in groups %}
+      {% for b in g.list %}
+        <a class="brand-tile" href="{{ b.get_absolute_url }}"{% if forloop.first %} id="harf-{{ forloop.parentloop.counter }}"{% endif %}>
+          {% if b.local_country %}<span class="brand-tile__country">{{ b.local_country }}</span>{% endif %}
+          <span class="brand-tile__name">{{ b.name }}</span>
+          {% if b.local_description %}<span class="brand-tile__desc">{{ b.local_description }}</span>{% endif %}
+          <span class="brand-tile__n">{% blocktranslate trimmed count n=b.n %}{{ n }} ta model{% plural %}{{ n }} ta model{% endblocktranslate %} <svg class="i"><use href="#i-arrow"/></svg></span>
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

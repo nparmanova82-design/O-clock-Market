@@ -1,0 +1,189 @@
+{% load static %}<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% stash "title" %}{% block title %}{{ site.name }} — {% translate "soatlar do‘koni" %}{% endblock %}{% endstash %}</title>
+  <meta name="description" content="{% stash "description" %}{% block description %}{% translate "Qo‘l, devor, stol va smart soatlar, soat tasmalari. O‘zbekiston bo‘ylab bepul yetkazib berish, naqd yoki karta orqali to‘lov." %}{% endblock %}{% endstash %}">
+  <link rel="canonical" href="{% if canonical_url %}{{ canonical_url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endif %}">
+  {% for l in languages %}<link rel="alternate" hreflang="{{ l.code }}" href="{{ request.scheme }}://{{ request.get_host }}{{ l.url }}">
+  {% if l.code == "uz" %}<link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}{{ l.url }}">
+  {% endif %}{% endfor %}
+  {% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}{% block robots %}{% endblock %}
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:locale" content="{{ og_locale }}">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:title" content="{% unstash "title" %}">
+  <meta property="og:description" content="{% unstash "description" %}">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}">
+  {% block og_image %}{% endblock %}
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#efe3cd">
+  {{ jsonld }}
+  <link rel="icon" href="{% static 'img/favicon.svg' %}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script>try{if(localStorage.getItem("oclock.filters")==="0")document.documentElement.classList.add("filters-off")}catch(e){}</script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% include "includes/icons.html" %}
+<a class="skip" href="#main">{% translate "Asosiy qismga o‘tish" %}</a>
+
+<div class="topbar">
+  <div class="container topbar__inner">
+    <span><svg class="i"><use href="#i-truck"/></svg> {% blocktranslate trimmed %}O‘zbekiston bo‘ylab yetkazib berish — <b>bepul</b>{% endblocktranslate %}</span>
+    <span class="topbar__hide-sm"><svg class="i"><use href="#i-card"/></svg> {% translate "Naqd yoki karta orqali to‘lov" %}</span>
+    <span class="topbar__hide-md"><svg class="i"><use href="#i-shield"/></svg> {% translate "Rasmiy kafolat" %}</span>
+    <a class="topbar__phone" href="tel:{{ site.phone_raw }}"><svg class="i"><use href="#i-phone"/></svg> {{ site.phone }}</a>
+  </div>
+</div>
+
+<header class="header" data-header>
+  <div class="container header__inner">
+    <div class="header__left">
+      <button class="menu-btn" type="button" data-open="menu" aria-label="{% translate 'Katalog menyusini ochish' %}" aria-controls="menu-drawer">
+        <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="menu-btn__label">{% translate "Katalog" %}</span>
+      </button>
+      <nav class="header__nav" aria-label="{% translate 'Asosiy bo‘limlar' %}">
+        <a href="{% url 'shop:catalog' %}?kimga=men">{% translate "Erkaklar" %}</a>
+        <a href="{% url 'shop:catalog' %}?kimga=women">{% translate "Ayollar" %}</a>
+        <a href="{% url 'shop:unique' %}">Unique</a>
+        <a href="{% url 'shop:straps' %}">{% translate "Tasmalar" %}</a>
+        <a href="{% url 'shop:sale' %}" class="is-sale">{% translate "Aksiya" %}</a>
+      </nav>
+    </div>
+
+    <a class="logo" href="{% url 'shop:home' %}" aria-label="{{ site.name }} — {% translate 'bosh sahifa' %}">
+      <svg class="logo__clock" viewBox="0 0 40 40" data-live-clock aria-hidden="true">
+        <circle cx="20" cy="20" r="17.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <g class="hand-h" data-c="20 20" transform="rotate(305 20 20)"><path d="M20 21.5V10.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></g>
+        <g class="hand-m" data-c="20 20" transform="rotate(60 20 20)"><path d="M20 22V6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></g>
+        <g class="hand-s" data-c="20 20" transform="rotate(210 20 20)"><path d="M20 23V5.5" stroke="#a63a2c" stroke-width=".8" stroke-linecap="round"/></g>
+        <circle cx="20" cy="20" r="1.6" fill="currentColor"/>
+      </svg>
+      <span class="logo__text"><span class="logo__word">O’CLOCK</span><span class="logo__sub">market</span></span>
+    </a>
+
+    <div class="header__actions">
+      {% include "includes/lang_switch.html" %}
+      <button class="icon-btn" type="button" data-open="search" aria-label="{% translate 'Qidirish' %}">
+        <svg class="i"><use href="#i-search"/></svg>
+      </button>
+      <a class="icon-btn" href="{% url 'shop:wishlist' %}" aria-label="{% translate 'Sevimlilar' %}">
+        <svg class="i"><use href="#i-heart"/></svg>
+        <span class="count{% if not wishlist_count %} is-zero{% endif %}" data-wish-count>{{ wishlist_count }}</span>
+      </a>
+      <a class="icon-btn" href="{% url 'orders:cart' %}" data-open="cart" aria-label="{% translate 'Savatcha' %}">
+        <svg class="i"><use href="#i-bag"/></svg>
+        <span class="count{% if not cart_count %} is-zero{% endif %}" data-cart-count>{{ cart_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% include "includes/menu_drawer.html" %}
+
+<aside class="drawer drawer--right" data-drawer="cart" aria-label="{% translate 'Savatcha' %}" aria-hidden="true">
+  <div class="drawer__head">
+    <span class="drawer__title">{% translate "Savatcha" %}</span>
+    <button class="icon-btn" type="button" data-close aria-label="{% translate 'Yopish' %}"><svg class="i"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer__content" data-cart-body data-url="{% url 'orders:cart_drawer' %}">
+    <p class="drawer__loading">{% translate "Yuklanmoqda…" %}</p>
+  </div>
+</aside>
+
+<div class="search" data-drawer="search" role="dialog" aria-label="{% translate 'Qidiruv' %}" aria-hidden="true">
+  <div class="container">
+    <form class="search__form" action="{% url 'shop:catalog' %}" method="get" role="search">
+      <svg class="i"><use href="#i-search"/></svg>
+      <input type="search" name="q" placeholder="{% translate 'Brend, model yoki soat turi: Seiko, g‘avvos, smart…' %}" autocomplete="off"
+             data-search-input data-url="{% url 'shop:search_suggest' %}" aria-label="{% translate 'Qidiruv so‘rovi' %}">
+      <button class="icon-btn" type="button" data-close aria-label="{% translate 'Yopish' %}"><svg class="i"><use href="#i-close"/></svg></button>
+    </form>
+    <div class="search__results" data-search-results>
+      <div class="search__hints">
+        <span>{% translate "Tez-tez qidiriladi:" %}</span>
+        <a href="{% url 'shop:catalog' %}?q=G-Shock">G-Shock</a>
+        <a href="{% url 'shop:catalog' %}?q=Seiko">Seiko</a>
+        <a href="{% url 'shop:catalog' %}?q=PRX">Tissot PRX</a>
+        <a href="{% url 'shop:catalog' %}?turi=smart">{% translate "Smart soatlar" %}</a>
+        <a href="{% url 'shop:catalog' %}?turi=devor">{% translate "Devor soatlari" %}</a>
+        <a href="{% url 'shop:straps' %}">{% translate "Tasmalar" %}</a>
+        <a href="{% url 'shop:unique' %}">Unique</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" data-overlay hidden></div>
+
+<main id="main">
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__perks">
+      <div><svg class="i"><use href="#i-truck"/></svg><b>{% translate "Bepul yetkazib berish" %}</b><span>{% translate "butun O‘zbekiston bo‘ylab" %}</span></div>
+      <div><svg class="i"><use href="#i-card"/></svg><b>{% translate "Naqd yoki karta" %}</b><span>{{ site.cards|join:" · " }}</span></div>
+      <div><svg class="i"><use href="#i-shield"/></svg><b>{% translate "Rasmiy kafolat" %}</b><span>{% translate "12 oydan 5 yilgacha" %}</span></div>
+      <div><svg class="i"><use href="#i-return"/></svg><b>{% blocktranslate trimmed with n=site.return_days %}{{ n }} kun{% endblocktranslate %}</b><span>{% translate "ichida qaytarish" %}</span></div>
+    </div>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="{% url 'shop:home' %}"><span class="logo__text"><span class="logo__word">O’CLOCK</span><span class="logo__sub">market</span></span></a>
+        <p>{{ site.tagline }}. {% translate "Qo‘l soatlaridan devor soatlarigacha — hammasi bir joyda." %}</p>
+        <div class="footer__social">
+          <a href="{{ site.telegram }}" aria-label="Telegram" rel="noopener" target="_blank"><svg class="i"><use href="#i-telegram"/></svg></a>
+          <a href="{{ site.instagram }}" aria-label="Instagram" rel="noopener" target="_blank"><svg class="i"><use href="#i-instagram"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="{% translate 'Katalog' %}">
+        <h2>{% translate "Katalog" %}</h2>
+        <a href="{% url 'shop:catalog' %}?kimga=men">{% translate "Erkaklar uchun" %}</a>
+        <a href="{% url 'shop:catalog' %}?kimga=women">{% translate "Ayollar uchun" %}</a>
+        <a href="{% url 'shop:unique' %}">Unique</a>
+        <a href="{% url 'shop:catalog' %}?kimga=kids">{% translate "Bolalar uchun" %}</a>
+        <a href="{% url 'shop:catalog' %}?kimga=home">{% translate "Uy va ofis" %}</a>
+        <a href="{% url 'shop:straps' %}">{% translate "Soat tasmalari" %}</a>
+        <a href="{% url 'shop:sale' %}">{% translate "Aksiya" %}</a>
+        <a href="{% url 'shop:brands' %}">{% translate "Brendlar" %}</a>
+      </nav>
+      <nav aria-label="{% translate 'Xaridorlarga' %}">
+        <h2>{% translate "Xaridorlarga" %}</h2>
+        <a href="{% url 'shop:delivery' %}">{% translate "Yetkazib berish va to‘lov" %}</a>
+        <a href="{% url 'shop:warranty' %}">{% translate "Kafolat va qaytarish" %}</a>
+        <a href="{% url 'orders:track' %}">{% translate "Buyurtmani kuzatish" %}</a>
+        <a href="{% url 'shop:faq' %}">{% translate "Savol-javob" %}</a>
+      </nav>
+      <div>
+        <h2>{% translate "Aloqa" %}</h2>
+        <address>
+          <a href="tel:{{ site.phone_raw }}">{{ site.phone }}</a>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          <p>{{ site.address }}</p>
+        </address>
+        <p>{{ site.hours }}</p>
+        <a href="{% url 'shop:about' %}">{% translate "Biz haqimizda" %}</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© {% now "Y" %} {{ site.name }}</span>
+      <span class="paylist">{% translate "Naqd" %} · {{ site.cards|join:" · " }}</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" data-toasts aria-live="polite">
+  {% for m in messages %}<p hidden data-message data-level="{{ m.tags }}">{{ m }}</p>{% endfor %}
+</div>
+
+{{ js_texts|json_script:"i18n" }}
+<script src="{% static 'js/main.js' %}" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+<aside class="drawer drawer--left" id="menu-drawer" data-drawer="menu" aria-label="{% translate 'Katalog menyusi' %}" aria-hidden="true">
+  <div class="drawer__head">
+    <span class="drawer__title">{% translate "Katalog" %}</span>
+    <button class="icon-btn" type="button" data-close aria-label="{% translate 'Yopish' %}"><svg class="i"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer__content">
+    <nav class="menu" aria-label="{% translate 'Katalog bo‘limlari' %}">
+      <div class="menu__quick">
+        <a class="menu__pill menu__pill--sale" href="{% url 'shop:sale' %}"><svg class="i"><use href="#i-percent"/></svg> {% translate "Aksiya" %}</a>
+        <a class="menu__pill menu__pill--unique" href="{% url 'shop:unique' %}"><svg class="i"><use href="#i-yin"/></svg> Unique</a>
+        <a class="menu__pill" href="{% url 'shop:straps' %}"><svg class="i"><use href="#i-strap"/></svg> {% translate "Tasmalar" %}</a>
+        <a class="menu__pill" href="{% url 'shop:new' %}">{% translate "Yangi" %}</a>
+        <a class="menu__pill" href="{% url 'shop:brands' %}">{% translate "Brendlar" %}</a>
+      </div>
+
+      <p class="menu__label">{% translate "Soat turlari" %}</p>
+      <ul class="menu__list">
+        {% for c in nav_categories %}
+          <li>
+            <a class="menu__item" href="{{ c.get_absolute_url }}">
+              <img src="{% url 'art:category_svg' c.slug %}?v={{ art_version }}" alt="" width="40" height="40" loading="lazy">
+              <span>{{ c.local_name }}</span>
+              <span class="menu__n">{{ c.n }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <p class="menu__label">{% translate "Kimga" %}</p>
+      <div class="menu__quick">
+        <a class="menu__pill" href="{% url 'shop:catalog' %}?kimga=men">{% translate "Erkaklar" %}</a>
+        <a class="menu__pill" href="{% url 'shop:catalog' %}?kimga=women">{% translate "Ayollar" %}</a>
+        <a class="menu__pill" href="{% url 'shop:catalog' %}?kimga=kids">{% translate "Bolalar" %}</a>
+        <a class="menu__pill" href="{% url 'shop:catalog' %}?kimga=home">{% translate "Uy va ofis" %}</a>
+      </div>
+
+      <p class="menu__label">{% translate "Xaridorlarga" %}</p>
+      <ul class="menu__links">
+        <li><a href="{% url 'shop:delivery' %}">{% translate "Yetkazib berish va to‘lov" %}</a></li>
+        <li><a href="{% url 'shop:warranty' %}">{% translate "Kafolat va qaytarish" %}</a></li>
+        <li><a href="{% url 'orders:track' %}">{% translate "Buyurtmani kuzatish" %}</a></li>
+        <li><a href="{% url 'shop:faq' %}">{% translate "Savol-javob" %}</a></li>
+        <li><a href="{% url 'shop:contacts' %}">{% translate "Aloqa" %}</a></li>
+      </ul>
+
+      <p class="menu__label">{% translate "Sayt tili" %}</p>
+      <div class="drawer__langs">{% include "includes/lang_switch.html" with drawer=True %}</div>
+    </nav>
+  </div>
+  <div class="drawer__foot">
+    <a href="tel:{{ site.phone_raw }}" class="drawer__phone"><svg class="i"><use href="#i-phone"/></svg> {{ site.phone }}</a>
+    <span class="muted">{{ site.hours }}</span>
+  </div>
+</aside>

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} — {{ site.name }}{% endblock %}
+{% block description %}{% if section == "straps" %}{% blocktranslate trimmed with title=title n=page.paginator.count %}{{ title }}: {{ n }} ta tasma{% endblocktranslate %}{% else %}{% blocktranslate trimmed with title=title n=page.paginator.count %}{{ title }}: {{ n }} ta model{% endblocktranslate %}{% endif %}{% if lead %}. {{ lead }}{% else %}.{% endif %} {% translate "O‘zbekiston bo‘ylab bepul yetkazib berish, naqd yoki karta orqali to‘lov." %}{% endblock %}
+{% block body_class %}page-catalog{% if section == "straps" %} page-straps{% endif %}{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <nav class="crumbs" aria-label="{% translate 'Yo‘l' %}">{% for name, url in crumbs %}{% if not forloop.first %}<span>/</span>{% endif %}{% if forloop.last %}<span aria-current="page">{{ name }}</span>{% else %}<a href="{{ url }}">{{ name }}</a>{% endif %}{% endfor %}</nav>
+  <div class="page-head__row">
+    <div>
+      {% if kind == "unique" %}<span class="badge badge--unique badge--lg">Unique</span>{% endif %}
+      <h1 class="page-title">{{ title }}</h1>
+      {% if lead %}<p class="page-lead">{{ lead }}</p>{% endif %}
+    </div>
+    {% if kind == "sale" %}<div class="countdown" data-countdown="{{ sale_ends|date:'c' }}" aria-label="{% translate 'Aksiya tugashiga qolgan vaqt' %}"></div>{% endif %}
+  </div>
+</section>
+
+<div class="container catalog" data-catalog>
+  <aside class="filters" id="filters" data-drawer="filters" aria-label="{% translate 'Filtrlar' %}">
+    <form id="filter-form" method="get" data-filter-form>
+      <div class="filters__head">
+        <span class="drawer__title">{% if section == "straps" %}{% translate "Tasma filtri" %}{% else %}{% translate "Filtrlar" %}{% endif %}</span>
+        <button class="icon-btn filters__close" type="button" data-close aria-label="{% translate 'Yopish' %}"><svg class="i"><use href="#i-close"/></svg></button>
+      </div>
+      <div class="filters__body">
+        {% if filter.query %}<input type="hidden" name="q" value="{{ filter.query }}">{% endif %}
+
+        <div class="switches">
+          {% for f in filter.flag_items %}
+            <label class="switch">
+              <input type="checkbox" name="{{ f.key }}" value="1"{% if f.checked %} checked{% endif %}>
+              <span class="switch__ui" aria-hidden="true"></span>
+              <span>{{ f.label }}</span>
+              <span class="opt__n" data-count="flag:{{ f.key }}">{{ f.count }}</span>
+            </label>
+          {% endfor %}
+        </div>
+
+        <details class="facet" open>
+          <summary>{% translate "Narx, so‘m" %} <svg class="i"><use href="#i-chevron"/></svg></summary>
+          <div class="range" data-range data-lo="{{ filter.price_bounds.0 }}" data-hi="{{ filter.price_bounds.1 }}">
+            <div class="range__inputs">
+              <label><span>{% translate "dan" %}</span><input type="number" name="narx_min" inputmode="numeric" min="0" step="10000" placeholder="{{ filter.price_bounds.0|num }}" value="{{ filter.price_min|default_if_none:'' }}"></label>
+              <label><span>{% translate "gacha" %}</span><input type="number" name="narx_max" inputmode="numeric" min="0" step="10000" placeholder="{{ filter.price_bounds.1|num }}" value="{{ filter.price_max|default_if_none:'' }}"></label>
+            </div>
+            <div class="range__track"><span class="range__fill" data-range-fill></span>
+              <input type="range" min="0" max="1000" value="0" data-range-min data-no-auto aria-label="{% translate 'Eng kam narx' %}">
+              <input type="range" min="0" max="1000" value="1000" data-range-max data-no-auto aria-label="{% translate 'Eng ko‘p narx' %}">
+            </div>
+          </div>
+        </details>
+
+        {% for facet in filter.visible_facets %}
+          <details class="facet facet--{{ facet.kind }}"{% if forloop.counter <= 4 or facet.selected %} open{% endif %} data-facet="{{ facet.key }}">
+            <summary>{{ facet.label }} <span class="facet__sel" data-sel>{% if facet.selected %}{{ facet.selected|length }}{% endif %}</span> <svg class="i"><use href="#i-chevron"/></svg></summary>
+            {% if facet.options|length > 10 %}<input class="facet__search" type="search" placeholder="{% translate 'Qidirish…' %}" data-facet-search data-no-auto aria-label="{% blocktranslate trimmed with label=facet.label %}{{ label }} bo‘yicha qidirish{% endblocktranslate %}">{% endif %}
+            <div class="opts{% if facet.options|length > 8 %} is-long{% endif %}" role="group" aria-label="{{ facet.label }}">
+              {% for o in facet.items %}
+                <label class="opt{% if not o.count and not o.checked %} is-empty{% endif %}{% if facet.kind == 'color' %} opt--color{% endif %}">
+                  <input type="checkbox" name="{{ facet.key }}" value="{{ o.value }}"{% if o.checked %} checked{% endif %}>
+                  {% if facet.kind == "color" %}<span class="swatch" style="--c: {{ o.color }}"></span>{% else %}<span class="box" aria-hidden="true"></span>{% endif %}
+                  <span class="opt__label">{% if o.value == "unique" %}<span class="badge badge--unique badge--xs">Unique</span>{% else %}{{ o.label }}{% endif %}</span>
+                  <span class="opt__n" data-count="{{ facet.key }}:{{ o.value }}">{{ o.count }}</span>
+                </label>
+              {% endfor %}
+            </div>
+            {% if facet.options|length > 8 %}<button class="opts__more" type="button" data-more>{% blocktranslate trimmed with n=facet.options|length|add:"-8" %}Yana {{ n }} ta{% endblocktranslate %}</button>{% endif %}
+          </details>
+        {% endfor %}
+
+        {% if filter.has_water %}
+        <details class="facet"{% if filter.water %} open{% endif %}>
+          <summary>{% translate "Suvga chidamlilik" %} <svg class="i"><use href="#i-chevron"/></svg></summary>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="suv" value=""{% if not filter.water %} checked{% endif %}><span class="box box--round" aria-hidden="true"></span><span class="opt__label">{% translate "Muhim emas" %}</span></label>
+            {% for o in filter.water_items %}
+              <label class="opt{% if not o.count and not o.checked %} is-empty{% endif %}">
+                <input type="radio" name="suv" value="{{ o.value }}"{% if o.checked %} checked{% endif %}>
+                <span class="box box--round" aria-hidden="true"></span>
+                <span class="opt__label">{{ o.label }}</span>
+                <span class="opt__n" data-count="suv:{{ o.value }}">{{ o.count }}</span>
+              </label>
+            {% endfor %}
+          </div>
+        </details>
+        {% endif %}
+
+        {% if section == "straps" %}
+        <div class="fit-box">
+          <svg class="i"><use href="#i-strap"/></svg>
+          <div><b>{% translate "Kenglikni qanday bilaman?" %}</b>
+            <span>{% translate "Soat sahifasida «Tasma kengligi» yozilgan. Yoki korpusdagi ikki shpilka orasini millimetrda o‘lchang." %}</span></div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="filters__foot">
+        <a class="btn btn--ghost" href="?">{% translate "Tozalash" %}</a>
+        <button class="btn btn--dark" type="submit">{% translate "Ko‘rsatish" %} <span data-result-count>{{ page.paginator.count }}</span></button>
+      </div>
+    </form>
+  </aside>
+
+  <div class="catalog__main">
+    <div class="results" data-results>
+      <div class="toolbar">
+        <button class="filter-toggle" type="button" data-filter-toggle aria-controls="filters">
+          <svg class="i"><use href="#i-sliders"/></svg><span>{% translate "Filtr" %}</span>
+          {% if filter.active_count %}<span class="pill">{{ filter.active_count }}</span>{% endif %}
+        </button>
+        <p class="toolbar__count">{% if section == "straps" %}{% blocktranslate trimmed count n=page.paginator.count %}<b data-result-count>{{ n }}</b> ta tasma{% plural %}<b data-result-count>{{ n }}</b> ta tasma{% endblocktranslate %}{% else %}{% blocktranslate trimmed count n=page.paginator.count %}<b data-result-count>{{ n }}</b> ta soat{% plural %}<b data-result-count>{{ n }}</b> ta soat{% endblocktranslate %}{% endif %}</p>
+        <label class="sort">
+          <span>{% translate "Saralash" %}</span>
+          <select name="tartib" form="filter-form">
+            {% for key, label in sorts %}<option value="{{ key }}"{% if key == filter.sort_key %} selected{% endif %}>{{ label }}</option>{% endfor %}
+          </select>
+        </label>
+      </div>
+
+      {% if chips %}
+        <div class="chips">
+          {% for label, url in chips %}<a class="chip" href="{{ url }}">{{ label }} <svg class="i"><use href="#i-close"/></svg></a>{% endfor %}
+          <a class="chip chip--clear" href="?">{% translate "Hammasini tozalash" %}</a>
+        </div>
+      {% endif %}
+
+      {% if page.object_list %}
+        <h2 class="sr-only">{% if section == "straps" %}{% translate "Tasmalar ro‘yxati" %}{% else %}{% translate "Soatlar ro‘yxati" %}{% endif %}</h2>
+        <div class="grid grid--catalog">
+          {% for w in page.object_list %}{% include card_template %}{% endfor %}
+        </div>
+        {% include "includes/pagination.html" %}
+      {% else %}
+        <div class="empty">
+          <svg class="i"><use href="#i-{% if section == 'straps' %}strap{% else %}clock{% endif %}"/></svg>
+          <h2>{% if section == "straps" %}{% translate "Bunday tasma topilmadi" %}{% else %}{% translate "Bunday soat topilmadi" %}{% endif %}</h2>
+          <p>{% translate "Filtrlarni kamaytirib ko‘ring yoki butun katalogni ko‘ring." %}</p>
+          <a class="btn btn--dark" href="?">{% translate "Filtrlarni tozalash" %}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

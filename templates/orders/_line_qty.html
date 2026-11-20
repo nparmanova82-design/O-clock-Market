@@ -1,0 +1,9 @@
+<form class="line__qty" method="post" action="{% url 'orders:cart_update' line.key %}" data-swap-form>
+  {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+  <div class="qty qty--sm" data-qty>
+    <button type="button" data-step="-1" aria-label="{% translate 'Kamaytirish' %}"><svg class="i"><use href="#i-minus"/></svg></button>
+    <input type="number" name="quantity" value="{{ line.quantity }}" min="1" max="{{ line.item.stock }}" aria-label="{% blocktranslate trimmed with name=line.item %}Soni: {{ name }}{% endblocktranslate %}">
+    <button type="button" data-step="1" aria-label="{% translate 'Ko‘paytirish' %}"><svg class="i"><use href="#i-plus"/></svg></button>
+  </div>
+  <noscript><button class="btn btn--sm btn--ghost" type="submit">{% translate "Yangilash" %}</button></noscript>
+</form>

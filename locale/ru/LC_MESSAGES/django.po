@@ -1,0 +1,2240 @@
+# O’clock market — ru tarjimasi. Asl matn (msgid) — o‘zbekcha.
+# Yangi matnlar: python manage.py make_translations; keyin: python manage.py compile_translations
+msgid ""
+msgstr ""
+"Project-Id-Version: O’clock market\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: shop/choices.py:197
+msgid "2–3 kun"
+msgstr "2–3 дня"
+
+#: shop/choices.py:9
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+msgid "Erkaklar"
+msgstr "Мужские"
+
+#: shop/choices.py:10
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+msgid "Ayollar"
+msgstr "Женские"
+
+#: shop/choices.py:12
+#: templates/includes/menu_drawer.html
+#: templates/shop/home.html
+msgid "Bolalar"
+msgstr "Детские"
+
+#: shop/choices.py:13
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+msgid "Uy va ofis"
+msgstr "Для дома и офиса"
+
+#: shop/choices.py:17
+msgid "Avtomatik"
+msgstr "Автоматический"
+
+#: shop/choices.py:18
+msgid "Mexanik (qo‘lda buraladi)"
+msgstr "Механический (ручной завод)"
+
+#: shop/choices.py:19
+msgid "Kvarts"
+msgstr "Кварцевый"
+
+#: shop/choices.py:20
+msgid "Solar (quyosh quvvati)"
+msgstr "Solar (солнечная энергия)"
+
+#: shop/choices.py:21
+msgid "Kinetik"
+msgstr "Кинетический"
+
+#: shop/choices.py:22
+msgid "Elektron (raqamli)"
+msgstr "Электронный (цифровой)"
+
+#: shop/choices.py:23
+msgid "Smart"
+msgstr "Смарт"
+
+#: shop/choices.py:27
+msgid "Zanglamas po‘lat"
+msgstr "Нержавеющая сталь"
+
+#: shop/choices.py:28
+msgid "Titan"
+msgstr "Титан"
+
+#: shop/choices.py:29
+msgid "Oltin qoplama"
+msgstr "Позолота"
+
+#: shop/choices.py:30
+#: shop/choices.py:45
+msgid "Keramika"
+msgstr "Керамика"
+
+#: shop/choices.py:31
+msgid "Bronza"
+msgstr "Бронза"
+
+#: shop/choices.py:32
+msgid "Alyuminiy"
+msgstr "Алюминий"
+
+#: shop/choices.py:33
+msgid "Plastik (rezina)"
+msgstr "Пластик (смола)"
+
+#: shop/choices.py:34
+msgid "Yog‘och"
+msgstr "Дерево"
+
+#: shop/choices.py:35
+msgid "Karbon"
+msgstr "Карбон"
+
+#: shop/choices.py:39
+#: shop/choices.py:145
+msgid "Charm"
+msgstr "Кожа"
+
+#: shop/choices.py:40
+#: shop/choices.py:146
+msgid "Metall braslet"
+msgstr "Металлический браслет"
+
+#: shop/choices.py:41
+#: shop/choices.py:147
+msgid "Milan to‘ri"
+msgstr "Миланская сетка"
+
+#: shop/choices.py:42
+#: shop/choices.py:148
+msgid "Kauchuk"
+msgstr "Каучук"
+
+#: shop/choices.py:43
+#: shop/choices.py:149
+msgid "Silikon"
+msgstr "Силикон"
+
+#: shop/choices.py:44
+#: shop/choices.py:150
+msgid "Neylon (NATO)"
+msgstr "Нейлон (NATO)"
+
+#: shop/choices.py:46
+msgid "Zanjir"
+msgstr "Цепочка"
+
+#: shop/choices.py:47
+msgid "Tasmasiz"
+msgstr "Без ремешка"
+
+#: shop/choices.py:51
+msgid "Safir"
+msgstr "Сапфировое"
+
+#: shop/choices.py:52
+msgid "Mineral"
+msgstr "Минеральное"
+
+#: shop/choices.py:53
+msgid "Akril"
+msgstr "Акриловое"
+
+#: shop/choices.py:54
+msgid "Oddiy oyna"
+msgstr "Обычное стекло"
+
+#: shop/choices.py:59
+#: shop/choices.py:95
+msgid "Qora"
+msgstr "Чёрный"
+
+#: shop/choices.py:60
+#: shop/choices.py:101
+msgid "Oq"
+msgstr "Белый"
+
+#: shop/choices.py:61
+msgid "Kumushrang"
+msgstr "Серебристый"
+
+#: shop/choices.py:62
+msgid "Ko‘k"
+msgstr "Синий"
+
+#: shop/choices.py:63
+msgid "Yashil"
+msgstr "Зелёный"
+
+#: shop/choices.py:64
+#: shop/choices.py:100
+msgid "Kulrang"
+msgstr "Серый"
+
+#: shop/choices.py:65
+msgid "Shampan"
+msgstr "Шампань"
+
+#: shop/choices.py:66
+#: shop/choices.py:96
+msgid "Jigarrang"
+msgstr "Коричневый"
+
+#: shop/choices.py:67
+#: shop/choices.py:103
+msgid "Qizil"
+msgstr "Красный"
+
+#: shop/choices.py:68
+#: shop/choices.py:102
+msgid "Pushti"
+msgstr "Розовый"
+
+#: shop/choices.py:69
+msgid "Krem"
+msgstr "Кремовый"
+
+#: shop/choices.py:97
+msgid "Och jigarrang"
+msgstr "Светло-коричневый"
+
+#: shop/choices.py:98
+msgid "To‘q ko‘k"
+msgstr "Тёмно-синий"
+
+#: shop/choices.py:99
+msgid "Zaytun"
+msgstr "Оливковый"
+
+#: shop/choices.py:104
+msgid "To‘q sariq"
+msgstr "Оранжевый"
+
+#: shop/choices.py:105
+msgid "Yalpiz"
+msgstr "Мятный"
+
+#: shop/choices.py:106
+msgid "Sariq"
+msgstr "Жёлтый"
+
+#: shop/choices.py:107
+msgid "Havorang"
+msgstr "Голубой"
+
+#: shop/choices.py:155
+msgid "Oddiy shpilka"
+msgstr "Обычные шпильки"
+
+#: shop/choices.py:156
+msgid "Tez yechiladigan shpilka"
+msgstr "Быстросъёмные шпильки"
+
+#: shop/choices.py:161
+msgid "Klassik to‘qa"
+msgstr "Классическая пряжка"
+
+#: shop/choices.py:162
+msgid "Kapalak qulf"
+msgstr "Застёжка-бабочка"
+
+#: shop/choices.py:163
+msgid "Bukiladigan qulf"
+msgstr "Раскладная застёжка"
+
+#: shop/choices.py:164
+msgid "Magnitli"
+msgstr "Магнитная"
+
+#: shop/choices.py:165
+msgid "Halqa (to‘qasiz)"
+msgstr "Петля (без пряжки)"
+
+#: shop/choices.py:172
+msgid "Toshkent shahri"
+msgstr "г. Ташкент"
+
+#: shop/choices.py:173
+msgid "Toshkent viloyati"
+msgstr "Ташкентская область"
+
+#: shop/choices.py:174
+msgid "Andijon viloyati"
+msgstr "Андижанская область"
+
+#: shop/choices.py:175
+msgid "Buxoro viloyati"
+msgstr "Бухарская область"
+
+#: shop/choices.py:176
+msgid "Farg‘ona viloyati"
+msgstr "Ферганская область"
+
+#: shop/choices.py:177
+msgid "Jizzax viloyati"
+msgstr "Джизакская область"
+
+#: shop/choices.py:178
+msgid "Xorazm viloyati"
+msgstr "Хорезмская область"
+
+#: shop/choices.py:179
+msgid "Namangan viloyati"
+msgstr "Наманганская область"
+
+#: shop/choices.py:180
+msgid "Navoiy viloyati"
+msgstr "Навоийская область"
+
+#: shop/choices.py:181
+msgid "Qashqadaryo viloyati"
+msgstr "Кашкадарьинская область"
+
+#: shop/choices.py:182
+msgid "Qoraqalpog‘iston Respublikasi"
+msgstr "Республика Каракалпакстан"
+
+#: shop/choices.py:183
+msgid "Samarqand viloyati"
+msgstr "Самаркандская область"
+
+#: shop/choices.py:184
+msgid "Sirdaryo viloyati"
+msgstr "Сырдарьинская область"
+
+#: shop/choices.py:185
+msgid "Surxondaryo viloyati"
+msgstr "Сурхандарьинская область"
+
+#: shop/choices.py:192
+msgid "1 kun ichida"
+msgstr "в течение 1 дня"
+
+#: shop/choices.py:194
+msgid "1–2 kun"
+msgstr "1–2 дня"
+
+#: shop/choices.py:196
+msgid "3–4 kun"
+msgstr "3–4 дня"
+
+#: shop/choices.py:168
+msgid "Metall"
+msgstr "Металл"
+
+#: shop/context_processors.py:16
+msgid "Har bir daqiqa uchun soat"
+msgstr "Часы для каждой минуты"
+
+#: shop/context_processors.py:17
+msgid "Toshkent sh., Yunusobod tumani, Amir Temur ko‘chasi, 108"
+msgstr "г. Ташкент, Юнусабадский район, ул. Амира Темура, 108"
+
+#: shop/context_processors.py:18
+msgid "Har kuni 09:00 — 21:00"
+msgstr "Ежедневно 09:00 — 21:00"
+
+#: shop/context_processors.py:38
+#: templates/base.html
+#: templates/base.html
+msgid "Savatcha"
+msgstr "Корзина"
+
+#: shop/context_processors.py:39
+msgid "Ko‘rish"
+msgstr "Смотреть"
+
+#: shop/context_processors.py:40
+msgid "Yig‘ish"
+msgstr "Свернуть"
+
+#: shop/context_processors.py:42
+msgid "Savatchani yuklab bo‘lmadi."
+msgstr "Не удалось загрузить корзину."
+
+#: shop/context_processors.py:43
+msgid "Savatcha sahifasi"
+msgstr "Страница корзины"
+
+#: shop/context_processors.py:44
+#, python-format
+msgid "«%(q)s» bo‘yicha hech narsa topilmadi. Brend yoki soat turini yozib ko‘ring."
+msgstr "По запросу «%(q)s» ничего не найдено. Попробуйте ввести бренд или тип часов."
+
+#: shop/context_processors.py:45
+#, python-format
+msgid "Barcha soatlar: %(n)s"
+msgstr "Все часы: %(n)s"
+
+#: shop/context_processors.py:46
+#, python-format
+msgid "Tasmalar: %(n)s"
+msgstr "Ремешки: %(n)s"
+
+#: shop/context_processors.py:41
+msgid "kun"
+msgstr "дн"
+
+#: shop/context_processors.py:41
+msgid "soat"
+msgstr "час"
+
+#: shop/context_processors.py:41
+msgid "daqiqa"
+msgstr "мин"
+
+#: shop/context_processors.py:41
+msgid "soniya"
+msgstr "сек"
+
+#: shop/filters.py:17
+msgid "36 mm gacha"
+msgstr "до 36 мм"
+
+#: shop/filters.py:22
+msgid "30 m dan"
+msgstr "от 30 м"
+
+#: shop/filters.py:22
+msgid "50 m dan"
+msgstr "от 50 м"
+
+#: shop/filters.py:22
+msgid "100 m dan"
+msgstr "от 100 м"
+
+#: shop/filters.py:22
+msgid "200 m dan"
+msgstr "от 200 м"
+
+#: shop/filters.py:24
+msgid "Faqat aksiyadagilar"
+msgstr "Только акционные"
+
+#: shop/filters.py:25
+#: shop/views.py:136
+msgid "Yangi kelganlar"
+msgstr "Новинки"
+
+#: shop/filters.py:26
+msgid "Faqat sotuvda borlari"
+msgstr "Только в наличии"
+
+#: shop/filters.py:29
+msgid "Ommabop"
+msgstr "Популярные"
+
+#: shop/filters.py:30
+msgid "Yangilari"
+msgstr "Новые"
+
+#: shop/filters.py:31
+msgid "Avval arzonlari"
+msgstr "Сначала дешёвые"
+
+#: shop/filters.py:32
+msgid "Avval qimmatlari"
+msgstr "Сначала дорогие"
+
+#: shop/filters.py:33
+msgid "Chegirmasi kattalari"
+msgstr "С большой скидкой"
+
+#: shop/filters.py:233
+#: shop/views.py:186
+msgid "Soat turi"
+msgstr "Тип часов"
+
+#: shop/filters.py:235
+#: shop/views.py:187
+#: templates/includes/menu_drawer.html
+msgid "Kimga"
+msgstr "Для кого"
+
+#: shop/filters.py:236
+#: shop/filters.py:261
+#: shop/views.py:185
+msgid "Brend"
+msgstr "Бренд"
+
+#: shop/filters.py:238
+#: shop/seo.py:135
+#: shop/views.py:188
+msgid "Mexanizm"
+msgstr "Механизм"
+
+#: shop/filters.py:239
+#: shop/seo.py:136
+#: shop/views.py:189
+msgid "Korpus diametri"
+msgstr "Диаметр корпуса"
+
+#: shop/filters.py:241
+#: shop/views.py:195
+msgid "Siferblat rangi"
+msgstr "Цвет циферблата"
+
+#: shop/filters.py:242
+#: shop/views.py:191
+msgid "Korpus materiali"
+msgstr "Материал корпуса"
+
+#: shop/filters.py:243
+msgid "Tasma materiali"
+msgstr "Материал ремешка"
+
+#: shop/filters.py:244
+#: shop/views.py:194
+msgid "Oyna"
+msgstr "Стекло"
+
+#: shop/filters.py:245
+#: shop/views.py:197
+msgid "Funksiyalar"
+msgstr "Функции"
+
+#: shop/filters.py:256
+#: shop/views.py:226
+msgid "Kengligi"
+msgstr "Ширина"
+
+#: shop/filters.py:257
+#: shop/seo.py:151
+#: shop/views.py:227
+msgid "Ulanishi"
+msgstr "Крепление"
+
+#: shop/filters.py:258
+#: shop/views.py:224
+msgid "Material"
+msgstr "Материал"
+
+#: shop/filters.py:259
+#: shop/views.py:225
+msgid "Rangi"
+msgstr "Цвет"
+
+#: shop/filters.py:260
+#: shop/seo.py:152
+#: shop/views.py:228
+msgid "Qulf"
+msgstr "Застёжка"
+
+#: shop/filters.py:207
+#, python-format
+msgid "Suvga chidamli: %(v)s"
+msgstr "Водозащита: %(v)s"
+
+#: shop/filters.py:215
+#, python-format
+msgid "Narx: %(lo)s – %(hi)s"
+msgstr "Цена: %(lo)s – %(hi)s"
+
+#: shop/seo.py:47
+msgid "O‘zbekiston"
+msgstr "Узбекистан"
+
+#: shop/seo.py:147
+msgid "Soat tasmasi"
+msgstr "Ремешок для часов"
+
+#: shop/seo.py:138
+#: shop/views.py:196
+#: templates/shop/catalog.html
+msgid "Suvga chidamlilik"
+msgstr "Водозащита"
+
+#: shop/seo.py:140
+#: shop/views.py:198
+#: templates/pages/faq.html
+msgid "Kafolat"
+msgstr "Гарантия"
+
+#: shop/views.py:153
+#: shop/views.py:158
+#: shop/views.py:248
+msgid "Tasmalar"
+msgstr "Ремешки"
+
+#: shop/views.py:154
+msgid "Qo‘l soatlari uchun charm, silikon, neylon va metall tasmalar. Kenglik va ulanish turi bo‘yicha tanlang — yetkazib berish bepul."
+msgstr "Кожаные, силиконовые, нейлоновые и металлические ремешки для наручных часов. Выбирайте по ширине и типу крепления — доставка бесплатно."
+
+#: shop/views.py:110
+#: shop/views.py:101
+#: shop/views.py:215
+msgid "Katalog"
+msgstr "Каталог"
+
+#: shop/views.py:110
+msgid "Barcha turdagi soatlar: qo‘l soatlaridan devor soatlarigacha."
+msgstr "Часы всех видов: от наручных до настенных."
+
+#: shop/views.py:101
+#: shop/views.py:158
+#: shop/views.py:215
+msgid "Bosh sahifa"
+msgstr "Главная"
+
+#: shop/views.py:117
+#: shop/views.py:157
+#, python-format
+msgid "Qidiruv: «%(q)s»"
+msgstr "Поиск: «%(q)s»"
+
+#: shop/views.py:123
+msgid "Aksiya va chegirmalar"
+msgstr "Акции и скидки"
+
+#: shop/views.py:124
+msgid "Oy oxirigacha amal qiladigan narxlar. Chegirma narxga allaqachon qo‘shilgan."
+msgstr "Цены действуют до конца месяца. Скидка уже учтена в цене."
+
+#: shop/views.py:130
+msgid "Erkak va ayolga birdek mos soatlar — neytral dizayn, o‘rtacha o‘lcham, har qanday bilakka yarashadi."
+msgstr "Часы, которые одинаково подходят мужчинам и женщинам: нейтральный дизайн, средний размер, смотрятся на любом запястье."
+
+#: shop/views.py:137
+msgid "Do‘konimizga yaqinda kelgan modellar."
+msgstr "Модели, которые недавно поступили в наш магазин."
+
+#: shop/views.py:190
+msgid "Qalinligi"
+msgstr "Толщина"
+
+#: shop/views.py:192
+msgid "Tasma"
+msgstr "Ремешок"
+
+#: shop/views.py:193
+msgid "Tasma kengligi"
+msgstr "Ширина ремешка"
+
+#: shop/views.py:199
+#: shop/views.py:229
+#: templates/shop/strap_detail.html
+msgid "Artikul"
+msgstr "Артикул"
+
+#: shop/views.py:187
+msgid "Unique — erkak va ayolga mos"
+msgstr "Unique — подходит мужчинам и женщинам"
+
+#: shop/views.py:196
+msgid "Yo‘q"
+msgstr "Нет"
+
+#: shop/views.py:198
+#, python-format
+msgid "%(n)s oy"
+msgstr "%(n)s мес."
+
+#: shop/views.py:288
+msgid "Sevimlilarga qo‘shildi"
+msgstr "Добавлено в избранное"
+
+#: shop/views.py:288
+msgid "Sevimlilardan olib tashlandi"
+msgstr "Удалено из избранного"
+
+#: orders/cart.py:134
+#, python-format
+msgid "%(code)s kodi %(sum)s dan boshlab ishlaydi"
+msgstr "Код %(code)s действует от %(sum)s"
+
+#: orders/forms.py:17
+msgid "Telefon raqamini +998 90 123 45 67 ko‘rinishida kiriting."
+msgstr "Введите номер в формате +998 90 123 45 67."
+
+#: orders/forms.py:27
+#: orders/forms.py:49
+#: orders/forms.py:57
+msgid "Telefon"
+msgstr "Телефон"
+
+#: orders/forms.py:29
+#: orders/models.py:49
+msgid "Viloyat"
+msgstr "Область"
+
+#: orders/forms.py:31
+#: orders/models.py:53
+#: templates/orders/checkout.html
+msgid "To‘lov usuli"
+msgstr "Способ оплаты"
+
+#: orders/forms.py:47
+msgid "Buyurtma raqami"
+msgstr "Номер заказа"
+
+#: orders/forms.py:29
+msgid "Tanlang"
+msgstr "Выберите"
+
+#: orders/forms.py:38
+msgid "Masalan, Aziza Karimova"
+msgstr "Например, Азиза Каримова"
+
+#: orders/forms.py:39
+msgid "Masalan, Chilonzor tumani"
+msgstr "Например, Чиланзарский район"
+
+#: orders/forms.py:40
+msgid "Ko‘cha, uy, xonadon, mo‘ljal"
+msgstr "Улица, дом, квартира, ориентир"
+
+#: orders/forms.py:42
+msgid "Kuryer uchun izoh (ixtiyoriy)"
+msgstr "Комментарий для курьера (необязательно)"
+
+#: orders/forms.py:64
+#: templates/pages/contacts.html
+msgid "Ismingiz"
+msgstr "Ваше имя"
+
+#: orders/forms.py:65
+msgid "Savolingiz (ixtiyoriy)"
+msgstr "Ваш вопрос (необязательно)"
+
+#: orders/models.py:47
+msgid "Ism familiya"
+msgstr "Имя и фамилия"
+
+#: orders/models.py:50
+msgid "Shahar / tuman"
+msgstr "Город / район"
+
+#: orders/models.py:51
+#: templates/orders/success.html
+#: templates/orders/track.html
+msgid "Manzil"
+msgstr "Адрес"
+
+#: orders/models.py:52
+msgid "Izoh"
+msgstr "Комментарий"
+
+#: orders/models.py:54
+#: templates/orders/success.html
+#: templates/shop/home.html
+msgid "Sovg‘a qutisi"
+msgstr "Подарочная коробка"
+
+#: orders/models.py:125
+#: templates/pages/contacts.html
+msgid "Ism"
+msgstr "Имя"
+
+#: orders/models.py:127
+#: templates/pages/contacts.html
+msgid "Savolingiz"
+msgstr "Ваш вопрос"
+
+#: orders/models.py:35
+#: templates/includes/menu_drawer.html
+#: templates/includes/strap_card.html
+msgid "Yangi"
+msgstr "Новинка"
+
+#: orders/models.py:36
+msgid "Tasdiqlandi"
+msgstr "Подтверждён"
+
+#: orders/models.py:37
+msgid "Yo‘lda"
+msgstr "В пути"
+
+#: orders/models.py:38
+msgid "Yetkazildi"
+msgstr "Доставлен"
+
+#: orders/models.py:39
+msgid "Bekor qilindi"
+msgstr "Отменён"
+
+#: orders/models.py:42
+msgid "Naqd pul"
+msgstr "Наличные"
+
+#: orders/models.py:43
+msgid "Karta orqali"
+msgstr "Картой"
+
+#: orders/views.py:58
+msgid "Bu mahsulot hozir sotuvda yo‘q"
+msgstr "Этого товара сейчас нет в продаже"
+
+#: orders/views.py:101
+msgid "Savatchadan olib tashlandi"
+msgstr "Удалено из корзины"
+
+#: orders/views.py:116
+msgid "Bunday promokod topilmadi yoki muddati tugagan"
+msgstr "Промокод не найден или срок его действия истёк"
+
+#: orders/views.py:129
+msgid "Savatcha bo‘sh — avval soat tanlang"
+msgstr "Корзина пуста — сначала выберите товар"
+
+#: orders/views.py:219
+msgid "Rahmat! Operatorimiz tez orada qo‘ng‘iroq qiladi."
+msgstr "Спасибо! Оператор скоро вам перезвонит."
+
+#: orders/views.py:112
+#, python-format
+msgid "%(code)s promokodi qo‘llandi: −%(percent)s%%"
+msgstr "Промокод %(code)s применён: −%(percent)s%%"
+
+#: orders/views.py:60
+#: templates/orders/cart.html
+#, python-format
+msgid "Omborda faqat %(n)s dona bor"
+msgstr "На складе только %(n)s шт."
+
+#: orders/views.py:62
+#, python-format
+msgid "«%(name)s» savatchaga qo‘shildi"
+msgstr "«%(name)s» добавлен в корзину"
+
+#: orders/views.py:171
+#, python-format
+msgid "Omborda yetarli emas: %(names)s. Savatchani tekshirib, qaytadan urinib ko‘ring."
+msgstr "Недостаточно на складе: %(names)s. Проверьте корзину и попробуйте ещё раз."
+
+#: templates/base.html
+msgid "soatlar do‘koni"
+msgstr "магазин часов"
+
+#: templates/base.html
+msgid "Qo‘l, devor, stol va smart soatlar, soat tasmalari. O‘zbekiston bo‘ylab bepul yetkazib berish, naqd yoki karta orqali to‘lov."
+msgstr "Наручные, настенные, настольные и смарт-часы, ремешки для часов. Бесплатная доставка по Узбекистану, оплата наличными или картой."
+
+#: templates/base.html
+msgid "Asosiy qismga o‘tish"
+msgstr "Перейти к основному содержимому"
+
+#: templates/base.html
+msgid "Naqd yoki karta orqali to‘lov"
+msgstr "Оплата наличными или картой"
+
+#: templates/base.html
+#: templates/base.html
+#: templates/shop/home.html
+msgid "Rasmiy kafolat"
+msgstr "Официальная гарантия"
+
+#: templates/base.html
+msgid "Katalog menyusini ochish"
+msgstr "Открыть меню каталога"
+
+#: templates/base.html
+msgid "Asosiy bo‘limlar"
+msgstr "Основные разделы"
+
+#: templates/base.html
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+msgid "Aksiya"
+msgstr "Акции"
+
+#: templates/base.html
+msgid "bosh sahifa"
+msgstr "главная"
+
+#: templates/base.html
+msgid "Qidirish"
+msgstr "Искать"
+
+#: templates/base.html
+#: templates/shop/wishlist.html
+#: templates/shop/wishlist.html
+msgid "Sevimlilar"
+msgstr "Избранное"
+
+#: templates/base.html
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+msgid "Yopish"
+msgstr "Закрыть"
+
+#: templates/base.html
+msgid "Yuklanmoqda…"
+msgstr "Загрузка…"
+
+#: templates/base.html
+msgid "Qidiruv"
+msgstr "Поиск"
+
+#: templates/base.html
+msgid "Brend, model yoki soat turi: Seiko, g‘avvos, smart…"
+msgstr "Бренд, модель или тип часов: Seiko, дайверские, смарт…"
+
+#: templates/base.html
+msgid "Qidiruv so‘rovi"
+msgstr "Поисковый запрос"
+
+#: templates/base.html
+msgid "Tez-tez qidiriladi:"
+msgstr "Часто ищут:"
+
+#: templates/base.html
+msgid "Smart soatlar"
+msgstr "Смарт-часы"
+
+#: templates/base.html
+msgid "Devor soatlari"
+msgstr "Настенные часы"
+
+#: templates/base.html
+#: templates/shop/home.html
+#: templates/shop/strap_detail.html
+msgid "Bepul yetkazib berish"
+msgstr "Бесплатная доставка"
+
+#: templates/base.html
+msgid "butun O‘zbekiston bo‘ylab"
+msgstr "по всему Узбекистану"
+
+#: templates/base.html
+#: templates/pages/delivery.html
+#: templates/shop/home.html
+msgid "Naqd yoki karta"
+msgstr "Наличные или карта"
+
+#: templates/base.html
+#: templates/pages/warranty.html
+msgid "12 oydan 5 yilgacha"
+msgstr "от 12 месяцев до 5 лет"
+
+#: templates/base.html
+msgid "ichida qaytarish"
+msgstr "на возврат"
+
+#: templates/base.html
+msgid "Qo‘l soatlaridan devor soatlarigacha — hammasi bir joyda."
+msgstr "От наручных часов до настенных — всё в одном месте."
+
+#: templates/base.html
+msgid "Erkaklar uchun"
+msgstr "Для мужчин"
+
+#: templates/base.html
+msgid "Ayollar uchun"
+msgstr "Для женщин"
+
+#: templates/base.html
+msgid "Bolalar uchun"
+msgstr "Для детей"
+
+#: templates/base.html
+msgid "Soat tasmalari"
+msgstr "Ремешки для часов"
+
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+#: templates/shop/brands.html
+msgid "Brendlar"
+msgstr "Бренды"
+
+#: templates/base.html
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+msgid "Xaridorlarga"
+msgstr "Покупателям"
+
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+#: templates/pages/_info.html
+msgid "Yetkazib berish va to‘lov"
+msgstr "Доставка и оплата"
+
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+#: templates/pages/_info.html
+msgid "Kafolat va qaytarish"
+msgstr "Гарантия и возврат"
+
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+#: templates/orders/success.html
+msgid "Buyurtmani kuzatish"
+msgstr "Отследить заказ"
+
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+#: templates/pages/_info.html
+msgid "Savol-javob"
+msgstr "Вопросы и ответы"
+
+#: templates/base.html
+#: templates/includes/menu_drawer.html
+#: templates/pages/_info.html
+msgid "Aloqa"
+msgstr "Контакты"
+
+#: templates/base.html
+#: templates/pages/_info.html
+#: templates/pages/about.html
+msgid "Biz haqimizda"
+msgstr "О нас"
+
+#: templates/base.html
+#: templates/shop/home.html
+msgid "Naqd"
+msgstr "Наличные"
+
+#: templates/base.html
+msgid "O‘zbekiston bo‘ylab yetkazib berish — <b>bepul</b>"
+msgstr "Доставка по Узбекистану — <b>бесплатно</b>"
+
+#: templates/base.html
+#: templates/pages/warranty.html
+#, python-format
+msgid "%(n)s kun"
+msgstr "%(n)s дней"
+
+#: templates/includes/lang_switch.html
+#: templates/includes/menu_drawer.html
+msgid "Sayt tili"
+msgstr "Язык сайта"
+
+#: templates/includes/menu_drawer.html
+msgid "Katalog menyusi"
+msgstr "Меню каталога"
+
+#: templates/includes/menu_drawer.html
+msgid "Katalog bo‘limlari"
+msgstr "Разделы каталога"
+
+#: templates/includes/menu_drawer.html
+msgid "Soat turlari"
+msgstr "Типы часов"
+
+#: templates/includes/pagination.html
+msgid "Sahifalar"
+msgstr "Страницы"
+
+#: templates/includes/pagination.html
+msgid "Oldingi sahifa"
+msgstr "Предыдущая страница"
+
+#: templates/includes/pagination.html
+msgid "Keyingi sahifa"
+msgstr "Следующая страница"
+
+#: templates/includes/strap_card.html
+#: templates/includes/watch_card.html
+#: templates/shop/strap_detail.html
+msgid "Xit"
+msgstr "Хит"
+
+#: templates/includes/strap_card.html
+#: templates/includes/watch_card.html
+#: templates/orders/cart.html
+msgid "Eski narx:"
+msgstr "Старая цена:"
+
+#: templates/includes/strap_card.html
+#: templates/includes/watch_card.html
+#: templates/shop/strap_detail.html
+msgid "Savatchaga"
+msgstr "В корзину"
+
+#: templates/includes/strap_card.html
+#: templates/includes/watch_card.html
+msgid "Tugagan"
+msgstr "Нет в наличии"
+
+#: templates/includes/strap_card.html
+#: templates/includes/watch_card.html
+#, python-format
+msgid "Savatchaga qo‘shish: %(name)s"
+msgstr "Добавить в корзину: %(name)s"
+
+#: templates/includes/watch_card.html
+#: templates/shop/home.html
+msgid "Erkak va ayolga birdek mos"
+msgstr "Подходит мужчинам и женщинам"
+
+#: templates/includes/watch_card.html
+#, python-format
+msgid "Sevimlilarga: %(name)s"
+msgstr "В избранное: %(name)s"
+
+#: templates/orders/_drawer.html
+msgid "Yetkazib berish bepul — butun O‘zbekiston bo‘ylab"
+msgstr "Доставка бесплатно — по всему Узбекистану"
+
+#: templates/orders/_drawer.html
+#: templates/orders/cart.html
+#: templates/orders/checkout.html
+msgid "Mahsulotlar"
+msgstr "Товары"
+
+#: templates/orders/_drawer.html
+#: templates/orders/cart.html
+#: templates/orders/cart.html
+msgid "Promokod"
+msgstr "Промокод"
+
+#: templates/orders/_drawer.html
+#: templates/orders/cart.html
+#: templates/orders/checkout.html
+msgid "Rasmiylashtirish"
+msgstr "Оформить заказ"
+
+#: templates/orders/_drawer.html
+#: templates/orders/cart.html
+msgid "Savatcha bo‘sh"
+msgstr "Корзина пуста"
+
+#: templates/orders/_drawer.html
+msgid "Soat yoki tasma tanlang — biz uni O‘zbekistonning istalgan joyiga bepul yetkazamiz."
+msgstr "Выберите часы или ремешок — мы бесплатно доставим их в любую точку Узбекистана."
+
+#: templates/orders/_drawer.html
+#: templates/orders/cart.html
+#: templates/shop/wishlist.html
+msgid "Katalogga o‘tish"
+msgstr "Перейти в каталог"
+
+#: templates/orders/_drawer.html
+#, python-format
+msgid "Jami · %(n)s ta"
+msgstr "Итого · %(n)s шт."
+
+#: templates/orders/_line_qty.html
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Kamaytirish"
+msgstr "Уменьшить"
+
+#: templates/orders/_line_qty.html
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Ko‘paytirish"
+msgstr "Увеличить"
+
+#: templates/orders/_line_qty.html
+msgid "Yangilash"
+msgstr "Обновить"
+
+#: templates/orders/_line_qty.html
+#, python-format
+msgid "Soni: %(name)s"
+msgstr "Количество: %(name)s"
+
+#: templates/orders/_line_remove.html
+msgid "Olib tashlash"
+msgstr "Удалить"
+
+#: templates/orders/_line_remove.html
+#, python-format
+msgid "Olib tashlash: %(name)s"
+msgstr "Удалить: %(name)s"
+
+#: templates/orders/cart.html
+#: templates/orders/checkout.html
+#: templates/orders/track.html
+msgid "Yo‘l"
+msgstr "Навигация"
+
+#: templates/orders/cart.html
+#: templates/orders/success.html
+msgid "Xaridni davom ettirish"
+msgstr "Продолжить покупки"
+
+#: templates/orders/cart.html
+msgid "Buyurtma summasi"
+msgstr "Сумма заказа"
+
+#: templates/orders/cart.html
+msgid "Buyurtma"
+msgstr "Заказ"
+
+#: templates/orders/cart.html
+#: templates/orders/checkout.html
+#: templates/orders/success.html
+msgid "Yetkazib berish"
+msgstr "Доставка"
+
+#: templates/orders/cart.html
+#: templates/orders/checkout.html
+#: templates/orders/success.html
+msgid "Bepul"
+msgstr "Бесплатно"
+
+#: templates/orders/cart.html
+msgid "Bekor qilish"
+msgstr "Отменить"
+
+#: templates/orders/cart.html
+msgid "Qo‘llash"
+msgstr "Применить"
+
+#: templates/orders/cart.html
+#: templates/orders/checkout.html
+#: templates/orders/success.html
+msgid "Jami"
+msgstr "Итого"
+
+#: templates/orders/cart.html
+msgid "O‘zbekiston bo‘ylab yetkazib berish bepul"
+msgstr "Доставка по Узбекистану бесплатно"
+
+#: templates/orders/cart.html
+msgid "Katalogdan o‘zingizga yoqqan soat yoki tasmani tanlang — yetkazib berish butun O‘zbekiston bo‘ylab bepul."
+msgstr "Выберите в каталоге часы или ремешок по душе — доставка по всему Узбекистану бесплатно."
+
+#: templates/orders/cart.html
+#, python-format
+msgid "Oxirgi %(n)s dona"
+msgstr "Осталось %(n)s шт."
+
+#: templates/orders/cart.html
+#: templates/orders/track.html
+#, python-format
+msgid "%(n)s ta mahsulot"
+msgid_plural "%(n)s ta mahsulot"
+msgstr[0] "%(n)s товар"
+msgstr[1] "%(n)s товара"
+msgstr[2] "%(n)s товаров"
+
+#: templates/orders/cart.html
+msgid "Birinchi xarid uchun: <b>OCLOCK10</b> — 10%% chegirma"
+msgstr "Для первой покупки: <b>OCLOCK10</b> — скидка 10%%"
+
+#: templates/orders/cart.html
+#, python-format
+msgid "Aksiya narxlari bilan %(sum)s tejadingiz"
+msgstr "С акционными ценами вы сэкономили %(sum)s"
+
+#: templates/orders/cart.html
+#, python-format
+msgid "To‘lov qabul qilganda: naqd yoki karta (%(cards)s)"
+msgstr "Оплата при получении: наличными или картой (%(cards)s)"
+
+#: templates/orders/checkout.html
+msgid "Uch qadam: kimga, qayerga va qanday to‘lov. Yetkazib berish — bepul."
+msgstr "Три шага: кому, куда и как оплатить. Доставка — бесплатно."
+
+#: templates/orders/checkout.html
+msgid "Iltimos, qizil bilan belgilangan maydonlarni to‘g‘rilang."
+msgstr "Пожалуйста, исправьте поля, отмеченные красным."
+
+#: templates/orders/checkout.html
+#: templates/orders/track.html
+msgid "Qabul qiluvchi"
+msgstr "Получатель"
+
+#: templates/orders/checkout.html
+msgid "Yetkazib berish manzili"
+msgstr "Адрес доставки"
+
+#: templates/orders/checkout.html
+msgid "Bepul yetkazamiz — muddati"
+msgstr "Доставим бесплатно — срок"
+
+#: templates/orders/checkout.html
+msgid "Kuryerga, mahsulotni ko‘rib bo‘lgach"
+msgstr "Курьеру, после осмотра товара"
+
+#: templates/orders/checkout.html
+msgid "Sovg‘a qutisiga qadoqlash"
+msgstr "Упаковать в подарочную коробку"
+
+#: templates/orders/checkout.html
+msgid "Bepul — lenta va tabriknoma bilan"
+msgstr "Бесплатно — с лентой и открыткой"
+
+#: templates/orders/checkout.html
+#: templates/orders/checkout.html
+msgid "Buyurtmangiz"
+msgstr "Ваш заказ"
+
+#: templates/orders/checkout.html
+msgid "Buyurtmani tasdiqlash"
+msgstr "Подтвердить заказ"
+
+#: templates/orders/checkout.html
+msgid "Operatorimiz 15 daqiqa ichida qo‘ng‘iroq qilib, buyurtmani tasdiqlaydi. To‘lov — faqat qabul qilganda."
+msgstr "Оператор позвонит в течение 15 минут и подтвердит заказ. Оплата — только при получении."
+
+#: templates/orders/checkout.html
+#, python-format
+msgid "%(cards)s — kuryer terminali orqali"
+msgstr "%(cards)s — через терминал курьера"
+
+#: templates/orders/success.html
+msgid "Rahmat, buyurtma qabul qilindi!"
+msgstr "Спасибо, заказ принят!"
+
+#: templates/orders/success.html
+#: templates/orders/track.html
+msgid "To‘lov"
+msgstr "Оплата"
+
+#: templates/orders/success.html
+#, python-format
+msgid "Buyurtma %(number)s qabul qilindi"
+msgstr "Заказ %(number)s принят"
+
+#: templates/orders/success.html
+#, python-format
+msgid "Operatorimiz %(phone)s raqamiga 15 daqiqa ichida qo‘ng‘iroq qilib, buyurtmani tasdiqlaydi."
+msgstr "Оператор позвонит на номер %(phone)s в течение 15 минут и подтвердит заказ."
+
+#: templates/orders/success.html
+#, python-format
+msgid "%(payment)s — qabul qilganda"
+msgstr "%(payment)s — при получении"
+
+#: templates/orders/track.html
+msgid "Buyurtma raqami va telefoningizni kiriting — holatini ko‘rasiz."
+msgstr "Введите номер заказа и телефон — и увидите его статус."
+
+#: templates/orders/track.html
+msgid "Tekshirish"
+msgstr "Проверить"
+
+#: templates/orders/track.html
+msgid "Buyurtma topilmadi"
+msgstr "Заказ не найден"
+
+#: templates/orders/track.html
+msgid "Raqam va telefonni tekshirib ko‘ring. Yordam kerak bo‘lsa:"
+msgstr "Проверьте номер и телефон. Нужна помощь:"
+
+#: templates/orders/track.html
+msgid "Holat shu yerda chiqadi"
+msgstr "Здесь появится статус"
+
+#: templates/orders/track.html
+msgid "Buyurtma raqami buyurtma berilgandan keyin ekranda ko‘rsatiladi: masalan, OC-261115-1234."
+msgstr "Номер заказа показывается на экране после оформления: например, OC-261115-1234."
+
+#: templates/orders/track.html
+#, python-format
+msgid "Buyurtma bekor qilingan. Savollar bo‘lsa, %(phone)s raqamiga qo‘ng‘iroq qiling."
+msgstr "Заказ отменён. Если есть вопросы, позвоните по номеру %(phone)s."
+
+#: templates/pages/404.html
+msgid "Sahifa topilmadi"
+msgstr "Страница не найдена"
+
+#: templates/pages/404.html
+msgid "Xato 404"
+msgstr "Ошибка 404"
+
+#: templates/pages/404.html
+msgid "Bu sahifa vaqtida yetib kelmadi"
+msgstr "Эта страница не пришла вовремя"
+
+#: templates/pages/404.html
+msgid "Havola eskirgan yoki soat sotilib bo‘lgan bo‘lishi mumkin. Katalogdan boshqasini tanlang — vaqtingiz hali ko‘p."
+msgstr "Ссылка устарела, или часы уже проданы. Выберите другие в каталоге — времени ещё много."
+
+#: templates/pages/about.html
+msgid "O’clock market — qo‘l, devor, stol va smart soatlar, soat tasmalari do‘koni. Rasmiy kafolat, O‘zbekiston bo‘ylab bepul yetkazib berish."
+msgstr "O’clock market — магазин наручных, настенных, настольных и смарт-часов, а также ремешков. Официальная гарантия, бесплатная доставка по Узбекистану."
+
+#: templates/pages/about.html
+msgid "«Soat — vaqtni o‘lchaydigan asbobgina emas. U har kuni siz bilan birga yuradigan kichik hikoya.»"
+msgstr "«Часы — не просто прибор для измерения времени. Это маленькая история, которая каждый день с вами.»"
+
+#: templates/pages/about.html
+msgid "Biz soatlarni yaxshi ko‘radigan kichik jamoamiz. Maqsadimiz oddiy: O‘zbekistonning istalgan burchagida yashovchi odam ham yaxshi soatni ishonch bilan, ortiqcha xarajatsiz xarid qila olishi kerak."
+msgstr "Мы — небольшая команда, которая любит часы. Наша цель проста: человек в любом уголке Узбекистана должен иметь возможность уверенно и без лишних затрат купить хорошие часы."
+
+#: templates/pages/about.html
+msgid "Faqat original soatlar — rasmiy kafolat taloni bilan."
+msgstr "Только оригинальные часы — с официальным гарантийным талоном."
+
+#: templates/pages/about.html
+msgid "Yetkazib berish butun O‘zbekiston bo‘ylab bepul."
+msgstr "Доставка по всему Узбекистану бесплатно."
+
+#: templates/pages/about.html
+msgid "To‘lov qabul qilganda: naqd yoki karta orqali."
+msgstr "Оплата при получении: наличными или картой."
+
+#: templates/pages/about.html
+#: templates/pages/contacts.html
+msgid "Showroom"
+msgstr "Шоурум"
+
+#: templates/pages/about.html
+msgid "Soatlarni qo‘lingizga olib, taqib ko‘rishingiz mumkin."
+msgstr "Часы можно подержать в руках и примерить."
+
+#: templates/pages/about.html
+msgid "Shuning uchun katalogda har qanday soat bor — klassik va sport, g‘avvos va uchuvchi, xronograf va smart, bolalar soatlari, cho‘ntak, devor, stol soatlari va budilniklar. Erkak va ayolga birdek mos modellar alohida <b>Unique</b> belgisi bilan ajratilgan. Soatingizga yangi tasma ham shu yerda."
+msgstr "Поэтому в каталоге есть любые часы — классические и спортивные, дайверские и авиаторские, хронографы и смарт-часы, детские, карманные, настенные, настольные часы и будильники. Модели, которые одинаково подходят мужчинам и женщинам, отмечены знаком <b>Unique</b>. Здесь же — новый ремешок для ваших часов."
+
+#: templates/pages/about.html
+#, python-format
+msgid "%(n)s kun ichida qaytarish va almashtirish."
+msgstr "Возврат и обмен в течение %(n)s дней."
+
+#: templates/pages/contacts.html
+msgid "O’clock market bilan bog‘lanish: telefon, Telegram, manzil va ish vaqti. Raqamingizni qoldiring — operator qo‘ng‘iroq qiladi."
+msgstr "Связаться с O’clock market: телефон, Telegram, адрес и часы работы. Оставьте номер — оператор перезвонит."
+
+#: templates/pages/contacts.html
+msgid "Soat tanlashda yordam kerakmi? Qo‘ng‘iroq qiling yoki raqamingizni qoldiring — o‘zimiz bog‘lanamiz."
+msgstr "Нужна помощь с выбором часов? Позвоните или оставьте номер — мы сами свяжемся с вами."
+
+#: templates/pages/contacts.html
+msgid "Ish vaqti"
+msgstr "Часы работы"
+
+#: templates/pages/contacts.html
+msgid "Qayta qo‘ng‘iroq"
+msgstr "Обратный звонок"
+
+#: templates/pages/contacts.html
+msgid "Operatorimiz ish vaqtida 15 daqiqa ichida qo‘ng‘iroq qiladi."
+msgstr "В рабочее время оператор перезвонит в течение 15 минут."
+
+#: templates/pages/contacts.html
+msgid "Masalan: 40 mm atrofidagi avtomatik soat kerak (ixtiyoriy)"
+msgstr "Например: нужны автоматические часы около 40 мм (необязательно)"
+
+#: templates/pages/contacts.html
+msgid "Qo‘ng‘iroq qiling"
+msgstr "Перезвоните мне"
+
+#: templates/pages/delivery.html
+msgid "O‘zbekistonning barcha viloyatlariga bepul yetkazib berish: Toshkentda 1 kun, viloyatlarga 1–4 kun. Naqd yoki karta orqali to‘lov."
+msgstr "Бесплатная доставка во все области Узбекистана: по Ташкенту за 1 день, в области за 1–4 дня. Оплата наличными или картой."
+
+#: templates/pages/delivery.html
+msgid "O‘zbekistonning istalgan viloyatiga — bepul. To‘lov faqat buyurtmani qo‘lingizga olganingizdan keyin."
+msgstr "В любую область Узбекистана — бесплатно. Оплата только после того, как заказ окажется у вас в руках."
+
+#: templates/pages/delivery.html
+msgid "yetkazib berish narxi — summa qancha bo‘lishidan qat’i nazar"
+msgstr "стоимость доставки — независимо от суммы заказа"
+
+#: templates/pages/delivery.html
+msgid "1 kun"
+msgstr "1 день"
+
+#: templates/pages/delivery.html
+msgid "Toshkent shahrida; viloyatlarga 1–4 kun"
+msgstr "по Ташкенту; в области 1–4 дня"
+
+#: templates/pages/delivery.html
+msgid "qabul qilganda, kuryerga"
+msgstr "при получении, курьеру"
+
+#: templates/pages/delivery.html
+msgid "Viloyatlar bo‘yicha muddat"
+msgstr "Сроки по областям"
+
+#: templates/pages/delivery.html
+msgid "Hudud"
+msgstr "Регион"
+
+#: templates/pages/delivery.html
+msgid "Muddat"
+msgstr "Срок"
+
+#: templates/pages/delivery.html
+msgid "Narxi"
+msgstr "Цена"
+
+#: templates/pages/delivery.html
+msgid "To‘lov usullari"
+msgstr "Способы оплаты"
+
+#: templates/pages/delivery.html
+msgid "Oldindan to‘lov talab qilinmaydi. Mahsulot yoqmasa yoki nuqsonli bo‘lsa — olmasligingiz mumkin, hech narsa to‘lamaysiz."
+msgstr "Предоплата не нужна. Если товар не понравился или оказался с дефектом — можете не брать его и ничего не платить."
+
+#: templates/pages/delivery.html
+msgid "Qanday yetkazamiz"
+msgstr "Как мы доставляем"
+
+#: templates/pages/delivery.html
+msgid "Buyurtmadan so‘ng operator 15 daqiqa ichida qo‘ng‘iroq qilib, manzil va vaqtni tasdiqlaydi. Toshkentda o‘z kuryerlarimiz, viloyatlarga ishonchli pochta xizmati orqali yuboramiz. Kuryer kelishidan oldin qo‘ng‘iroq qiladi."
+msgstr "После заказа оператор в течение 15 минут позвонит и подтвердит адрес и время. По Ташкенту доставляют наши курьеры, в области — надёжная почтовая служба. Курьер позвонит перед приездом."
+
+#: templates/pages/delivery.html
+msgid "<b>Naqd pul</b> — kuryerga, mahsulotni ko‘rib va tekshirib bo‘lgach."
+msgstr "<b>Наличными</b> — курьеру, после осмотра и проверки товара."
+
+#: templates/pages/delivery.html
+#, python-format
+msgid "<b>Karta orqali</b> — %(cards)s. Kuryerda to‘lov terminali bor, chek beriladi."
+msgstr "<b>Картой</b> — %(cards)s. У курьера есть платёжный терминал, выдаётся чек."
+
+#: templates/pages/delivery.html
+msgid "Har bir soat firma qutisida, kafolat taloni bilan keladi. Xohlasangiz, <b>sovg‘a qutisiga bepul qadoqlaymiz</b>."
+msgstr "Каждые часы приходят в фирменной коробке с гарантийным талоном. По желанию <b>бесплатно упакуем в подарочную коробку</b>."
+
+#: templates/pages/faq.html
+msgid "Yetkazib berish, to‘lov, Unique belgisi, soat o‘lchami, tasma kengligi va mexanizm turlari haqida ko‘p beriladigan savollar."
+msgstr "Частые вопросы о доставке, оплате, знаке Unique, размере часов, ширине ремешка и типах механизмов."
+
+#: templates/pages/faq.html
+msgid "Buyurtma va yetkazib berish"
+msgstr "Заказ и доставка"
+
+#: templates/pages/faq.html
+msgid "Yetkazib berish haqiqatan bepulmi?"
+msgstr "Доставка действительно бесплатная?"
+
+#: templates/pages/faq.html
+msgid "Qanday to‘layman?"
+msgstr "Как оплатить?"
+
+#: templates/pages/faq.html
+msgid "Buyurtma qayerda ekanini qanday bilaman?"
+msgstr "Как узнать, где мой заказ?"
+
+#: templates/pages/faq.html
+msgid "Promokod qayerga yoziladi?"
+msgstr "Куда вводить промокод?"
+
+#: templates/pages/faq.html
+msgid "Soat tanlash"
+msgstr "Выбор часов"
+
+#: templates/pages/faq.html
+msgid "«Unique» belgisi nimani anglatadi?"
+msgstr "Что означает знак «Unique»?"
+
+#: templates/pages/faq.html
+msgid "Qaysi o‘lcham menga mos?"
+msgstr "Какой размер мне подойдёт?"
+
+#: templates/pages/faq.html
+msgid "Ingichka bilakka 34–38 mm, o‘rtachasiga 38–42 mm, keng bilakka 42–46 mm. Katalogdagi «Korpus diametri» filtridan foydalaning."
+msgstr "Для тонкого запястья — 34–38 мм, для среднего — 38–42 мм, для широкого — 42–46 мм. Воспользуйтесь фильтром «Диаметр корпуса» в каталоге."
+
+#: templates/pages/faq.html
+msgid "Kvarts, mexanik va avtomatik farqi nima?"
+msgstr "Чем отличаются кварцевые, механические и автоматические?"
+
+#: templates/pages/faq.html
+msgid "Suvga chidamlilik «50 m» degani suvga sho‘ng‘isa bo‘ladimi?"
+msgstr "Водозащита «50 м» — значит, можно нырять?"
+
+#: templates/pages/faq.html
+msgid "30 m — yomg‘ir va qo‘l yuvish. 50 m — basseynda suzish. 100 m — suzish va snorkeling. 200 m va undan yuqori — g‘avvoslik."
+msgstr "30 м — дождь и мытьё рук. 50 м — плавание в бассейне. 100 м — плавание и снорклинг. 200 м и выше — дайвинг."
+
+#: templates/pages/faq.html
+msgid "Soatimga qaysi tasma mos keladi?"
+msgstr "Какой ремешок подойдёт к моим часам?"
+
+#: templates/pages/faq.html
+msgid "Tasmani o‘zim almashtira olamanmi?"
+msgstr "Могу ли я сам заменить ремешок?"
+
+#: templates/pages/faq.html
+msgid "Ha. «Tez yechiladigan shpilka»li tasmalar asbobsiz, bir necha soniyada almashtiriladi. Oddiy shpilkali tasmaga kichik asbob kerak bo‘ladi — showroomda bepul taqib beramiz."
+msgstr "Да. Ремешки с «быстросъёмными шпильками» меняются без инструментов за несколько секунд. Для ремешка с обычными шпильками нужен небольшой инструмент — в шоуруме установим бесплатно."
+
+#: templates/pages/faq.html
+msgid "Soat yoqmasa qaytarsa bo‘ladimi?"
+msgstr "Можно вернуть часы, если не понравились?"
+
+#: templates/pages/faq.html
+msgid "Soatlar originalmi?"
+msgstr "Часы оригинальные?"
+
+#: templates/pages/faq.html
+msgid "Ha. Har bir soat firma qutisi va rasmiy kafolat taloni bilan beriladi."
+msgstr "Да. Все часы поставляются в фирменной коробке с официальным гарантийным талоном."
+
+#: templates/pages/faq.html
+#, python-format
+msgid "Ha. O‘zbekistonning barcha viloyatlariga va Qoraqalpog‘istonga yetkazib berish %(zero)s — buyurtma summasidan qat’i nazar. Toshkentda 1 kun, viloyatlarga 1–4 kun."
+msgstr "Да. Доставка во все области Узбекистана и в Каракалпакстан — %(zero)s, независимо от суммы заказа. По Ташкенту — 1 день, в области — 1–4 дня."
+
+#: templates/pages/faq.html
+#, python-format
+msgid "Qabul qilganda: naqd pul yoki karta (%(cards)s). Kuryerda terminal bor. Oldindan to‘lov shart emas."
+msgstr "При получении: наличными или картой (%(cards)s). У курьера есть терминал. Предоплата не нужна."
+
+#: templates/pages/faq.html
+#, python-format
+msgid "<a href=\"%(track_url)s\">Buyurtmani kuzatish</a> sahifasida raqam va telefoningizni kiriting. Kuryer chiqqanda sizga qo‘ng‘iroq qiladi."
+msgstr "Введите номер заказа и телефон на странице <a href=\"%(track_url)s\">«Отследить заказ»</a>. Курьер позвонит, когда выедет к вам."
+
+#: templates/pages/faq.html
+#, python-format
+msgid "Savatcha sahifasida «Promokod» maydoniga. Masalan, <b>OCLOCK10</b> — 10%% chegirma, <b>SOVGA15</b> — %(sum)sdan yuqori xaridga 15%%."
+msgstr "В поле «Промокод» на странице корзины. Например, <b>OCLOCK10</b> — скидка 10%%, <b>SOVGA15</b> — 15%% на покупку от %(sum)s."
+
+#: templates/pages/faq.html
+#, python-format
+msgid "Bu soat erkak va ayolga birdek mos keladi: neytral dizayn, o‘rtacha (odatda 35–42 mm) korpus, ortiqcha bezaksiz siferblat. Juftlik soati yoki sovg‘a uchun eng xavfsiz tanlov. <a href=\"%(unique_url)s\">Unique kolleksiyasi</a>"
+msgstr "Эти часы одинаково подходят мужчинам и женщинам: нейтральный дизайн, средний (обычно 35–42 мм) корпус, циферблат без лишних украшений. Самый беспроигрышный выбор для парных часов или подарка. <a href=\"%(unique_url)s\">Коллекция Unique</a>"
+
+#: templates/pages/faq.html
+msgid "<b>Kvarts</b> — batareyada, eng aniq va arzon. <b>Mexanik</b> — har kuni qo‘lda buraladi. <b>Avtomatik</b> — qo‘l harakatidan o‘zi buraladi, batareya kerak emas. <b>Smart</b> — telefon bilan bog‘lanadi, zaryadlanadi."
+msgstr "<b>Кварцевые</b> — на батарейке, самые точные и доступные. <b>Механические</b> — заводятся вручную каждый день. <b>Автоматические</b> — заводятся сами от движения руки, батарейка не нужна. <b>Смарт</b> — связываются с телефоном, заряжаются."
+
+#: templates/pages/faq.html
+#, python-format
+msgid "Asosiysi — kenglik. U soat sahifasida «Tasma kengligi» qatorida yozilgan (masalan, 20 mm). <a href=\"%(straps_url)s\">Tasmalar</a> bo‘limida «Kengligi» filtrida shu raqamni tanlang. Apple Watch uchun «Ulanishi» filtrida korpus o‘lchamini tanlang."
+msgstr "Главное — ширина. Она указана на странице часов в строке «Ширина ремешка» (например, 20 мм). В разделе <a href=\"%(straps_url)s\">«Ремешки»</a> выберите это число в фильтре «Ширина». Для Apple Watch выберите размер корпуса в фильтре «Крепление»."
+
+#: templates/pages/faq.html
+#, python-format
+msgid "Ha, %(n)s kun ichida — taqilmagan va qadog‘i buzilmagan bo‘lsa. Batafsil: <a href=\"%(warranty_url)s\">kafolat va qaytarish</a>."
+msgstr "Да, в течение %(n)s дней — если часы не носили и упаковка не повреждена. Подробнее: <a href=\"%(warranty_url)s\">гарантия и возврат</a>."
+
+#: templates/pages/warranty.html
+msgid "brend va modelga qarab — soat sahifasida ko‘rsatilgan"
+msgstr "зависит от бренда и модели — указано на странице часов"
+
+#: templates/pages/warranty.html
+msgid "ichida sababsiz qaytarish"
+msgstr "на возврат без объяснения причин"
+
+#: templates/pages/warranty.html
+msgid "Bepul servis"
+msgstr "Бесплатный сервис"
+
+#: templates/pages/warranty.html
+msgid "kafolat davrida ta’mirlash va batareya almashtirish"
+msgstr "ремонт и замена батарейки в течение гарантии"
+
+#: templates/pages/warranty.html
+msgid "Kafolat nimani qamrab oladi"
+msgstr "Что покрывает гарантия"
+
+#: templates/pages/warranty.html
+msgid "Mexanizmning ishlab chiqarishdagi nuqsonlari: to‘xtab qolish, vaqtni noto‘g‘ri ko‘rsatish."
+msgstr "Заводские дефекты механизма: остановка, неверный ход."
+
+#: templates/pages/warranty.html
+msgid "Kvarts soatlarda — birinchi batareyani almashtirish."
+msgstr "В кварцевых часах — замена первой батарейки."
+
+#: templates/pages/warranty.html
+msgid "Smart soatlarda — ekran, sensorlar va zaryadlash bilan bog‘liq zavod nuqsonlari."
+msgstr "В смарт-часах — заводские дефекты экрана, датчиков и зарядки."
+
+#: templates/pages/warranty.html
+msgid "Kafolat mexanik shikastlanish, oynaning sinishi, suvga chidamlilik me’yoridan oshirib foydalanish va tasmaning tabiiy eskirishiga tatbiq etilmaydi."
+msgstr "Гарантия не распространяется на механические повреждения, разбитое стекло, эксплуатацию сверх заявленной водозащиты и естественный износ ремешка."
+
+#: templates/pages/warranty.html
+msgid "Qanday qaytariladi"
+msgstr "Как вернуть"
+
+#: templates/pages/warranty.html
+msgid "Almashtirish"
+msgstr "Обмен"
+
+#: templates/pages/warranty.html
+msgid "O‘lcham, rang yoki model to‘g‘ri kelmasa — xuddi shu muddat ichida boshqasiga almashtiramiz, narx farqini hisoblab beramiz. Tasma kengligi to‘g‘ri kelmasa ham almashtiramiz."
+msgstr "Если не подошёл размер, цвет или модель — в тот же срок обменяем на другую и пересчитаем разницу в цене. Если не подошла ширина ремешка — тоже обменяем."
+
+#: templates/pages/warranty.html
+#, python-format
+msgid "Har bir soatga rasmiy kafolat. %(n)s kun ichida sababsiz qaytarish — kuryer bepul olib ketadi."
+msgstr "Официальная гарантия на все часы. Возврат без объяснения причин в течение %(n)s дней — курьер заберёт бесплатно."
+
+#: templates/pages/warranty.html
+#, python-format
+msgid "Har bir soat rasmiy kafolat bilan sotiladi. Yoqmasa — %(n)s kun ichida qaytarasiz."
+msgstr "Все часы продаются с официальной гарантией. Не понравились — вернёте в течение %(n)s дней."
+
+#: templates/pages/warranty.html
+#, python-format
+msgid "Mahsulot taqilmagan, himoya plyonkalari va qadog‘i buzilmagan bo‘lsa, %(n)s kun ichida qaytarib, pulingizni to‘liq olasiz. %(phone)s raqamiga qo‘ng‘iroq qiling — kuryer bepul olib ketadi. Pul 3 ish kunida karta yoki naqd qaytariladi."
+msgstr "Если товар не носили, а защитные плёнки и упаковка целы, в течение %(n)s дней вы можете вернуть его и получить деньги полностью. Позвоните по номеру %(phone)s — курьер заберёт бесплатно. Деньги возвращаются за 3 рабочих дня на карту или наличными."
+
+#: templates/shop/_delivery_tab.html
+msgid "Batafsil: yetkazib berish va to‘lov"
+msgstr "Подробнее: доставка и оплата"
+
+#: templates/shop/_delivery_tab.html
+msgid "<b>Yetkazib berish bepul</b> — Toshkent shahrida 1 kun ichida, viloyatlarga 2–4 kunda. Kuryer jo‘natishdan oldin qo‘ng‘iroq qiladi."
+msgstr "<b>Доставка бесплатно</b> — по Ташкенту в течение 1 дня, в области за 2–4 дня. Курьер позвонит перед отправкой."
+
+#: templates/shop/_delivery_tab.html
+#, python-format
+msgid "<b>To‘lov qabul qilganda:</b> naqd pul yoki karta (%(cards)s) — kuryerda terminal bor. Avval mahsulotni ko‘rib, tekshirib olasiz."
+msgstr "<b>Оплата при получении:</b> наличными или картой (%(cards)s) — у курьера есть терминал. Сначала осмотрите и проверьте товар."
+
+#: templates/shop/brands.html
+msgid "Soat brendlari: Casio, Seiko, Citizen, Orient, Tissot, Hamilton, Longines, Rolex, Omega va boshqalar. O‘zbekiston bo‘ylab bepul yetkazib berish."
+msgstr "Бренды часов: Casio, Seiko, Citizen, Orient, Tissot, Hamilton, Longines, Rolex, Omega и другие. Бесплатная доставка по Узбекистану."
+
+#: templates/shop/brands.html
+msgid "Harf bo‘yicha"
+msgstr "По буквам"
+
+#: templates/shop/brands.html
+#, python-format
+msgid "%(n)s ta brend — Shveytsariya va Yaponiya klassikasidan zamonaviy smart soatlargacha. Barcha soatlar rasmiy kafolat bilan."
+msgid_plural "%(n)s ta brend — Shveytsariya va Yaponiya klassikasidan zamonaviy smart soatlargacha. Barcha soatlar rasmiy kafolat bilan."
+msgstr[0] "%(n)s бренд — от швейцарской и японской классики до современных смарт-часов. Все часы с официальной гарантией."
+msgstr[1] "%(n)s бренда — от швейцарской и японской классики до современных смарт-часов. Все часы с официальной гарантией."
+msgstr[2] "%(n)s брендов — от швейцарской и японской классики до современных смарт-часов. Все часы с официальной гарантией."
+
+#: templates/shop/brands.html
+#: templates/shop/home.html
+#, python-format
+msgid "%(n)s ta model"
+msgid_plural "%(n)s ta model"
+msgstr[0] "%(n)s модель"
+msgstr[1] "%(n)s модели"
+msgstr[2] "%(n)s моделей"
+
+#: templates/shop/catalog.html
+msgid "O‘zbekiston bo‘ylab bepul yetkazib berish, naqd yoki karta orqali to‘lov."
+msgstr "Бесплатная доставка по Узбекистану, оплата наличными или картой."
+
+#: templates/shop/catalog.html
+#: templates/shop/home.html
+msgid "Aksiya tugashiga qolgan vaqt"
+msgstr "До конца акции осталось"
+
+#: templates/shop/catalog.html
+#: templates/shop/catalog.html
+msgid "Filtrlar"
+msgstr "Фильтры"
+
+#: templates/shop/catalog.html
+msgid "Tasma filtri"
+msgstr "Фильтр ремешков"
+
+#: templates/shop/catalog.html
+msgid "Narx, so‘m"
+msgstr "Цена, сум"
+
+#: templates/shop/catalog.html
+msgid "dan"
+msgstr "от"
+
+#: templates/shop/catalog.html
+msgid "gacha"
+msgstr "до"
+
+#: templates/shop/catalog.html
+msgid "Eng kam narx"
+msgstr "Минимальная цена"
+
+#: templates/shop/catalog.html
+msgid "Eng ko‘p narx"
+msgstr "Максимальная цена"
+
+#: templates/shop/catalog.html
+msgid "Qidirish…"
+msgstr "Поиск…"
+
+#: templates/shop/catalog.html
+msgid "Muhim emas"
+msgstr "Не важно"
+
+#: templates/shop/catalog.html
+msgid "Kenglikni qanday bilaman?"
+msgstr "Как узнать ширину?"
+
+#: templates/shop/catalog.html
+msgid "Soat sahifasida «Tasma kengligi» yozilgan. Yoki korpusdagi ikki shpilka orasini millimetrda o‘lchang."
+msgstr "Она указана на странице часов в строке «Ширина ремешка». Или измерьте в миллиметрах расстояние между двумя шпильками на корпусе."
+
+#: templates/shop/catalog.html
+msgid "Tozalash"
+msgstr "Сбросить"
+
+#: templates/shop/catalog.html
+msgid "Ko‘rsatish"
+msgstr "Показать"
+
+#: templates/shop/catalog.html
+msgid "Filtr"
+msgstr "Фильтр"
+
+#: templates/shop/catalog.html
+msgid "Saralash"
+msgstr "Сортировка"
+
+#: templates/shop/catalog.html
+msgid "Hammasini tozalash"
+msgstr "Сбросить всё"
+
+#: templates/shop/catalog.html
+msgid "Tasmalar ro‘yxati"
+msgstr "Список ремешков"
+
+#: templates/shop/catalog.html
+msgid "Soatlar ro‘yxati"
+msgstr "Список часов"
+
+#: templates/shop/catalog.html
+msgid "Bunday tasma topilmadi"
+msgstr "Такой ремешок не найден"
+
+#: templates/shop/catalog.html
+msgid "Bunday soat topilmadi"
+msgstr "Такие часы не найдены"
+
+#: templates/shop/catalog.html
+msgid "Filtrlarni kamaytirib ko‘ring yoki butun katalogni ko‘ring."
+msgstr "Попробуйте убрать часть фильтров или посмотрите весь каталог."
+
+#: templates/shop/catalog.html
+msgid "Filtrlarni tozalash"
+msgstr "Сбросить фильтры"
+
+#: templates/shop/catalog.html
+#, python-format
+msgid "%(title)s: %(n)s ta tasma"
+msgstr "%(title)s: ремешков — %(n)s"
+
+#: templates/shop/catalog.html
+#, python-format
+msgid "%(title)s: %(n)s ta model"
+msgstr "%(title)s: моделей — %(n)s"
+
+#: templates/shop/catalog.html
+#, python-format
+msgid "%(label)s bo‘yicha qidirish"
+msgstr "Поиск: %(label)s"
+
+#: templates/shop/catalog.html
+#, python-format
+msgid "Yana %(n)s ta"
+msgstr "Ещё %(n)s"
+
+#: templates/shop/catalog.html
+#, python-format
+msgid "<b data-result-count>%(n)s</b> ta tasma"
+msgid_plural "<b data-result-count>%(n)s</b> ta tasma"
+msgstr[0] "<b data-result-count>%(n)s</b> ремешок"
+msgstr[1] "<b data-result-count>%(n)s</b> ремешка"
+msgstr[2] "<b data-result-count>%(n)s</b> ремешков"
+
+#: templates/shop/catalog.html
+#, python-format
+msgid "<b data-result-count>%(n)s</b> ta soat"
+msgid_plural "<b data-result-count>%(n)s</b> ta soat"
+msgstr[0] "<b data-result-count>%(n)s</b> модель"
+msgstr[1] "<b data-result-count>%(n)s</b> модели"
+msgstr[2] "<b data-result-count>%(n)s</b> моделей"
+
+#: templates/shop/home.html
+msgid "Kuz — qish 2026 kolleksiyasi"
+msgstr "Коллекция осень — зима 2026"
+
+#: templates/shop/home.html
+msgid "Katalogni ko‘rish"
+msgstr "Смотреть каталог"
+
+#: templates/shop/home.html
+msgid "Aksiyalar"
+msgstr "Акции"
+
+#: templates/shop/home.html
+msgid "soat turi"
+msgstr "типов часов"
+
+#: templates/shop/home.html
+msgid "brend"
+msgstr "брендов"
+
+#: templates/shop/home.html
+msgid "yetkazib berish"
+msgstr "доставка"
+
+#: templates/shop/home.html
+msgid "Toshkent vaqti"
+msgstr "Время в Ташкенте"
+
+#: templates/shop/home.html
+msgid "Afzalliklar"
+msgstr "Преимущества"
+
+#: templates/shop/home.html
+msgid "Toshkentda 1 kunda, viloyatlarga 2–4 kunda"
+msgstr "По Ташкенту за 1 день, в области за 2–4 дня"
+
+#: templates/shop/home.html
+msgid "Har bir soatga kafolat taloni"
+msgstr "Гарантийный талон к каждым часам"
+
+#: templates/shop/home.html
+msgid "Bepul, buyurtmada belgilang"
+msgstr "Бесплатно, отметьте при заказе"
+
+#: templates/shop/home.html
+msgid "Turlar"
+msgstr "Типы"
+
+#: templates/shop/home.html
+msgid "Har qanday soat"
+msgstr "Любые часы"
+
+#: templates/shop/home.html
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Hammasi"
+msgstr "Все"
+
+#: templates/shop/home.html
+msgid "Aksiya · Skidka"
+msgstr "Акция · Скидки"
+
+#: templates/shop/home.html
+msgid "Chegirmalar oy oxirigacha"
+msgstr "Скидки до конца месяца"
+
+#: templates/shop/home.html
+msgid "Barcha aksiyalar"
+msgstr "Все акции"
+
+#: templates/shop/home.html
+msgid "«Unique» belgisi — bu soat har qanday bilakka yarashadi degani. Neytral dizayn, 35–42 mm o‘lcham, ortiqcha bezaksiz siferblat. Juftlik uchun bir xil soat yoki kimga sovg‘a qilishni bilmay turganingizda — eng to‘g‘ri tanlov."
+msgstr "Знак «Unique» означает, что эти часы подойдут к любому запястью. Нейтральный дизайн, размер 35–42 мм, циферблат без лишних украшений. Одинаковые часы для пары или подарок, когда не знаете, кому именно, — самый верный выбор."
+
+#: templates/shop/home.html
+msgid "Universal korpus o‘lchami"
+msgstr "Универсальный размер корпуса"
+
+#: templates/shop/home.html
+msgid "Tasmani almashtirish oson"
+msgstr "Ремешок легко заменить"
+
+#: templates/shop/home.html
+msgid "Juftlik sovg‘asi uchun ideal"
+msgstr "Идеальный подарок для пары"
+
+#: templates/shop/home.html
+msgid "Unique kolleksiyasi"
+msgstr "Коллекция Unique"
+
+#: templates/shop/home.html
+msgid "Yaqinda keldi"
+msgstr "Недавно поступили"
+
+#: templates/shop/home.html
+msgid "Barcha yangiliklar"
+msgstr "Все новинки"
+
+#: templates/shop/home.html
+msgid "O‘zingizga yoki sovg‘aga"
+msgstr "Для себя или в подарок"
+
+#: templates/shop/home.html
+msgid "Sport, g‘avvos, xronograf"
+msgstr "Спортивные, дайверские, хронографы"
+
+#: templates/shop/home.html
+msgid "Nafis va ixcham"
+msgstr "Изящные и компактные"
+
+#: templates/shop/home.html
+msgid "Erkak va ayolga"
+msgstr "Мужчинам и женщинам"
+
+#: templates/shop/home.html
+msgid "Yorqin va yengil"
+msgstr "Яркие и лёгкие"
+
+#: templates/shop/home.html
+msgid "Devor, stol, budilnik"
+msgstr "Настенные, настольные, будильники"
+
+#: templates/shop/home.html
+msgid "Xitlar"
+msgstr "Хиты"
+
+#: templates/shop/home.html
+msgid "Ko‘p tanlanadi"
+msgstr "Часто выбирают"
+
+#: templates/shop/home.html
+msgid "Soatingizga yangi tasma"
+msgstr "Новый ремешок для ваших часов"
+
+#: templates/shop/home.html
+msgid "Charm, silikon, neylon, Milan to‘ri va metall braslet. Kenglikni tanlang — qolganini filtr o‘zi saralaydi. Yetkazib berish bepul."
+msgstr "Кожа, силикон, нейлон, миланская сетка и металлический браслет. Выберите ширину — остальное отсортирует фильтр. Доставка бесплатно."
+
+#: templates/shop/home.html
+msgid "Kenglik bo‘yicha"
+msgstr "По ширине"
+
+#: templates/shop/home.html
+msgid "Barcha tasmalar"
+msgstr "Все ремешки"
+
+#: templates/shop/home.html
+msgid "O‘zbekiston bo‘ylab — bepul"
+msgstr "По всему Узбекистану — бесплатно"
+
+#: templates/shop/home.html
+msgid "Batafsil"
+msgstr "Подробнее"
+
+#: templates/shop/home.html
+msgid "Barcha brendlar"
+msgstr "Все бренды"
+
+#: templates/shop/home.html
+msgid "Vaqt — eng nafis <em>aksessuar</em>"
+msgstr "Время — самый изящный <em>аксессуар</em>"
+
+#: templates/shop/home.html
+#, python-format
+msgid "Mexanik va avtomatik, smart va elektron, cho‘ntak, devor va stol soatlari — %(types)s turdagi %(n)s ta model bir joyda. O‘zbekiston bo‘ylab yetkazib berish bepul."
+msgstr "Механические и автоматические, смарт и электронные, карманные, настенные и настольные часы — %(n)s моделей %(types)s типов в одном месте. Доставка по Узбекистану бесплатно."
+
+#: templates/shop/home.html
+#: templates/shop/strap_detail.html
+#, python-format
+msgid "Qabul qilganda to‘laysiz: %(cards)s"
+msgstr "Оплата при получении: %(cards)s"
+
+#: templates/shop/home.html
+msgid "Buyurtmangizni istalgan viloyatga bepul yetkazamiz. Soatni ko‘rib, tekshirib, keyin to‘laysiz: <b>naqd pul</b> yoki <b>karta orqali</b> — kuryerda terminal bor."
+msgstr "Доставим заказ в любую область бесплатно. Сначала осмотрите и проверьте часы, потом платите: <b>наличными</b> или <b>картой</b> — у курьера есть терминал."
+
+#: templates/shop/home.html
+#, python-format
+msgid "%(n)s ta brend"
+msgid_plural "%(n)s ta brend"
+msgstr[0] "%(n)s бренд"
+msgstr[1] "%(n)s бренда"
+msgstr[2] "%(n)s брендов"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "O‘zbekiston bo‘ylab bepul yetkazib berish."
+msgstr "Бесплатная доставка по Узбекистану."
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Kattalashtirish uchun sichqonchani rasm ustiga olib boring"
+msgstr "Наведите курсор на фото, чтобы увеличить"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Sotuvda bor"
+msgstr "В наличии"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Hozircha tugagan — tez orada keladi"
+msgstr "Временно нет в наличии — скоро поступит"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Soni"
+msgstr "Количество"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Kelganda xabar berish"
+msgstr "Сообщить о поступлении"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Savatchada bor"
+msgstr "Уже в корзине"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "ko‘rish"
+msgstr "смотреть"
+
+#: templates/shop/strap_detail.html
+msgid "Apple Watch ulagichi bilan — asbobsiz, bir necha soniyada taqiladi."
+msgstr "С разъёмом Apple Watch — надевается без инструментов за несколько секунд."
+
+#: templates/shop/strap_detail.html
+msgid "Tez yechiladigan shpilkalar bilan — asbobsiz almashtiriladi."
+msgstr "С быстросъёмными шпильками — меняется без инструментов."
+
+#: templates/shop/strap_detail.html
+msgid "Oddiy shpilkalar bilan — to‘plamdagi asbob bilan almashtiriladi."
+msgstr "С обычными шпильками — меняется инструментом из комплекта."
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "O‘zbekiston bo‘ylab — 0 so‘m."
+msgstr "По всему Узбекистану — 0 сум."
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Muddati:"
+msgstr "Срок:"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Viloyatingizni tanlang"
+msgstr "Выберите вашу область"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Naqd yoki karta orqali"
+msgstr "Наличными или картой"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Taqilmagan va qadog‘i buzilmagan bo‘lsa"
+msgstr "Если не носили и упаковка цела"
+
+#: templates/shop/strap_detail.html
+msgid "Tasma haqida"
+msgstr "О ремешке"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Xususiyatlari"
+msgstr "Характеристики"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+msgid "Tavsif"
+msgstr "Описание"
+
+#: templates/shop/strap_detail.html
+msgid "Moslik"
+msgstr "Совместимость"
+
+#: templates/shop/strap_detail.html
+msgid "Bu tasma mos keladigan soatlar"
+msgstr "Часы, к которым подойдёт этот ремешок"
+
+#: templates/shop/strap_detail.html
+msgid "Boshqa tasmalar"
+msgstr "Другие ремешки"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+#, python-format
+msgid "−%(p)s%% · tejaysiz %(sum)s"
+msgstr "−%(p)s%% · экономия %(sum)s"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+#, python-format
+msgid "Oxirgi %(n)s dona qoldi"
+msgstr "Осталось всего %(n)s шт."
+
+#: templates/shop/strap_detail.html
+#, python-format
+msgid "Qaysi soatga: %(fit)s"
+msgstr "Для каких часов: %(fit)s"
+
+#: templates/shop/strap_detail.html
+#, python-format
+msgid "Qaysi soatga: tasma kengligi %(w)s mm bo‘lgan soatlarga"
+msgstr "Для каких часов: с шириной ремешка %(w)s мм"
+
+#: templates/shop/strap_detail.html
+#: templates/shop/watch_detail.html
+#, python-format
+msgid "%(n)s kun ichida qaytarish"
+msgstr "Возврат в течение %(n)s дней"
+
+#: templates/shop/watch_detail.html
+msgid "Sevimlilarga qo‘shish"
+msgstr "Добавить в избранное"
+
+#: templates/shop/watch_detail.html
+msgid "Apple Watch tasmalari mos keladi"
+msgstr "Подходят ремешки Apple Watch"
+
+#: templates/shop/watch_detail.html
+msgid "Almashtirish uchun mos tasmalar alohida sotiladi."
+msgstr "Подходящие ремешки для замены продаются отдельно."
+
+#: templates/shop/watch_detail.html
+msgid "Mos tasmalarni ko‘rish"
+msgstr "Смотреть подходящие ремешки"
+
+#: templates/shop/watch_detail.html
+msgid "Rasmiy kafolat taloni va servis"
+msgstr "Официальный гарантийный талон и сервис"
+
+#: templates/shop/watch_detail.html
+msgid "Sovg‘a qutisi bepul"
+msgstr "Подарочная коробка бесплатно"
+
+#: templates/shop/watch_detail.html
+msgid "Rasmiylashtirishda belgilang"
+msgstr "Отметьте при оформлении"
+
+#: templates/shop/watch_detail.html
+msgid "Soat haqida"
+msgstr "О часах"
+
+#: templates/shop/watch_detail.html
+msgid "Shu soatga mos tasmalar"
+msgstr "Ремешки для этих часов"
+
+#: templates/shop/watch_detail.html
+msgid "O‘xshash soatlar"
+msgstr "Похожие часы"
+
+#: templates/shop/watch_detail.html
+msgid "Tarix"
+msgstr "История"
+
+#: templates/shop/watch_detail.html
+msgid "Yaqinda ko‘rganlaringiz"
+msgstr "Вы недавно смотрели"
+
+#: templates/shop/watch_detail.html
+#, python-format
+msgid "<b>Erkak va ayolga birdek mos.</b> Neytral dizayn va %(size)s mm korpus har qanday bilakka yarashadi — juftlik soati yoki sovg‘a uchun ideal tanlov."
+msgstr "<b>Одинаково подходят мужчинам и женщинам.</b> Нейтральный дизайн и корпус %(size)s мм смотрятся на любом запястье — идеальный выбор для парных часов или подарка."
+
+#: templates/shop/watch_detail.html
+#, python-format
+msgid "Tasma kengligi — %(w)s mm"
+msgstr "Ширина ремешка — %(w)s мм"
+
+#: templates/shop/watch_detail.html
+#, python-format
+msgid "Soatni ko‘rib, keyin to‘laysiz: %(cards)s"
+msgstr "Сначала осмотрите часы, потом платите: %(cards)s"
+
+#: templates/shop/watch_detail.html
+#, python-format
+msgid "Kafolat — %(n)s oy"
+msgstr "Гарантия — %(n)s мес."
+
+#: templates/shop/wishlist.html
+msgid "Saqlangan soatlar"
+msgstr "Сохранённые часы"
+
+#: templates/shop/wishlist.html
+msgid "Hozircha bo‘sh"
+msgstr "Пока пусто"
+
+#: templates/shop/wishlist.html
+msgid "Soat kartochkasidagi yurakchani bosing — u shu yerda saqlanadi va keyin osongina topasiz."
+msgstr "Нажмите на сердечко на карточке часов — они сохранятся здесь, и вы легко найдёте их позже."
+
+#: templates/shop/wishlist.html
+#, python-format
+msgid "Yoqqan soatlaringiz shu yerda saqlanadi — %(n)s ta."
+msgid_plural "Yoqqan soatlaringiz shu yerda saqlanadi — %(n)s ta."
+msgstr[0] "Понравившиеся часы сохраняются здесь — %(n)s шт."
+msgstr[1] "Понравившиеся часы сохраняются здесь — %(n)s шт."
+msgstr[2] "Понравившиеся часы сохраняются здесь — %(n)s шт."

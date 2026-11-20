@@ -1,0 +1,17 @@
+{% if page.paginator.num_pages > 1 %}
+<nav class="pagination" aria-label="{% translate 'Sahifalar' %}">
+  {% if page.has_previous %}
+    <a class="pagination__arrow" href="{% url_with sahifa=page.previous_page_number %}" aria-label="{% translate 'Oldingi sahifa' %}"><svg class="i"><use href="#i-arrow-left"/></svg></a>
+  {% endif %}
+  {% for n in page.paginator.page_range %}
+    {% if n == page.number %}
+      <span class="is-current" aria-current="page">{{ n }}</span>
+    {% else %}
+      <a href="{% url_with sahifa=n %}">{{ n }}</a>
+    {% endif %}
+  {% endfor %}
+  {% if page.has_next %}
+    <a class="pagination__arrow" href="{% url_with sahifa=page.next_page_number %}" aria-label="{% translate 'Keyingi sahifa' %}"><svg class="i"><use href="#i-arrow"/></svg></a>
+  {% endif %}
+</nav>
+{% endif %}

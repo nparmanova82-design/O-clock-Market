@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block title %}{{ strap }} — {{ strap.price|som }} — {{ site.name }}{% endblock %}
+{% block description %}{{ strap }}: {{ strap.fit_label }}, {{ strap.short_specs|lower }}. {{ strap.price|som }}, {% translate "O‘zbekiston bo‘ylab bepul yetkazib berish." %}{% endblock %}
+{% block og_type %}product{% endblock %}
+{% block og_image %}{% if strap.image %}<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ strap.image.url }}">{% endif %}{% endblock %}
+{% block body_class %}page-watch page-strap{% endblock %}
+
+{% block content %}
+<div class="container">
+  <nav class="crumbs page-head" aria-label="{% translate 'Yo‘l' %}" style="padding-bottom: 6px;">
+    <a href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a><span>/</span>
+    <a href="{% url 'shop:straps' %}">{% translate "Tasmalar" %}</a><span>/</span>
+    <span aria-current="page">{{ strap.local_name }}</span>
+  </nav>
+
+  <div class="pdp pdp--strap">
+    <div class="pdp__gallery">
+      <div class="pdp__media" data-zoom>
+        <img src="{{ strap.image_url }}" alt="{{ strap }}" width="800" height="800">
+        <div class="card__badges">
+          {% if strap.is_sale %}<span class="badge badge--sale">−{{ strap.discount_percent }}%</span>{% endif %}
+          {% if strap.is_new %}<span class="badge badge--new">{% translate "Yangi" %}</span>{% endif %}
+          {% if strap.is_hit %}<span class="badge badge--hit">{% translate "Xit" %}</span>{% endif %}
+        </div>
+      </div>
+      <p class="pdp__hint">{% translate "Kattalashtirish uchun sichqonchani rasm ustiga olib boring" %}</p>
+    </div>
+
+    <div class="pdp__info">
+      <div>
+        <a class="pdp__brand" href="{% url 'shop:straps' %}?brend={{ strap.brand.slug }}">{{ strap.brand.name }}{% if strap.brand.local_country %} · {{ strap.brand.local_country }}{% endif %}</a>
+        <h1 class="pdp__title"><span class="sr-only">{{ strap.brand.name }} </span>{{ strap.local_name }}</h1>
+        <div class="pdp__meta">
+          <span>{{ strap.fit_label }}</span>
+          <span>{{ strap.short_specs }}</span>
+          {% if strap.sku %}<span>{% translate "Artikul" %}: {{ strap.sku }}</span>{% endif %}
+        </div>
+      </div>
+
+      <div class="pdp__price">
+        <span class="price__now{% if strap.is_sale %} is-sale{% endif %}">{{ strap.price|som }}</span>
+        {% if strap.is_sale %}
+          <s class="price__old"><span class="sr-only">{% translate "Eski narx:" %} </span>{{ strap.old_price|som }}</s>
+          <span class="pdp__save">{% blocktranslate trimmed with p=strap.discount_percent sum=strap.saving|som %}−{{ p }}% · tejaysiz {{ sum }}{% endblocktranslate %}</span>
+        {% endif %}
+      </div>
+
+      {% if strap.stock > 3 %}
+        <span class="stock">{% translate "Sotuvda bor" %}</span>
+      {% elif strap.in_stock %}
+        <span class="stock stock--low">{% blocktranslate trimmed with n=strap.stock %}Oxirgi {{ n }} dona qoldi{% endblocktranslate %}</span>
+      {% else %}
+        <span class="stock stock--out">{% translate "Hozircha tugagan — tez orada keladi" %}</span>
+      {% endif %}
+
+      <div class="buy">
+        {% if strap.in_stock %}
+          <form class="buy__form" method="post" action="{% url 'orders:cart_add_strap' strap.pk %}" data-cart-form>
+            {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+            <div class="qty" data-qty>
+              <button type="button" data-step="-1" aria-label="{% translate 'Kamaytirish' %}"><svg class="i"><use href="#i-minus"/></svg></button>
+              <input type="number" name="quantity" value="1" min="1" max="{{ strap.stock }}" aria-label="{% translate 'Soni' %}">
+              <button type="button" data-step="1" aria-label="{% translate 'Ko‘paytirish' %}"><svg class="i"><use href="#i-plus"/></svg></button>
+            </div>
+            <button class="btn btn--dark" type="submit"><svg class="i"><use href="#i-bag-plus"/></svg> {% translate "Savatchaga" %}</button>
+          </form>
+        {% else %}
+          <a class="btn btn--ghost" href="tel:{{ site.phone_raw }}"><svg class="i"><use href="#i-phone"/></svg> {% translate "Kelganda xabar berish" %}</a>
+        {% endif %}
+      </div>
+      <p class="buy__incart" data-incart{% if not in_cart %} hidden{% endif %}><svg class="i" style="vertical-align:-4px"><use href="#i-check"/></svg> {% translate "Savatchada bor" %} — <a href="{% url 'orders:cart' %}" data-open="cart">{% translate "ko‘rish" %}</a></p>
+
+      <div class="fit-box">
+        <svg class="i"><use href="#i-strap"/></svg>
+        <div>
+          {% if strap.is_apple %}
+            <b>{% blocktranslate trimmed with fit=strap.get_fit_display %}Qaysi soatga: {{ fit }}{% endblocktranslate %}</b>
+            <span>{% translate "Apple Watch ulagichi bilan — asbobsiz, bir necha soniyada taqiladi." %}</span>
+          {% else %}
+            <b>{% blocktranslate trimmed with w=strap.width %}Qaysi soatga: tasma kengligi {{ w }} mm bo‘lgan soatlarga{% endblocktranslate %}</b>
+            <span>{% if strap.fit == "quick" %}{% translate "Tez yechiladigan shpilkalar bilan — asbobsiz almashtiriladi." %}{% else %}{% translate "Oddiy shpilkalar bilan — to‘plamdagi asbob bilan almashtiriladi." %}{% endif %}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <ul class="pdp__perks">
+        <li>
+          <svg class="i"><use href="#i-truck"/></svg>
+          <div>
+            <b>{% translate "Bepul yetkazib berish" %}</b>
+            <span>{% translate "O‘zbekiston bo‘ylab — 0 so‘m." %} <span id="pdp-eta" hidden>{% translate "Muddati:" %} <b data-days></b></span></span>
+            <select data-region-days="#pdp-eta" aria-label="{% translate 'Viloyatingizni tanlang' %}">
+              {% for key, label in regions %}<option value="{{ key }}">{{ label }}</option>{% endfor %}
+            </select>
+          </div>
+        </li>
+        <li>
+          <svg class="i"><use href="#i-cash"/></svg>
+          <div><b>{% translate "Naqd yoki karta orqali" %}</b><span>{% blocktranslate trimmed with cards=site.cards|join:", " %}Qabul qilganda to‘laysiz: {{ cards }}{% endblocktranslate %}</span></div>
+        </li>
+        <li>
+          <svg class="i"><use href="#i-return"/></svg>
+          <div><b>{% blocktranslate trimmed with n=site.return_days %}{{ n }} kun ichida qaytarish{% endblocktranslate %}</b><span>{% translate "Taqilmagan va qadog‘i buzilmagan bo‘lsa" %}</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="pdp-tabs" data-tabs>
+    <div class="tabs" role="tablist" aria-label="{% translate 'Tasma haqida' %}">
+      <button type="button" role="tab" id="tab-specs" aria-controls="panel-specs" aria-selected="true">{% translate "Xususiyatlari" %}</button>
+      <button type="button" role="tab" id="tab-desc" aria-controls="panel-desc" aria-selected="false" tabindex="-1">{% translate "Tavsif" %}</button>
+      <button type="button" role="tab" id="tab-pay" aria-controls="panel-pay" aria-selected="false" tabindex="-1">{% translate "Yetkazib berish va to‘lov" %}</button>
+    </div>
+    <div class="tab-panel" id="panel-specs" role="tabpanel" aria-labelledby="tab-specs">
+      <dl class="specs">
+        {% for k, v in specs %}<div><dt>{{ k }}</dt><dd>{{ v }}</dd></div>{% endfor %}
+      </dl>
+    </div>
+    <div class="tab-panel" id="panel-desc" role="tabpanel" aria-labelledby="tab-desc" hidden>
+      <div class="prose">
+        {% if strap.local_description %}{{ strap.local_description|linebreaks }}{% else %}<p>{{ strap }} — {{ strap.fit_label }}, {{ strap.short_specs|lower }}.</p>{% endif %}
+      </div>
+    </div>
+    <div class="tab-panel" id="panel-pay" role="tabpanel" aria-labelledby="tab-pay" hidden>
+      {% include "shop/_delivery_tab.html" %}
+    </div>
+  </section>
+
+  {% if fits_watches %}
+  <section class="section">
+    <div class="section__head">
+      <div><p class="eyebrow">{% translate "Moslik" %}</p><h2 class="section__title">{% translate "Bu tasma mos keladigan soatlar" %}</h2></div>
+    </div>
+    <div class="grid grid--4">{% for w in fits_watches %}{% include "includes/watch_card.html" %}{% endfor %}</div>
+  </section>
+  {% endif %}
+
+  {% if related %}
+  <section class="section">
+    <div class="section__head">
+      <div><p class="eyebrow">{{ strap.fit_label }}</p><h2 class="section__title">{% translate "Boshqa tasmalar" %}</h2></div>
+      <a class="link-arrow" href="{% url 'shop:straps' %}{% if strap.width %}?kenglik={{ strap.width }}{% else %}?moslik={{ strap.fit }}{% endif %}">{% translate "Hammasi" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="grid grid--4">{% for w in related %}{% include "includes/strap_card.html" %}{% endfor %}</div>
+  </section>
+  {% endif %}
+  <div style="height: 80px"></div>
+</div>
+{{ region_days|json_script:"region-days" }}
+{% endblock %}

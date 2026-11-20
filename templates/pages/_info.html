@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{% block page_title %}{% endblock %} — {{ site.name }}{% endblock %}
+{% block body_class %}page-info{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <nav class="crumbs" aria-label="{% translate 'Yo‘l' %}"><a href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a><span>/</span><span aria-current="page">{% block crumb %}{% endblock %}</span></nav>
+  <h1 class="page-title">{% block heading %}{% endblock %}</h1>
+  {% block lead %}{% endblock %}
+</section>
+
+<div class="container info">
+  {% with u=request.resolver_match.url_name %}
+  <nav class="info__nav" aria-label="{% translate 'Xaridorlarga' %}">
+    <a href="{% url 'shop:delivery' %}"{% if u == "delivery" %} class="is-current" aria-current="page"{% endif %}>{% translate "Yetkazib berish va to‘lov" %}</a>
+    <a href="{% url 'shop:warranty' %}"{% if u == "warranty" %} class="is-current" aria-current="page"{% endif %}>{% translate "Kafolat va qaytarish" %}</a>
+    <a href="{% url 'orders:track' %}">{% translate "Buyurtmani kuzatish" %}</a>
+    <a href="{% url 'shop:faq' %}"{% if u == "faq" %} class="is-current" aria-current="page"{% endif %}>{% translate "Savol-javob" %}</a>
+    <a href="{% url 'shop:about' %}"{% if u == "about" %} class="is-current" aria-current="page"{% endif %}>{% translate "Biz haqimizda" %}</a>
+    <a href="{% url 'shop:contacts' %}"{% if u == "contacts" %} class="is-current" aria-current="page"{% endif %}>{% translate "Aloqa" %}</a>
+  </nav>
+  {% endwith %}
+  <div class="info__body">
+    {% block body %}{% endblock %}
+  </div>
+</div>
+{% endblock %}

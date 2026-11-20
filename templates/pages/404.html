@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{% translate "Sahifa topilmadi" %} — {{ site.name }}{% endblock %}
+{% block content %}
+<section class="container notfound">
+  <svg class="clock404" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="92" fill="#fbf7ef" stroke="#1f1b16" stroke-width="3"/>
+    <g stroke="#1f1b16" stroke-width="3" stroke-linecap="round">
+      <path d="M100 18v12M182 100h-12M100 182v-12M18 100h12"/>
+    </g>
+    <g class="hand-h"><path d="M100 104V58" stroke="#1f1b16" stroke-width="6" stroke-linecap="round"/></g>
+    <g class="hand-m"><path d="M100 108V32" stroke="#1f1b16" stroke-width="3.5" stroke-linecap="round"/></g>
+    <circle cx="100" cy="100" r="6" fill="#a63a2c"/>
+  </svg>
+  <p class="eyebrow">{% translate "Xato 404" %}</p>
+  <h1>{% translate "Bu sahifa vaqtida yetib kelmadi" %}</h1>
+  <p>{% translate "Havola eskirgan yoki soat sotilib bo‘lgan bo‘lishi mumkin. Katalogdan boshqasini tanlang — vaqtingiz hali ko‘p." %}</p>
+  <div class="hero__cta">
+    <a class="btn btn--dark" href="{% url 'shop:catalog' %}">{% translate "Katalog" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn--ghost" href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a>
+  </div>
+</section>
+{% endblock %}

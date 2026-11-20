@@ -1,0 +1,32 @@
+<article class="card card--strap{% if not w.in_stock %} is-out{% endif %}">
+  <a class="card__media" href="{{ w.get_absolute_url }}" tabindex="-1" aria-hidden="true">
+    <img src="{{ w.image_url }}" alt="" width="400" height="400" loading="lazy" decoding="async">
+  </a>
+  <div class="card__badges">
+    {% if w.is_sale %}<span class="badge badge--sale">−{{ w.discount_percent }}%</span>{% endif %}
+    {% if w.is_new %}<span class="badge badge--new">{% translate "Yangi" %}</span>{% endif %}
+    {% if w.is_hit %}<span class="badge badge--hit">{% translate "Xit" %}</span>{% endif %}
+  </div>
+  <div class="card__body">
+    <p class="card__brand">{{ w.brand.name }}</p>
+    <h3 class="card__title"><a href="{{ w.get_absolute_url }}">{{ w.local_name }}</a></h3>
+    <p class="card__specs">{{ w.short_specs }}</p>
+    <span class="card__fit"><svg class="i"><use href="#i-strap"/></svg>{% if w.is_apple %}{{ w.get_fit_display }}{% else %}{{ w.width }} mm{% endif %}</span>
+    <div class="card__foot">
+      <div class="price">
+        {% if w.is_sale %}<s class="price__old"><span class="sr-only">{% translate "Eski narx:" %} </span>{{ w.old_price|num }}</s>{% endif %}
+        <span class="price__now{% if w.is_sale %} is-sale{% endif %}">{{ w.price|som }}</span>
+      </div>
+      {% if w.in_stock %}
+        <form method="post" action="{% url 'orders:cart_add_strap' w.pk %}" data-cart-form>
+          {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <button class="add-btn" type="submit" aria-label="{% blocktranslate trimmed with name=w %}Savatchaga qo‘shish: {{ name }}{% endblocktranslate %}" title="{% translate 'Savatchaga' %}">
+            <svg class="i"><use href="#i-bag-plus"/></svg>
+          </button>
+        </form>
+      {% else %}
+        <span class="card__out">{% translate "Tugagan" %}</span>
+      {% endif %}
+    </div>
+  </div>
+</article>

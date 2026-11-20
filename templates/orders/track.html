@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}{% translate "Buyurtmani kuzatish" %} — {{ site.name }}{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% endblock %}
+{% block body_class %}page-track{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <nav class="crumbs" aria-label="{% translate 'Yo‘l' %}"><a href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a><span>/</span><span aria-current="page">{% translate "Buyurtmani kuzatish" %}</span></nav>
+  <h1 class="page-title">{% translate "Buyurtmani kuzatish" %}</h1>
+  <p class="page-lead">{% translate "Buyurtma raqami va telefoningizni kiriting — holatini ko‘rasiz." %}</p>
+</section>
+
+<div class="container track">
+  <form class="form-card" method="get" novalidate>
+    <div class="fields" style="grid-template-columns: 1fr;">
+      {% include "orders/_field.html" with field=form.number %}
+      {% include "orders/_field.html" with field=form.phone %}
+    </div>
+    <button class="btn btn--dark btn--block" type="submit">{% translate "Tekshirish" %}</button>
+  </form>
+
+  <div class="form-card">
+    {% if order %}
+      <h2 class="form-card__title">{{ order }}</h2>
+      <p class="muted" style="margin: -12px 0 18px;">{{ order.created_at|date:"d.m.Y, H:i" }} · {% blocktranslate trimmed count n=order.items_count %}{{ n }} ta mahsulot{% plural %}{{ n }} ta mahsulot{% endblocktranslate %} · {{ order.total|som }}</p>
+      {% if order.status == "cancelled" %}
+        <p class="status-cancel">{% blocktranslate trimmed with phone=site.phone %}Buyurtma bekor qilingan. Savollar bo‘lsa, {{ phone }} raqamiga qo‘ng‘iroq qiling.{% endblocktranslate %}</p>
+      {% else %}
+        <ol class="steps" style="padding: 0; list-style: none;">
+          {% for key, label in steps %}
+            <li class="step{% if forloop.counter0 <= order.status_step %} is-done{% endif %}{% if forloop.counter0 == order.status_step %} is-current{% endif %}">
+              <span class="step__dot">{% if forloop.counter0 <= order.status_step %}<svg class="i"><use href="#i-check"/></svg>{% else %}{{ forloop.counter }}{% endif %}</span>
+              {{ label }}
+            </li>
+          {% endfor %}
+        </ol>
+      {% endif %}
+      <dl class="specs" style="grid-template-columns: 1fr;">
+        <div><dt>{% translate "Qabul qiluvchi" %}</dt><dd>{{ order.full_name }}</dd></div>
+        <div><dt>{% translate "Manzil" %}</dt><dd>{{ order.get_region_display }}, {{ order.city }}, {{ order.address }}</dd></div>
+        <div><dt>{% translate "Yetkazib berish" %}</dt><dd>{% translate "Bepul" %} · {{ order.delivery_days }}</dd></div>
+        <div><dt>{% translate "To‘lov" %}</dt><dd>{{ order.get_payment_display }}</dd></div>
+        {% for item in order.items.all %}<div><dt>{{ item.title }} × {{ item.quantity }}</dt><dd>{{ item.total|som }}</dd></div>{% endfor %}
+        <div><dt>{% translate "Jami" %}</dt><dd>{{ order.total|som }}</dd></div>
+      </dl>
+    {% elif searched %}
+      <div class="track__empty">
+        <svg class="i"><use href="#i-box"/></svg>
+        <h2>{% translate "Buyurtma topilmadi" %}</h2>
+        <p>{% translate "Raqam va telefonni tekshirib ko‘ring. Yordam kerak bo‘lsa:" %} <a href="tel:{{ site.phone_raw }}">{{ site.phone }}</a></p>
+      </div>
+    {% else %}
+      <div class="track__empty">
+        <svg class="i"><use href="#i-box"/></svg>
+        <h2>{% translate "Holat shu yerda chiqadi" %}</h2>
+        <p>{% translate "Buyurtma raqami buyurtma berilgandan keyin ekranda ko‘rsatiladi: masalan, OC-261115-1234." %}</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

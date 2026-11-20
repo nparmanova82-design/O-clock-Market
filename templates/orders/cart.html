@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}{% translate "Savatcha" %} — {{ site.name }}{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% endblock %}
+{% block body_class %}page-cart{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <nav class="crumbs" aria-label="{% translate 'Yo‘l' %}"><a href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a><span>/</span><span aria-current="page">{% translate "Savatcha" %}</span></nav>
+  <h1 class="page-title">{% translate "Savatcha" %}</h1>
+</section>
+
+<div class="container" data-cart-page>
+  <div data-swap="cart">
+  {% if cart.lines %}
+    <div class="cart-page">
+      <div class="lines">
+        {% for line in cart.lines %}{% with w=line.item %}
+          <div class="line">
+            <a class="line__img" href="{{ w.get_absolute_url }}" tabindex="-1" aria-hidden="true"><img src="{{ w.image_url }}" alt="" width="104" height="104"></a>
+            <div class="line__info">
+              <p class="card__brand">{{ w.brand.name }}</p>
+              <a class="line__title" href="{{ w.get_absolute_url }}">{% if w.kind == "strap" %}{{ w.local_name }}{% else %}{{ w.name }}{% endif %}</a>
+              <span class="line__meta">{% if w.kind == "strap" %}{{ w.fit_label }}{% else %}{{ w.short_specs }}{% endif %} · {{ line.price|som }}{% if w.is_unique %} · <span class="badge badge--unique badge--xs">Unique</span>{% endif %}</span>
+              {% if line.over_stock %}<span class="line__warn">{% blocktranslate trimmed with n=w.stock %}Omborda faqat {{ n }} dona bor{% endblocktranslate %}</span>{% elif w.stock <= 3 %}<span class="line__warn">{% blocktranslate trimmed with n=w.stock %}Oxirgi {{ n }} dona{% endblocktranslate %}</span>{% endif %}
+            </div>
+            {% include "orders/_line_qty.html" %}
+            <div class="line__total price">
+              {% if line.saving %}<s class="price__old"><span class="sr-only">{% translate "Eski narx:" %} </span>{{ w.old_price|mul:line.quantity|num }}</s>{% endif %}
+              <span class="price__now{% if line.saving %} is-sale{% endif %}">{{ line.total|som }}</span>
+            </div>
+            {% include "orders/_line_remove.html" %}
+          </div>
+        {% endwith %}{% endfor %}
+        <div class="lines__foot">
+          <a href="{% url 'shop:catalog' %}"><svg class="i"><use href="#i-arrow-left"/></svg> {% translate "Xaridni davom ettirish" %}</a>
+          <span class="muted">{% blocktranslate trimmed count n=cart|length %}{{ n }} ta mahsulot{% plural %}{{ n }} ta mahsulot{% endblocktranslate %}</span>
+        </div>
+      </div>
+
+      <aside class="summary" aria-label="{% translate 'Buyurtma summasi' %}">
+        <h2 class="summary__title">{% translate "Buyurtma" %}</h2>
+        <div class="summary__rows">
+          <div class="summary__row"><span>{% translate "Mahsulotlar" %} ({{ cart|length }})</span><span>{{ quote.subtotal|som }}</span></div>
+          {% if quote.discount %}<div class="summary__row summary__row--sale"><span>{% translate "Promokod" %} {{ promo.code }}</span><span>−{{ quote.discount|som }}</span></div>{% endif %}
+          <div class="summary__row summary__row--free"><span>{% translate "Yetkazib berish" %}</span><span>{% translate "Bepul" %}</span></div>
+        </div>
+
+        {% if promo %}
+          <div class="promo-applied">
+            <span><svg class="i" style="vertical-align:-4px"><use href="#i-check"/></svg> {{ promo.code }} · −{{ promo.percent }}%</span>
+            <form method="post" action="{% url 'orders:promo_remove' %}">{% csrf_token %}<button type="submit">{% translate "Bekor qilish" %}</button></form>
+          </div>
+          {% if quote.promo_note %}<p class="promo__note">{{ quote.promo_note }}</p>{% endif %}
+        {% else %}
+          <form class="promo" method="post" action="{% url 'orders:promo_apply' %}">
+            {% csrf_token %}
+            <input type="text" name="code" placeholder="{% translate 'Promokod' %}" aria-label="{% translate 'Promokod' %}" autocomplete="off">
+            <button class="btn btn--ghost" type="submit">{% translate "Qo‘llash" %}</button>
+          </form>
+          <p class="promo__hint">{% blocktranslate trimmed %}Birinchi xarid uchun: <b>OCLOCK10</b> — 10% chegirma{% endblocktranslate %}</p>
+        {% endif %}
+
+        <div class="summary__total"><span>{% translate "Jami" %}</span><b>{{ quote.total|som }}</b></div>
+        {% if cart.sale_saving %}<p class="summary__note" style="color: var(--sale)"><svg class="i"><use href="#i-percent"/></svg> {% blocktranslate trimmed with sum=cart.sale_saving|som %}Aksiya narxlari bilan {{ sum }} tejadingiz{% endblocktranslate %}</p>{% endif %}
+        <a class="btn btn--dark btn--block" href="{% url 'orders:checkout' %}">{% translate "Rasmiylashtirish" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+        <p class="summary__note"><svg class="i"><use href="#i-cash"/></svg> {% blocktranslate trimmed with cards=site.cards|join:", " %}To‘lov qabul qilganda: naqd yoki karta ({{ cards }}){% endblocktranslate %}</p>
+        <p class="summary__note"><svg class="i"><use href="#i-truck"/></svg> {% translate "O‘zbekiston bo‘ylab yetkazib berish bepul" %}</p>
+      </aside>
+    </div>
+  {% else %}
+    <div class="empty" style="margin-bottom: 80px;">
+      <svg class="i"><use href="#i-bag"/></svg>
+      <h2>{% translate "Savatcha bo‘sh" %}</h2>
+      <p>{% translate "Katalogdan o‘zingizga yoqqan soat yoki tasmani tanlang — yetkazib berish butun O‘zbekiston bo‘ylab bepul." %}</p>
+      <a class="btn btn--dark" href="{% url 'shop:catalog' %}">{% translate "Katalogga o‘tish" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}

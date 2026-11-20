@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}{% translate "Rasmiylashtirish" %} — {{ site.name }}{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% endblock %}
+{% block body_class %}page-checkout{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <nav class="crumbs" aria-label="{% translate 'Yo‘l' %}"><a href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a><span>/</span><a href="{% url 'orders:cart' %}">{% translate "Savatcha" %}</a><span>/</span><span aria-current="page">{% translate "Rasmiylashtirish" %}</span></nav>
+  <h1 class="page-title">{% translate "Rasmiylashtirish" %}</h1>
+  <p class="page-lead">{% translate "Uch qadam: kimga, qayerga va qanday to‘lov. Yetkazib berish — bepul." %}</p>
+</section>
+
+<div class="container">
+  <form class="checkout" method="post" novalidate>
+    {% csrf_token %}
+    <div>
+      {% if form.errors %}<div class="form-errors">{% translate "Iltimos, qizil bilan belgilangan maydonlarni to‘g‘rilang." %}</div>{% endif %}
+
+      <section class="form-card">
+        <h2 class="form-card__title"><span>1</span> {% translate "Qabul qiluvchi" %}</h2>
+        <div class="fields">
+          {% include "orders/_field.html" with field=form.full_name %}
+          {% include "orders/_field.html" with field=form.phone %}
+        </div>
+      </section>
+
+      <section class="form-card">
+        <h2 class="form-card__title"><span>2</span> {% translate "Yetkazib berish manzili" %}</h2>
+        <div class="fields">
+          {% include "orders/_field.html" with field=form.region %}
+          {% include "orders/_field.html" with field=form.city %}
+          {% include "orders/_field.html" with field=form.address full=True %}
+          {% include "orders/_field.html" with field=form.comment full=True %}
+        </div>
+        <div class="eta" id="eta" hidden><svg class="i"><use href="#i-truck"/></svg><span>{% translate "Bepul yetkazamiz — muddati" %} <b data-days></b></span></div>
+      </section>
+
+      <section class="form-card">
+        <h2 class="form-card__title"><span>3</span> {% translate "To‘lov usuli" %}</h2>
+        <div class="paychoice" role="radiogroup" aria-label="{% translate 'To‘lov usuli' %}">
+          {% for r in form.payment %}
+            <label>
+              {{ r.tag }}
+              <span class="paychoice__ui">
+                <svg class="i"><use href="#i-{% if r.data.value == 'card' %}card{% else %}cash{% endif %}"/></svg>
+                <b>{{ r.choice_label }}</b>
+                <small>{% if r.data.value == 'card' %}{% blocktranslate trimmed with cards=site.cards|join:", " %}{{ cards }} — kuryer terminali orqali{% endblocktranslate %}{% else %}{% translate "Kuryerga, mahsulotni ko‘rib bo‘lgach" %}{% endif %}</small>
+              </span>
+            </label>
+          {% endfor %}
+        </div>
+        {{ form.payment.errors }}
+        <label class="check-row" style="margin-top: 14px;">
+          {{ form.gift_wrap }}<span class="box" aria-hidden="true"></span>
+          <span><b>{% translate "Sovg‘a qutisiga qadoqlash" %}</b><small>{% translate "Bepul — lenta va tabriknoma bilan" %}</small></span>
+        </label>
+      </section>
+    </div>
+
+    <aside class="summary" aria-label="{% translate 'Buyurtmangiz' %}">
+      <h2 class="summary__title">{% translate "Buyurtmangiz" %}</h2>
+      <div class="summary__items">
+        {% for line in cart.lines %}
+          <div class="summary__item">
+            <img src="{{ line.item.image_url }}" alt="" width="56" height="56">
+            <div>{{ line.item }}<small>{{ line.quantity }} × {{ line.price|som }}</small></div>
+            <span>{{ line.total|som }}</span>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="summary__rows">
+        <div class="summary__row"><span>{% translate "Mahsulotlar" %}</span><span>{{ quote.subtotal|som }}</span></div>
+        {% if quote.discount %}<div class="summary__row summary__row--sale"><span>{% translate "Promokod" %} {{ promo.code }}</span><span>−{{ quote.discount|som }}</span></div>{% endif %}
+        <div class="summary__row summary__row--free"><span>{% translate "Yetkazib berish" %}</span><span>{% translate "Bepul" %}</span></div>
+      </div>
+      {% if quote.promo_note %}<p class="promo__note">{{ quote.promo_note }}</p>{% endif %}
+      <div class="summary__total"><span>{% translate "Jami" %}</span><b>{{ quote.total|som }}</b></div>
+      <button class="btn btn--dark btn--block" type="submit">{% translate "Buyurtmani tasdiqlash" %}</button>
+      <p class="agree">{% translate "Operatorimiz 15 daqiqa ichida qo‘ng‘iroq qilib, buyurtmani tasdiqlaydi. To‘lov — faqat qabul qilganda." %}</p>
+    </aside>
+  </form>
+</div>
+{{ region_days|json_script:"region-days" }}
+{% endblock %}

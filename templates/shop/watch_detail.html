@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}{{ watch }} — {{ watch.price|som }} — {{ site.name }}{% endblock %}
+{% block description %}{{ watch }}: {{ watch.short_specs }}. {{ watch.price|som }}, {% translate "O‘zbekiston bo‘ylab bepul yetkazib berish." %}{% endblock %}
+{% block og_type %}product{% endblock %}
+{% block og_image %}{% if watch.image %}<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ watch.image.url }}">{% endif %}{% endblock %}
+{% block body_class %}page-watch{% endblock %}
+
+{% block content %}
+<div class="container">
+  <nav class="crumbs page-head" aria-label="{% translate 'Yo‘l' %}" style="padding-bottom: 6px;">
+    <a href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a><span>/</span>
+    <a href="{% url 'shop:catalog' %}">{% translate "Katalog" %}</a><span>/</span>
+    <a href="{{ watch.category.get_absolute_url }}">{{ watch.category.local_name }}</a><span>/</span>
+    <span aria-current="page">{{ watch.name }}</span>
+  </nav>
+
+  <div class="pdp">
+    <div class="pdp__gallery">
+      <div class="pdp__media" data-zoom>
+        <img src="{{ watch.image_url }}" alt="{{ watch }}" width="800" height="800">
+        <div class="card__badges">
+          {% if watch.is_sale %}<span class="badge badge--sale">−{{ watch.discount_percent }}%</span>{% endif %}
+          {% if watch.is_unique %}<span class="badge badge--unique">Unique</span>{% endif %}
+          {% if watch.is_new %}<span class="badge badge--new">{% translate "Yangi" %}</span>{% endif %}
+          {% if watch.is_hit %}<span class="badge badge--hit">{% translate "Xit" %}</span>{% endif %}
+        </div>
+      </div>
+      <p class="pdp__hint">{% translate "Kattalashtirish uchun sichqonchani rasm ustiga olib boring" %}</p>
+    </div>
+
+    <div class="pdp__info">
+      <div>
+        <a class="pdp__brand" href="{{ watch.brand.get_absolute_url }}">{{ watch.brand.name }}{% if watch.brand.local_country %} · {{ watch.brand.local_country }}{% endif %}</a>
+        <h1 class="pdp__title"><span class="sr-only">{{ watch.brand.name }} </span>{{ watch.name }}</h1>
+        <div class="pdp__meta">
+          <span>{{ watch.category.local_name }}</span>
+          <span>{{ watch.short_specs }}</span>
+          {% if watch.sku %}<span>{% translate "Artikul" %}: {{ watch.sku }}</span>{% endif %}
+        </div>
+      </div>
+
+      <div class="pdp__price">
+        <span class="price__now{% if watch.is_sale %} is-sale{% endif %}">{{ watch.price|som }}</span>
+        {% if watch.is_sale %}
+          <s class="price__old"><span class="sr-only">{% translate "Eski narx:" %} </span>{{ watch.old_price|som }}</s>
+          <span class="pdp__save">{% blocktranslate trimmed with p=watch.discount_percent sum=watch.saving|som %}−{{ p }}% · tejaysiz {{ sum }}{% endblocktranslate %}</span>
+        {% endif %}
+      </div>
+
+      {% if watch.stock > 3 %}
+        <span class="stock">{% translate "Sotuvda bor" %}</span>
+      {% elif watch.in_stock %}
+        <span class="stock stock--low">{% blocktranslate trimmed with n=watch.stock %}Oxirgi {{ n }} dona qoldi{% endblocktranslate %}</span>
+      {% else %}
+        <span class="stock stock--out">{% translate "Hozircha tugagan — tez orada keladi" %}</span>
+      {% endif %}
+
+      <div class="buy">
+        {% if watch.in_stock %}
+          <form class="buy__form" method="post" action="{% url 'orders:cart_add' watch.pk %}" data-cart-form>
+            {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+            <div class="qty" data-qty>
+              <button type="button" data-step="-1" aria-label="{% translate 'Kamaytirish' %}"><svg class="i"><use href="#i-minus"/></svg></button>
+              <input type="number" name="quantity" value="1" min="1" max="{{ watch.stock }}" aria-label="{% translate 'Soni' %}">
+              <button type="button" data-step="1" aria-label="{% translate 'Ko‘paytirish' %}"><svg class="i"><use href="#i-plus"/></svg></button>
+            </div>
+            <button class="btn btn--dark" type="submit"><svg class="i"><use href="#i-bag-plus"/></svg> {% translate "Savatchaga" %}</button>
+          </form>
+        {% else %}
+          <a class="btn btn--ghost" href="tel:{{ site.phone_raw }}"><svg class="i"><use href="#i-phone"/></svg> {% translate "Kelganda xabar berish" %}</a>
+        {% endif %}
+        <form method="post" action="{% url 'shop:wishlist_toggle' watch.pk %}" data-wish-form>
+          {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <button class="buy__wish{% if watch.pk in wishlist_ids %} is-active{% endif %}" type="submit"
+                  aria-pressed="{% if watch.pk in wishlist_ids %}true{% else %}false{% endif %}" aria-label="{% translate 'Sevimlilarga qo‘shish' %}">
+            <svg class="i"><use href="#i-heart"/></svg>
+          </button>
+        </form>
+      </div>
+      <p class="buy__incart" data-incart{% if not in_cart %} hidden{% endif %}><svg class="i" style="vertical-align:-4px"><use href="#i-check"/></svg> {% translate "Savatchada bor" %} — <a href="{% url 'orders:cart' %}" data-open="cart">{% translate "ko‘rish" %}</a></p>
+
+      {% if watch.is_unique %}
+        <div class="unique-note">
+          <span class="badge badge--unique">Unique</span>
+          <p>{% blocktranslate trimmed with size=watch.case_size %}<b>Erkak va ayolga birdek mos.</b> Neytral dizayn va {{ size }} mm korpus har qanday bilakka yarashadi — juftlik soati yoki sovg‘a uchun ideal tanlov.{% endblocktranslate %}</p>
+        </div>
+      {% endif %}
+
+      {% if fitting_url %}
+        <div class="fit-box">
+          <svg class="i"><use href="#i-strap"/></svg>
+          <div>
+            <b>{% if watch.lug_width %}{% blocktranslate trimmed with w=watch.lug_width %}Tasma kengligi — {{ w }} mm{% endblocktranslate %}{% else %}{% translate "Apple Watch tasmalari mos keladi" %}{% endif %}</b>
+            <span>{% translate "Almashtirish uchun mos tasmalar alohida sotiladi." %}</span>
+            <a href="{{ fitting_url }}">{% translate "Mos tasmalarni ko‘rish" %}</a>
+          </div>
+        </div>
+      {% endif %}
+
+      <ul class="pdp__perks">
+        <li>
+          <svg class="i"><use href="#i-truck"/></svg>
+          <div>
+            <b>{% translate "Bepul yetkazib berish" %}</b>
+            <span>{% translate "O‘zbekiston bo‘ylab — 0 so‘m." %} <span id="pdp-eta" hidden>{% translate "Muddati:" %} <b data-days></b></span></span>
+            <select data-region-days="#pdp-eta" aria-label="{% translate 'Viloyatingizni tanlang' %}">
+              {% for key, label in regions %}<option value="{{ key }}">{{ label }}</option>{% endfor %}
+            </select>
+          </div>
+        </li>
+        <li>
+          <svg class="i"><use href="#i-cash"/></svg>
+          <div><b>{% translate "Naqd yoki karta orqali" %}</b><span>{% blocktranslate trimmed with cards=site.cards|join:", " %}Soatni ko‘rib, keyin to‘laysiz: {{ cards }}{% endblocktranslate %}</span></div>
+        </li>
+        <li>
+          <svg class="i"><use href="#i-shield"/></svg>
+          <div><b>{% blocktranslate trimmed with n=watch.warranty_months %}Kafolat — {{ n }} oy{% endblocktranslate %}</b><span>{% translate "Rasmiy kafolat taloni va servis" %}</span></div>
+        </li>
+        <li>
+          <svg class="i"><use href="#i-gift"/></svg>
+          <div><b>{% translate "Sovg‘a qutisi bepul" %}</b><span>{% translate "Rasmiylashtirishda belgilang" %}</span></div>
+        </li>
+        <li>
+          <svg class="i"><use href="#i-return"/></svg>
+          <div><b>{% blocktranslate trimmed with n=site.return_days %}{{ n }} kun ichida qaytarish{% endblocktranslate %}</b><span>{% translate "Taqilmagan va qadog‘i buzilmagan bo‘lsa" %}</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="pdp-tabs" data-tabs>
+    <div class="tabs" role="tablist" aria-label="{% translate 'Soat haqida' %}">
+      <button type="button" role="tab" id="tab-specs" aria-controls="panel-specs" aria-selected="true">{% translate "Xususiyatlari" %}</button>
+      <button type="button" role="tab" id="tab-desc" aria-controls="panel-desc" aria-selected="false" tabindex="-1">{% translate "Tavsif" %}</button>
+      <button type="button" role="tab" id="tab-pay" aria-controls="panel-pay" aria-selected="false" tabindex="-1">{% translate "Yetkazib berish va to‘lov" %}</button>
+    </div>
+    <div class="tab-panel" id="panel-specs" role="tabpanel" aria-labelledby="tab-specs">
+      <dl class="specs">
+        {% for k, v in specs %}<div><dt>{{ k }}</dt><dd>{{ v }}</dd></div>{% endfor %}
+      </dl>
+    </div>
+    <div class="tab-panel" id="panel-desc" role="tabpanel" aria-labelledby="tab-desc" hidden>
+      <div class="prose">
+        {% if watch.local_description %}{{ watch.local_description|linebreaks }}{% else %}<p>{{ watch }} — {{ watch.short_specs }}.</p>{% endif %}
+      </div>
+    </div>
+    <div class="tab-panel" id="panel-pay" role="tabpanel" aria-labelledby="tab-pay" hidden>
+      {% include "shop/_delivery_tab.html" %}
+    </div>
+  </section>
+
+  {% if fitting_straps %}
+  <section class="section">
+    <div class="section__head">
+      <div><p class="eyebrow">{% translate "Tasmalar" %}</p><h2 class="section__title">{% translate "Shu soatga mos tasmalar" %}</h2></div>
+      <a class="link-arrow" href="{{ fitting_url }}">{% translate "Hammasi" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="grid grid--4">{% for w in fitting_straps %}{% include "includes/strap_card.html" %}{% endfor %}</div>
+  </section>
+  {% endif %}
+
+  {% if related %}
+  <section class="section">
+    <div class="section__head">
+      <div><p class="eyebrow">{{ watch.category.local_name }}</p><h2 class="section__title">{% translate "O‘xshash soatlar" %}</h2></div>
+      <a class="link-arrow" href="{{ watch.category.get_absolute_url }}">{% translate "Hammasi" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="grid grid--4">{% for w in related %}{% include "includes/watch_card.html" %}{% endfor %}</div>
+  </section>
+  {% endif %}
+
+  {% if recent %}
+  <section class="section">
+    <div class="section__head"><div><p class="eyebrow">{% translate "Tarix" %}</p><h2 class="section__title">{% translate "Yaqinda ko‘rganlaringiz" %}</h2></div></div>
+    <div class="grid grid--4">{% for w in recent %}{% include "includes/watch_card.html" %}{% endfor %}</div>
+  </section>
+  {% endif %}
+  <div style="height: 80px"></div>
+</div>
+{{ region_days|json_script:"region-days" }}
+{% endblock %}

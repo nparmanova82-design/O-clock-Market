@@ -1,0 +1,4 @@
+<form class="line__rm" method="post" action="{% url 'orders:cart_remove' line.key %}" data-swap-form>
+  {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+  <button class="line__remove" type="submit" aria-label="{% blocktranslate trimmed with name=line.item %}Olib tashlash: {{ name }}{% endblocktranslate %}" title="{% translate 'Olib tashlash' %}"><svg class="i"><use href="#i-trash"/></svg></button>
+</form>

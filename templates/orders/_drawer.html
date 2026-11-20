@@ -1,0 +1,41 @@
+<div class="dcart" data-swap="drawer">
+{% if cart.lines %}
+  <div class="dcart__lines">
+    {% for line in cart.lines %}{% with w=line.item %}
+      <div class="dcart__line">
+        <a href="{{ w.get_absolute_url }}"><img src="{{ w.image_url }}" alt="" width="72" height="72"></a>
+        <div>
+          <p class="card__brand">{{ w.brand.name }}</p>
+          <a class="line__title" href="{{ w.get_absolute_url }}">{% if w.kind == "strap" %}{{ w.local_name }}{% else %}{{ w.name }}{% endif %}</a>
+          <div class="dcart__ctrl">
+            {% include "orders/_line_qty.html" %}
+            <span class="price__now{% if line.saving %} is-sale{% endif %}">{{ line.total|som }}</span>
+          </div>
+        </div>
+        {% include "orders/_line_remove.html" %}
+      </div>
+    {% endwith %}{% endfor %}
+  </div>
+  <div class="dcart__foot">
+    <div class="dcart__free"><svg class="i"><use href="#i-truck"/></svg> {% translate "Yetkazib berish bepul — butun O‘zbekiston bo‘ylab" %}</div>
+    {% if quote.discount %}
+      <div class="summary__rows">
+        <div class="summary__row"><span>{% translate "Mahsulotlar" %}</span><span>{{ quote.subtotal|som }}</span></div>
+        <div class="summary__row summary__row--sale"><span>{% translate "Promokod" %}</span><span>−{{ quote.discount|som }}</span></div>
+      </div>
+    {% endif %}
+    <div class="summary__total"><span>{% blocktranslate trimmed with n=cart|length %}Jami · {{ n }} ta{% endblocktranslate %}</span><b>{{ quote.total|som }}</b></div>
+    <div class="dcart__btns">
+      <a class="btn btn--ghost" href="{% url 'orders:cart' %}">{% translate "Savatcha" %}</a>
+      <a class="btn btn--dark" href="{% url 'orders:checkout' %}">{% translate "Rasmiylashtirish" %}</a>
+    </div>
+  </div>
+{% else %}
+  <div class="dcart__empty">
+    <svg class="i"><use href="#i-bag"/></svg>
+    <h3>{% translate "Savatcha bo‘sh" %}</h3>
+    <p>{% translate "Soat yoki tasma tanlang — biz uni O‘zbekistonning istalgan joyiga bepul yetkazamiz." %}</p>
+    <a class="btn btn--dark" href="{% url 'shop:catalog' %}">{% translate "Katalogga o‘tish" %}</a>
+  </div>
+{% endif %}
+</div>

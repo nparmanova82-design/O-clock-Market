@@ -1,0 +1,30 @@
+{% extends "pages/_info.html" %}
+{% block description %}{% translate "O’clock market bilan bog‘lanish: telefon, Telegram, manzil va ish vaqti. Raqamingizni qoldiring — operator qo‘ng‘iroq qiladi." %}{% endblock %}
+{% block page_title %}{% translate "Aloqa" %}{% endblock %}
+{% block crumb %}{% translate "Aloqa" %}{% endblock %}
+{% block heading %}{% translate "Aloqa" %}{% endblock %}
+{% block lead %}<p class="page-lead">{% translate "Soat tanlashda yordam kerakmi? Qo‘ng‘iroq qiling yoki raqamingizni qoldiring — o‘zimiz bog‘lanamiz." %}</p>{% endblock %}
+
+{% block body %}
+<div class="contact-cards">
+  <a class="contact-card" href="tel:{{ site.phone_raw }}"><svg class="i"><use href="#i-phone"/></svg><span><small>{% translate "Telefon" %}</small><b>{{ site.phone }}</b></span></a>
+  <a class="contact-card" href="{{ site.telegram }}" target="_blank" rel="noopener"><svg class="i"><use href="#i-telegram"/></svg><span><small>Telegram</small><b>@oclockmarket</b></span></a>
+  <a class="contact-card" href="mailto:{{ site.email }}"><svg class="i"><use href="#i-mail"/></svg><span><small>Email</small><b>{{ site.email }}</b></span></a>
+  <div class="contact-card"><svg class="i"><use href="#i-clock"/></svg><span><small>{% translate "Ish vaqti" %}</small><b>{{ site.hours }}</b></span></div>
+  <div class="contact-card" style="grid-column: 1 / -1;"><svg class="i"><use href="#i-pin"/></svg><span><small>{% translate "Showroom" %}</small><b>{{ site.address }}</b></span></div>
+</div>
+
+<section class="panel callback">
+  <h2 class="panel__title">{% translate "Qayta qo‘ng‘iroq" %}</h2>
+  <p class="muted" style="margin: -6px 0 18px;">{% translate "Operatorimiz ish vaqtida 15 daqiqa ichida qo‘ng‘iroq qiladi." %}</p>
+  <form method="post" action="{% url 'orders:callback' %}" data-callback-form novalidate>
+    {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+    <div class="fields">
+      <div class="field"><label for="cb-name">{% translate "Ism" %}</label><input id="cb-name" type="text" name="name" placeholder="{% translate 'Ismingiz' %}" required maxlength="80" autocomplete="given-name"></div>
+      <div class="field"><label for="cb-phone">{% translate "Telefon" %}</label><input id="cb-phone" type="text" name="phone" placeholder="+998 90 123 45 67" inputmode="tel" required autocomplete="tel"></div>
+      <div class="field field--full"><label for="cb-msg">{% translate "Savolingiz" %}</label><textarea id="cb-msg" name="message" rows="3" placeholder="{% translate 'Masalan: 40 mm atrofidagi avtomatik soat kerak (ixtiyoriy)' %}"></textarea></div>
+    </div>
+    <button class="btn btn--dark" type="submit">{% translate "Qo‘ng‘iroq qiling" %} <svg class="i"><use href="#i-phone"/></svg></button>
+  </form>
+</section>
+{% endblock %}

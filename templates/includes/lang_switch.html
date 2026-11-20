@@ -1,0 +1,9 @@
+<nav class="langs{% if drawer %} langs--drawer{% endif %}" aria-label="{% translate 'Sayt tili' %}">
+  {% for l in languages %}
+    <a class="langs__flag{% if l.active %} is-active{% endif %}" href="{{ l.url }}" hreflang="{{ l.code }}" lang="{{ l.code }}"
+       title="{{ l.name }}" aria-label="{{ l.name }}"{% if l.active %} aria-current="true"{% endif %}>
+      <svg viewBox="0 0 30 20" aria-hidden="true"><use href="#flag-{{ l.code }}" width="30" height="20"/></svg>
+      <span class="langs__code" aria-hidden="true">{{ l.code }}</span>
+    </a>
+  {% endfor %}
+</nav>

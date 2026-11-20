@@ -1,0 +1,5 @@
+<div class="prose">
+  <p>{% blocktranslate trimmed %}<b>Yetkazib berish bepul</b> — Toshkent shahrida 1 kun ichida, viloyatlarga 2–4 kunda. Kuryer jo‘natishdan oldin qo‘ng‘iroq qiladi.{% endblocktranslate %}</p>
+  <p>{% blocktranslate trimmed with cards=site.cards|join:", " %}<b>To‘lov qabul qilganda:</b> naqd pul yoki karta ({{ cards }}) — kuryerda terminal bor. Avval mahsulotni ko‘rib, tekshirib olasiz.{% endblocktranslate %}</p>
+  <p><a href="{% url 'shop:delivery' %}">{% translate "Batafsil: yetkazib berish va to‘lov" %}</a></p>
+</div>

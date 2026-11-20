@@ -1,0 +1,28 @@
+{% extends "pages/_info.html" %}
+{% block description %}{% blocktranslate trimmed with n=site.return_days %}Har bir soatga rasmiy kafolat. {{ n }} kun ichida sababsiz qaytarish — kuryer bepul olib ketadi.{% endblocktranslate %}{% endblock %}
+{% block page_title %}{% translate "Kafolat va qaytarish" %}{% endblock %}
+{% block crumb %}{% translate "Kafolat va qaytarish" %}{% endblock %}
+{% block heading %}{% translate "Kafolat va qaytarish" %}{% endblock %}
+{% block lead %}<p class="page-lead">{% blocktranslate trimmed with n=site.return_days %}Har bir soat rasmiy kafolat bilan sotiladi. Yoqmasa — {{ n }} kun ichida qaytarasiz.{% endblocktranslate %}</p>{% endblock %}
+
+{% block body %}
+<div class="facts">
+  <div class="fact"><svg class="i"><use href="#i-shield"/></svg><b>{% translate "12 oydan 5 yilgacha" %}</b><span>{% translate "brend va modelga qarab — soat sahifasida ko‘rsatilgan" %}</span></div>
+  <div class="fact"><svg class="i"><use href="#i-return"/></svg><b>{% blocktranslate trimmed with n=site.return_days %}{{ n }} kun{% endblocktranslate %}</b><span>{% translate "ichida sababsiz qaytarish" %}</span></div>
+  <div class="fact"><svg class="i"><use href="#i-box"/></svg><b>{% translate "Bepul servis" %}</b><span>{% translate "kafolat davrida ta’mirlash va batareya almashtirish" %}</span></div>
+</div>
+
+<section class="panel prose">
+  <h2 class="panel__title">{% translate "Kafolat nimani qamrab oladi" %}</h2>
+  <ul>
+    <li>{% translate "Mexanizmning ishlab chiqarishdagi nuqsonlari: to‘xtab qolish, vaqtni noto‘g‘ri ko‘rsatish." %}</li>
+    <li>{% translate "Kvarts soatlarda — birinchi batareyani almashtirish." %}</li>
+    <li>{% translate "Smart soatlarda — ekran, sensorlar va zaryadlash bilan bog‘liq zavod nuqsonlari." %}</li>
+  </ul>
+  <p>{% translate "Kafolat mexanik shikastlanish, oynaning sinishi, suvga chidamlilik me’yoridan oshirib foydalanish va tasmaning tabiiy eskirishiga tatbiq etilmaydi." %}</p>
+  <h3>{% translate "Qanday qaytariladi" %}</h3>
+  <p>{% blocktranslate trimmed with n=site.return_days phone=site.phone %}Mahsulot taqilmagan, himoya plyonkalari va qadog‘i buzilmagan bo‘lsa, {{ n }} kun ichida qaytarib, pulingizni to‘liq olasiz. {{ phone }} raqamiga qo‘ng‘iroq qiling — kuryer bepul olib ketadi. Pul 3 ish kunida karta yoki naqd qaytariladi.{% endblocktranslate %}</p>
+  <h3>{% translate "Almashtirish" %}</h3>
+  <p>{% translate "O‘lcham, rang yoki model to‘g‘ri kelmasa — xuddi shu muddat ichida boshqasiga almashtiramiz, narx farqini hisoblab beramiz. Tasma kengligi to‘g‘ri kelmasa ham almashtiramiz." %}</p>
+</section>
+{% endblock %}

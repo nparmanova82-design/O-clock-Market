@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{% blocktranslate trimmed with number=order.number %}Buyurtma {{ number }} qabul qilindi{% endblocktranslate %} — {{ site.name }}{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% endblock %}
+{% block body_class %}page-success{% endblock %}
+
+{% block content %}
+<div class="container">
+  <section class="done">
+    <div class="done__icon"><svg class="i"><use href="#i-check"/></svg></div>
+    <h1 class="page-title">{% translate "Rahmat, buyurtma qabul qilindi!" %}</h1>
+    <p class="done__number">{{ order.number }}</p>
+    <p class="muted">{% blocktranslate trimmed with phone=order.phone %}Operatorimiz {{ phone }} raqamiga 15 daqiqa ichida qo‘ng‘iroq qilib, buyurtmani tasdiqlaydi.{% endblocktranslate %}</p>
+
+    <dl class="done__facts">
+      <div><dt>{% translate "Yetkazib berish" %}</dt><dd>{% translate "Bepul" %} · {{ order.delivery_days }}</dd></div>
+      <div><dt>{% translate "To‘lov" %}</dt><dd>{% blocktranslate trimmed with payment=order.get_payment_display %}{{ payment }} — qabul qilganda{% endblocktranslate %}</dd></div>
+      <div><dt>{% translate "Manzil" %}</dt><dd>{{ order.get_region_display }}, {{ order.city }}</dd></div>
+    </dl>
+
+    <div class="summary__items">
+      {% for item in order.items.all %}
+        <div class="summary__item">
+          {% if item.product %}<img src="{{ item.product.image_url }}" alt="" width="56" height="56">{% else %}<span></span>{% endif %}
+          <div>{{ item.title }}<small>{{ item.quantity }} × {{ item.price|som }}</small></div>
+          <span>{{ item.total|som }}</span>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="summary__rows">
+      <div class="summary__row"><span>{% translate "Mahsulotlar" %}</span><span>{{ order.subtotal|som }}</span></div>
+      {% if order.discount %}<div class="summary__row summary__row--sale"><span>{% translate "Promokod" %} {{ order.promo_code }}</span><span>−{{ order.discount|som }}</span></div>{% endif %}
+      <div class="summary__row summary__row--free"><span>{% translate "Yetkazib berish" %}</span><span>{% translate "Bepul" %}</span></div>
+      {% if order.gift_wrap %}<div class="summary__row summary__row--free"><span>{% translate "Sovg‘a qutisi" %}</span><span>{% translate "Bepul" %}</span></div>{% endif %}
+      <div class="summary__total"><span>{% translate "Jami" %}</span><b>{{ order.total|som }}</b></div>
+    </div>
+
+    <div class="done__btns">
+      <a class="btn btn--dark" href="{% url 'orders:track' %}?number={{ order.number|urlencode }}&amp;phone={{ order.phone|urlencode }}">{% translate "Buyurtmani kuzatish" %}</a>
+      <a class="btn btn--ghost" href="{% url 'shop:catalog' %}">{% translate "Xaridni davom ettirish" %}</a>
+    </div>
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "pages/_info.html" %}
+{% block description %}{% translate "O’clock market — qo‘l, devor, stol va smart soatlar, soat tasmalari do‘koni. Rasmiy kafolat, O‘zbekiston bo‘ylab bepul yetkazib berish." %}{% endblock %}
+{% block page_title %}{% translate "Biz haqimizda" %}{% endblock %}
+{% block crumb %}{% translate "Biz haqimizda" %}{% endblock %}
+{% block heading %}{% translate "Biz haqimizda" %}{% endblock %}
+
+{% block body %}
+<section class="panel">
+  <p class="about-quote">{% translate "«Soat — vaqtni o‘lchaydigan asbobgina emas. U har kuni siz bilan birga yuradigan kichik hikoya.»" %}</p>
+</section>
+<section class="panel prose">
+  <h2 class="panel__title">{{ site.name }} — {{ site.tagline|lower }}</h2>
+  <p>{% translate "Biz soatlarni yaxshi ko‘radigan kichik jamoamiz. Maqsadimiz oddiy: O‘zbekistonning istalgan burchagida yashovchi odam ham yaxshi soatni ishonch bilan, ortiqcha xarajatsiz xarid qila olishi kerak." %}</p>
+  <p>{% blocktranslate trimmed %}Shuning uchun katalogda har qanday soat bor — klassik va sport, g‘avvos va uchuvchi, xronograf va smart, bolalar soatlari, cho‘ntak, devor, stol soatlari va budilniklar. Erkak va ayolga birdek mos modellar alohida <b>Unique</b> belgisi bilan ajratilgan. Soatingizga yangi tasma ham shu yerda.{% endblocktranslate %}</p>
+  <ul>
+    <li>{% translate "Faqat original soatlar — rasmiy kafolat taloni bilan." %}</li>
+    <li>{% translate "Yetkazib berish butun O‘zbekiston bo‘ylab bepul." %}</li>
+    <li>{% translate "To‘lov qabul qilganda: naqd yoki karta orqali." %}</li>
+    <li>{% blocktranslate trimmed with n=site.return_days %}{{ n }} kun ichida qaytarish va almashtirish.{% endblocktranslate %}</li>
+  </ul>
+  <h3>{% translate "Showroom" %}</h3>
+  <p>{{ site.address }}. {{ site.hours }}. {% translate "Soatlarni qo‘lingizga olib, taqib ko‘rishingiz mumkin." %}</p>
+</section>
+{% endblock %}

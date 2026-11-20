@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block body_class %}page-home{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow">{% translate "Kuz — qish 2026 kolleksiyasi" %}</p>
+      <h1 class="hero__title">{% blocktranslate trimmed %}Vaqt — eng nafis <em>aksessuar</em>{% endblocktranslate %}</h1>
+      <p class="hero__lead">{% blocktranslate trimmed with types=categories|length n=total_watches %}Mexanik va avtomatik, smart va elektron, cho‘ntak, devor va stol soatlari — {{ types }} turdagi {{ n }} ta model bir joyda. O‘zbekiston bo‘ylab yetkazib berish bepul.{% endblocktranslate %}</p>
+      <div class="hero__cta">
+        <a class="btn btn--dark" href="{% url 'shop:catalog' %}">{% translate "Katalogni ko‘rish" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--ghost" href="{% url 'shop:sale' %}">{% translate "Aksiyalar" %}</a>
+      </div>
+      <dl class="hero__stats">
+        <div><dt>{{ categories|length }}</dt><dd>{% translate "soat turi" %}</dd></div>
+        <div><dt>{{ brands|length }}</dt><dd>{% translate "brend" %}</dd></div>
+        <div><dt>{{ 0|som }}</dt><dd>{% translate "yetkazib berish" %}</dd></div>
+      </dl>
+    </div>
+    {% if hero %}
+      <figure class="hero__visual">
+        <a href="{{ hero.get_absolute_url }}" class="hero__watch" aria-label="{{ hero }}">{{ hero_svg }}</a>
+        <figcaption class="hero__caption">
+          <span class="hero__time"><svg class="i"><use href="#i-clock"/></svg> {% translate "Toshkent vaqti" %} <b data-live-time>--:--:--</b></span>
+          <a href="{{ hero.get_absolute_url }}"><span class="muted">{{ hero.brand.name }}</span> {{ hero.name }} · {{ hero.price|som }}</a>
+        </figcaption>
+      </figure>
+    {% endif %}
+  </div>
+</section>
+
+<section class="perks container" aria-label="{% translate 'Afzalliklar' %}">
+  <div class="perk"><svg class="i"><use href="#i-truck"/></svg><div><b>{% translate "Bepul yetkazib berish" %}</b><span>{% translate "Toshkentda 1 kunda, viloyatlarga 2–4 kunda" %}</span></div></div>
+  <div class="perk"><svg class="i"><use href="#i-cash"/></svg><div><b>{% translate "Naqd yoki karta" %}</b><span>{% blocktranslate trimmed with cards=site.cards|join:", " %}Qabul qilganda to‘laysiz: {{ cards }}{% endblocktranslate %}</span></div></div>
+  <div class="perk"><svg class="i"><use href="#i-shield"/></svg><div><b>{% translate "Rasmiy kafolat" %}</b><span>{% translate "Har bir soatga kafolat taloni" %}</span></div></div>
+  <div class="perk"><svg class="i"><use href="#i-gift"/></svg><div><b>{% translate "Sovg‘a qutisi" %}</b><span>{% translate "Bepul, buyurtmada belgilang" %}</span></div></div>
+</section>
+
+<section class="section container">
+  <div class="section__head">
+    <div>
+      <p class="eyebrow">{% translate "Turlar" %}</p>
+      <h2 class="section__title">{% translate "Har qanday soat" %}</h2>
+    </div>
+    <a class="link-arrow" href="{% url 'shop:catalog' %}">{% translate "Hammasi" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="types">
+    {% for c in categories %}
+      <a class="type" href="{{ c.get_absolute_url }}">
+        <img src="{% url 'art:category_svg' c.slug %}?v={{ art_version }}" alt="" width="200" height="200" loading="lazy">
+        <span class="type__name">{{ c.local_name }}</span>
+        <span class="type__n">{% blocktranslate trimmed count n=c.n %}{{ n }} ta model{% plural %}{{ n }} ta model{% endblocktranslate %}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% if sale_watches %}
+<section class="section section--band">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow eyebrow--sale">{% translate "Aksiya · Skidka" %}</p>
+        <h2 class="section__title">{% translate "Chegirmalar oy oxirigacha" %}</h2>
+      </div>
+      <div class="countdown" data-countdown="{{ sale_ends|date:'c' }}" aria-label="{% translate 'Aksiya tugashiga qolgan vaqt' %}"></div>
+    </div>
+    <div class="rail" data-rail>
+      {% for w in sale_watches %}{% include "includes/watch_card.html" %}{% endfor %}
+    </div>
+    <div class="section__more"><a class="btn btn--ghost" href="{% url 'shop:sale' %}">{% translate "Barcha aksiyalar" %} <svg class="i"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+{% endif %}
+
+{% if unique_watches %}
+<section class="section container">
+  <div class="unique">
+    <div class="unique__text">
+      <span class="badge badge--unique badge--lg">Unique</span>
+      <h2 class="section__title">{% translate "Erkak va ayolga birdek mos" %}</h2>
+      <p>{% translate "«Unique» belgisi — bu soat har qanday bilakka yarashadi degani. Neytral dizayn, 35–42 mm o‘lcham, ortiqcha bezaksiz siferblat. Juftlik uchun bir xil soat yoki kimga sovg‘a qilishni bilmay turganingizda — eng to‘g‘ri tanlov." %}</p>
+      <ul class="ticks">
+        <li><svg class="i"><use href="#i-check"/></svg> {% translate "Universal korpus o‘lchami" %}</li>
+        <li><svg class="i"><use href="#i-check"/></svg> {% translate "Tasmani almashtirish oson" %}</li>
+        <li><svg class="i"><use href="#i-check"/></svg> {% translate "Juftlik sovg‘asi uchun ideal" %}</li>
+      </ul>
+      <a class="btn btn--dark" href="{% url 'shop:unique' %}">{% translate "Unique kolleksiyasi" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="unique__grid">
+      {% for w in unique_watches %}{% include "includes/watch_card.html" %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if new_watches %}
+<section class="section container">
+  <div class="section__head">
+    <div>
+      <p class="eyebrow">{% translate "Yangi" %}</p>
+      <h2 class="section__title">{% translate "Yaqinda keldi" %}</h2>
+    </div>
+    <a class="link-arrow" href="{% url 'shop:new' %}">{% translate "Barcha yangiliklar" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="grid grid--4">
+    {% for w in new_watches %}{% include "includes/watch_card.html" %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="section container">
+  <div class="section__head">
+    <div>
+      <p class="eyebrow">{% translate "Kimga" %}</p>
+      <h2 class="section__title">{% translate "O‘zingizga yoki sovg‘aga" %}</h2>
+    </div>
+  </div>
+  <div class="audience">
+    <a href="{% url 'shop:catalog' %}?kimga=men" class="audience__item"><span>{% translate "Erkaklar" %}</span><small>{% translate "Sport, g‘avvos, xronograf" %}</small><svg class="i"><use href="#i-arrow"/></svg></a>
+    <a href="{% url 'shop:catalog' %}?kimga=women" class="audience__item"><span>{% translate "Ayollar" %}</span><small>{% translate "Nafis va ixcham" %}</small><svg class="i"><use href="#i-arrow"/></svg></a>
+    <a href="{% url 'shop:unique' %}" class="audience__item audience__item--unique"><span>Unique</span><small>{% translate "Erkak va ayolga" %}</small><svg class="i"><use href="#i-arrow"/></svg></a>
+    <a href="{% url 'shop:catalog' %}?kimga=kids" class="audience__item"><span>{% translate "Bolalar" %}</span><small>{% translate "Yorqin va yengil" %}</small><svg class="i"><use href="#i-arrow"/></svg></a>
+    <a href="{% url 'shop:catalog' %}?kimga=home" class="audience__item"><span>{% translate "Uy va ofis" %}</span><small>{% translate "Devor, stol, budilnik" %}</small><svg class="i"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
+{% if hit_watches %}
+<section class="section container">
+  <div class="section__head">
+    <div>
+      <p class="eyebrow">{% translate "Xitlar" %}</p>
+      <h2 class="section__title">{% translate "Ko‘p tanlanadi" %}</h2>
+    </div>
+    <a class="link-arrow" href="{% url 'shop:catalog' %}">{% translate "Katalog" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="grid grid--4">
+    {% for w in hit_watches %}{% include "includes/watch_card.html" %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if home_straps %}
+<section class="section container">
+  <div class="strap-promo">
+    <div class="strap-promo__text">
+      <p class="eyebrow">{% translate "Tasmalar" %}</p>
+      <h2 class="section__title">{% translate "Soatingizga yangi tasma" %}</h2>
+      <p>{% translate "Charm, silikon, neylon, Milan to‘ri va metall braslet. Kenglikni tanlang — qolganini filtr o‘zi saralaydi. Yetkazib berish bepul." %}</p>
+      <div class="strap-promo__widths" aria-label="{% translate 'Kenglik bo‘yicha' %}">
+        {% for w in strap_widths %}<a href="{% url 'shop:straps' %}?kenglik={{ w }}">{{ w }} mm</a>{% endfor %}
+        <a href="{% url 'shop:straps' %}?moslik=apple_l">Apple Watch</a>
+      </div>
+      <a class="btn btn--dark" href="{% url 'shop:straps' %}">{% translate "Barcha tasmalar" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="grid">
+      {% for w in home_straps %}{% include "includes/strap_card.html" %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section container">
+  <div class="delivery">
+    <div class="delivery__main">
+      <p class="eyebrow">{% translate "Yetkazib berish va to‘lov" %}</p>
+      <h2 class="section__title">{% translate "O‘zbekiston bo‘ylab — bepul" %}</h2>
+      <p>{% blocktranslate trimmed %}Buyurtmangizni istalgan viloyatga bepul yetkazamiz. Soatni ko‘rib, tekshirib, keyin to‘laysiz: <b>naqd pul</b> yoki <b>karta orqali</b> — kuryerda terminal bor.{% endblocktranslate %}</p>
+      <div class="paycards">
+        <span class="paycard"><svg class="i"><use href="#i-cash"/></svg> {% translate "Naqd" %}</span>
+        {% for c in site.cards %}<span class="paycard">{{ c }}</span>{% endfor %}
+      </div>
+      <a class="link-arrow" href="{% url 'shop:delivery' %}">{% translate "Batafsil" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    <ul class="regions">
+      {% for key, label in regions %}<li>{{ label }}<span>{{ 0|som }}</span></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% if brands %}
+<section class="section container">
+  <div class="section__head">
+    <div>
+      <p class="eyebrow">{% translate "Brendlar" %}</p>
+      <h2 class="section__title">{% blocktranslate trimmed count n=brands|length %}{{ n }} ta brend{% plural %}{{ n }} ta brend{% endblocktranslate %}</h2>
+    </div>
+    <a class="link-arrow" href="{% url 'shop:brands' %}">{% translate "Barcha brendlar" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="brandwall">
+    {% for b in brands %}<a href="{{ b.get_absolute_url }}">{{ b.name }}</a>{% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

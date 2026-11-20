@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{% translate "Sevimlilar" %} — {{ site.name }}{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% endblock %}
+{% block body_class %}page-wishlist{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <nav class="crumbs" aria-label="{% translate 'Yo‘l' %}"><a href="{% url 'shop:home' %}">{% translate "Bosh sahifa" %}</a><span>/</span><span aria-current="page">{% translate "Sevimlilar" %}</span></nav>
+  <h1 class="page-title">{% translate "Sevimlilar" %}</h1>
+  {% if watches %}<p class="page-lead">{% blocktranslate trimmed count n=watches|length %}Yoqqan soatlaringiz shu yerda saqlanadi — {{ n }} ta.{% plural %}Yoqqan soatlaringiz shu yerda saqlanadi — {{ n }} ta.{% endblocktranslate %}</p>{% endif %}
+</section>
+
+<div class="container" style="padding-bottom: 80px;">
+  {% if watches %}
+    <h2 class="sr-only">{% translate "Saqlangan soatlar" %}</h2>
+    <div class="grid grid--4">{% for w in watches %}{% include "includes/watch_card.html" %}{% endfor %}</div>
+  {% else %}
+    <div class="empty">
+      <svg class="i"><use href="#i-heart"/></svg>
+      <h2>{% translate "Hozircha bo‘sh" %}</h2>
+      <p>{% translate "Soat kartochkasidagi yurakchani bosing — u shu yerda saqlanadi va keyin osongina topasiz." %}</p>
+      <a class="btn btn--dark" href="{% url 'shop:catalog' %}">{% translate "Katalogga o‘tish" %} <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "pages/_info.html" %}
+{% block description %}{% translate "O‘zbekistonning barcha viloyatlariga bepul yetkazib berish: Toshkentda 1 kun, viloyatlarga 1–4 kun. Naqd yoki karta orqali to‘lov." %}{% endblock %}
+{% block page_title %}{% translate "Yetkazib berish va to‘lov" %}{% endblock %}
+{% block crumb %}{% translate "Yetkazib berish va to‘lov" %}{% endblock %}
+{% block heading %}{% translate "Yetkazib berish va to‘lov" %}{% endblock %}
+{% block lead %}<p class="page-lead">{% translate "O‘zbekistonning istalgan viloyatiga — bepul. To‘lov faqat buyurtmani qo‘lingizga olganingizdan keyin." %}</p>{% endblock %}
+
+{% block body %}
+<div class="facts">
+  <div class="fact"><svg class="i"><use href="#i-truck"/></svg><b>{{ 0|som }}</b><span>{% translate "yetkazib berish narxi — summa qancha bo‘lishidan qat’i nazar" %}</span></div>
+  <div class="fact"><svg class="i"><use href="#i-clock"/></svg><b>{% translate "1 kun" %}</b><span>{% translate "Toshkent shahrida; viloyatlarga 1–4 kun" %}</span></div>
+  <div class="fact"><svg class="i"><use href="#i-card"/></svg><b>{% translate "Naqd yoki karta" %}</b><span>{% translate "qabul qilganda, kuryerga" %}</span></div>
+</div>
+
+<section class="panel">
+  <h2 class="panel__title">{% translate "Viloyatlar bo‘yicha muddat" %}</h2>
+  <table class="table">
+    <thead><tr><th>{% translate "Hudud" %}</th><th>{% translate "Muddat" %}</th><th>{% translate "Narxi" %}</th></tr></thead>
+    <tbody>
+      {% for label, days in region_days %}<tr><td>{{ label }}</td><td>{{ days }}</td><td class="free">{% translate "Bepul" %}</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<section class="panel prose">
+  <h2 class="panel__title">{% translate "To‘lov usullari" %}</h2>
+  <ul>
+    <li>{% blocktranslate trimmed %}<b>Naqd pul</b> — kuryerga, mahsulotni ko‘rib va tekshirib bo‘lgach.{% endblocktranslate %}</li>
+    <li>{% blocktranslate trimmed with cards=site.cards|join:", " %}<b>Karta orqali</b> — {{ cards }}. Kuryerda to‘lov terminali bor, chek beriladi.{% endblocktranslate %}</li>
+    <li>{% translate "Oldindan to‘lov talab qilinmaydi. Mahsulot yoqmasa yoki nuqsonli bo‘lsa — olmasligingiz mumkin, hech narsa to‘lamaysiz." %}</li>
+  </ul>
+  <h3>{% translate "Qanday yetkazamiz" %}</h3>
+  <p>{% translate "Buyurtmadan so‘ng operator 15 daqiqa ichida qo‘ng‘iroq qilib, manzil va vaqtni tasdiqlaydi. Toshkentda o‘z kuryerlarimiz, viloyatlarga ishonchli pochta xizmati orqali yuboramiz. Kuryer kelishidan oldin qo‘ng‘iroq qiladi." %}</p>
+  <p>{% blocktranslate trimmed %}Har bir soat firma qutisida, kafolat taloni bilan keladi. Xohlasangiz, <b>sovg‘a qutisiga bepul qadoqlaymiz</b>.{% endblocktranslate %}</p>
+</section>
+{% endblock %}
