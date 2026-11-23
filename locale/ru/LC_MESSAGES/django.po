@@ -822,6 +822,10 @@ msgid "Qo‘l, devor, stol va smart soatlar, soat tasmalari. O‘zbekiston bo‘
 msgstr "Наручные, настенные, настольные и смарт-часы, ремешки для часов. Бесплатная доставка по Узбекистану, оплата наличными или картой."
 
 #: templates/base.html
+msgid "O‘tkazib yuborish"
+msgstr "Пропустить"
+
+#: templates/base.html
 msgid "Asosiy qismga o‘tish"
 msgstr "Перейти к основному содержимому"
 

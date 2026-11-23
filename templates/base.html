@@ -25,9 +25,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <script>try{if(localStorage.getItem("aevum.filters")==="0")document.documentElement.classList.add("filters-off")}catch(e){}</script>
+  <script>try{if(localStorage.getItem("aevum.filters")==="0")document.documentElement.classList.add("filters-off")}catch(e){}
+  if(document.cookie.indexOf("aevum_intro=1")<0)document.documentElement.classList.add("intro-on")</script>
 </head>
 <body class="{% block body_class %}{% endblock %}">
+{# Kirish animatsiyasi: brauzer sessiyasida bir marta — saytga birinchi kirganda #}
+<div class="intro" data-intro>
+  <video class="intro__video" data-src="{% static 'video/av-logo-animation.mp4' %}" muted playsinline preload="none" aria-hidden="true"></video>
+  <button class="intro__skip" type="button" data-intro-skip>{% translate "O‘tkazib yuborish" %}</button>
+</div>
+<script>
+(() => {
+  const html = document.documentElement;
+  const box = document.querySelector("[data-intro]");
+  if (!html.classList.contains("intro-on")) { box.remove(); return; }
+  document.cookie = "aevum_intro=1; path=/; SameSite=Lax";   // muddatsiz cookie — brauzer yopilguncha
+  const video = box.querySelector("video");
+  let done = false;
+  const finish = () => {
+    if (done) return;
+    done = true;
+    box.classList.add("is-leaving");
+    document.removeEventListener("keydown", onKey);
+    setTimeout(() => { box.remove(); html.classList.remove("intro-on"); }, 700);
+  };
+  const onKey = (e) => { if (e.key === "Escape") finish(); };
+  video.addEventListener("ended", () => setTimeout(finish, 350));
+  video.addEventListener("error", finish);
+  box.addEventListener("click", finish);
+  document.addEventListener("keydown", onKey);
+  video.muted = true;
+  video.src = video.dataset.src;
+  const playing = video.play();
+  if (playing) playing.catch(finish);   // avtoijro bloklangan bo‘lsa, sayt darhol ochiladi
+  setTimeout(() => { if (!video.currentTime) finish(); }, 3000);   // video yuklanmasa kutib o‘tirmaydi
+  setTimeout(finish, 9000);
+})();
+</script>
 {% include "includes/icons.html" %}
 <a class="skip" href="#main">{% translate "Asosiy qismga o‘tish" %}</a>
 

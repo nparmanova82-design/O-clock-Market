@@ -822,6 +822,10 @@ msgid "Qo‘l, devor, stol va smart soatlar, soat tasmalari. O‘zbekiston bo‘
 msgstr "Wrist, wall, desk and smart watches, plus watch straps. Free delivery across Uzbekistan, pay by cash or card."
 
 #: templates/base.html
+msgid "O‘tkazib yuborish"
+msgstr "Skip"
+
+#: templates/base.html
 msgid "Asosiy qismga o‘tish"
 msgstr "Skip to main content"
 
