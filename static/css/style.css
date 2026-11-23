@@ -1,4 +1,4 @@
-/* O’clock market — minimalist soat do‘koni. «Luxury» tema (yorug‘):
+/* Aevum — minimalist soat do‘koni. «Luxury» tema (yorug‘):
    fil suyagi rangidagi fon, oppoq kartochkalar, ingichka oltin chiziqlar, qora-oltin tugmalar,
    qora topbar va footer.
    Ranglar faqat shu yerda: --cream — sahifa foni, --paper — kartochka, --ink — matn,
@@ -217,9 +217,7 @@ dl, dd { margin: 0; }
 .logo__clock { width: 38px; height: 38px; color: var(--ink); }
 .logo__text { display: grid; line-height: 1; }
 .logo__word { font-family: var(--serif); font-weight: 600; font-size: 27px; letter-spacing: .14em; }
-.logo__sub { font-size: 10px; letter-spacing: .58em; text-transform: uppercase; color: var(--muted); margin-top: 4px; padding-left: 2px; }
 .logo--footer .logo__word { font-size: 30px; color: var(--on-dark); }
-.logo--footer .logo__sub { color: rgba(239, 227, 205, .55); }
 
 /* ———— Yon panellar (drawer) ———— */
 .overlay {
@@ -1129,7 +1127,6 @@ a.contact-card:hover { border-color: var(--ink); }
   .menu-btn__label { display: none; }
   .logo__clock { width: 30px; height: 30px; }
   .logo__word { font-size: 21px; letter-spacing: .1em; }
-  .logo__sub { font-size: 8.5px; letter-spacing: .5em; }
   .logo { gap: 8px; }
   .header__inner { grid-template-columns: auto 1fr auto; gap: 8px; }
   .header .logo { justify-self: center; }

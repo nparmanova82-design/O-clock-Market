@@ -1,4 +1,4 @@
-/* O’clock market — sahifa ichidagi harakatlar.
+/* Aevum — sahifa ichidagi harakatlar.
    Hammasi JS’siz ham ishlaydi (oddiy formalar va havolalar); JS faqat qulaylik qo‘shadi. */
 (() => {
   "use strict";
@@ -367,7 +367,7 @@
       if (!e.target.closest("[data-filter-toggle]")) return;
       if (desktop.matches) {
         const off = html.classList.toggle("filters-off");
-        store.set("oclock.filters", off ? "0" : "1");
+        store.set("aevum.filters", off ? "0" : "1");
         syncToggle();
       } else {
         open("filters");

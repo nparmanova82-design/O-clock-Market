@@ -8,8 +8,8 @@ from django.urls import include, path
 from shop.sitemaps import SITEMAPS
 from shop.views import robots_txt
 
-admin.site.site_header = "O’clock market — boshqaruv"
-admin.site.site_title = "O’clock market"
+admin.site.site_header = "Aevum — boshqaruv"
+admin.site.site_title = "Aevum"
 admin.site.index_title = "Do‘kon boshqaruvi"
 
 urlpatterns = [

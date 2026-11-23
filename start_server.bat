@@ -1,10 +1,10 @@
 @echo off
 chcp 65001 >nul
 cd /d "%~dp0"
-title O'clock market
+title Aevum
 
 if not exist venv (
-    echo [O'clock market] Virtual muhit yaratilmoqda...
+    echo [Aevum] Virtual muhit yaratilmoqda...
     python -m venv venv
     call venv\Scripts\activate.bat
     pip install -r requirements.txt

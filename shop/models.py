@@ -1,4 +1,4 @@
-"""O’clock market katalogi: brendlar, soat turlari, funksiyalar, soatlar va tasmalar.
+"""Aevum katalogi: brendlar, soat turlari, funksiyalar, soatlar va tasmalar.
 
 Matnli maydonlarning ruscha va inglizcha nusxasi bor (name_ru, name_en ...). Saytda joriy tilga mos
 nusxa ko‘rsatiladi, u bo‘sh bo‘lsa — o‘zbekchasi (`local_*` xossalari).

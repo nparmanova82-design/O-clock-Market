@@ -1,8 +1,8 @@
-# O’clock market — ru tarjimasi. Asl matn (msgid) — o‘zbekcha.
+# Aevum — ru tarjimasi. Asl matn (msgid) — o‘zbekcha.
 # Yangi matnlar: python manage.py make_translations; keyin: python manage.py compile_translations
 msgid ""
 msgstr ""
-"Project-Id-Version: O’clock market\n"
+"Project-Id-Version: Aevum\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1213,8 +1213,8 @@ msgstr[1] "%(n)s товара"
 msgstr[2] "%(n)s товаров"
 
 #: templates/orders/cart.html
-msgid "Birinchi xarid uchun: <b>OCLOCK10</b> — 10%% chegirma"
-msgstr "Для первой покупки: <b>OCLOCK10</b> — скидка 10%%"
+msgid "Birinchi xarid uchun: <b>AEVUM10</b> — 10%% chegirma"
+msgstr "Для первой покупки: <b>AEVUM10</b> — скидка 10%%"
 
 #: templates/orders/cart.html
 #, python-format
@@ -1347,8 +1347,8 @@ msgid "Havola eskirgan yoki soat sotilib bo‘lgan bo‘lishi mumkin. Katalogdan
 msgstr "Ссылка устарела, или часы уже проданы. Выберите другие в каталоге — времени ещё много."
 
 #: templates/pages/about.html
-msgid "O’clock market — qo‘l, devor, stol va smart soatlar, soat tasmalari do‘koni. Rasmiy kafolat, O‘zbekiston bo‘ylab bepul yetkazib berish."
-msgstr "O’clock market — магазин наручных, настенных, настольных и смарт-часов, а также ремешков. Официальная гарантия, бесплатная доставка по Узбекистану."
+msgid "Aevum — qo‘l, devor, stol va smart soatlar, soat tasmalari do‘koni. Rasmiy kafolat, O‘zbekiston bo‘ylab bepul yetkazib berish."
+msgstr "Aevum — магазин наручных, настенных, настольных и смарт-часов, а также ремешков. Официальная гарантия, бесплатная доставка по Узбекистану."
 
 #: templates/pages/about.html
 msgid "«Soat — vaqtni o‘lchaydigan asbobgina emas. U har kuni siz bilan birga yuradigan kichik hikoya.»"
@@ -1389,8 +1389,8 @@ msgid "%(n)s kun ichida qaytarish va almashtirish."
 msgstr "Возврат и обмен в течение %(n)s дней."
 
 #: templates/pages/contacts.html
-msgid "O’clock market bilan bog‘lanish: telefon, Telegram, manzil va ish vaqti. Raqamingizni qoldiring — operator qo‘ng‘iroq qiladi."
-msgstr "Связаться с O’clock market: телефон, Telegram, адрес и часы работы. Оставьте номер — оператор перезвонит."
+msgid "Aevum bilan bog‘lanish: telefon, Telegram, manzil va ish vaqti. Raqamingizni qoldiring — operator qo‘ng‘iroq qiladi."
+msgstr "Связаться с Aevum: телефон, Telegram, адрес и часы работы. Оставьте номер — оператор перезвонит."
 
 #: templates/pages/contacts.html
 msgid "Soat tanlashda yordam kerakmi? Qo‘ng‘iroq qiling yoki raqamingizni qoldiring — o‘zimiz bog‘lanamiz."
@@ -1578,8 +1578,8 @@ msgstr "Введите номер заказа и телефон на стран
 
 #: templates/pages/faq.html
 #, python-format
-msgid "Savatcha sahifasida «Promokod» maydoniga. Masalan, <b>OCLOCK10</b> — 10%% chegirma, <b>SOVGA15</b> — %(sum)sdan yuqori xaridga 15%%."
-msgstr "В поле «Промокод» на странице корзины. Например, <b>OCLOCK10</b> — скидка 10%%, <b>SOVGA15</b> — 15%% на покупку от %(sum)s."
+msgid "Savatcha sahifasida «Promokod» maydoniga. Masalan, <b>AEVUM10</b> — 10%% chegirma, <b>SOVGA15</b> — %(sum)sdan yuqori xaridga 15%%."
+msgstr "В поле «Промокод» на странице корзины. Например, <b>AEVUM10</b> — скидка 10%%, <b>SOVGA15</b> — 15%% на покупку от %(sum)s."
 
 #: templates/pages/faq.html
 #, python-format

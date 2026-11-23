@@ -8,7 +8,7 @@ from shop.choices import REGIONS, delivery_days
 
 
 class PromoCode(models.Model):
-    code = models.CharField("Kod", max_length=30, unique=True, help_text="Katta harflarda, masalan OCLOCK10")
+    code = models.CharField("Kod", max_length=30, unique=True, help_text="Katta harflarda, masalan AEVUM10")
     percent = models.PositiveSmallIntegerField("Chegirma (%)")
     min_total = models.PositiveIntegerField("Minimal summa (so‘m)", default=0)
     is_active = models.BooleanField("Faol", default=True)

@@ -1,4 +1,4 @@
-"""O’clock market — soat do‘koni sozlamalari.
+"""Aevum — soat do‘koni sozlamalari.
 
 Lokal ishga tushirishda hech narsa sozlash shart emas. Serverda (Render) muhit o‘zgaruvchilari:
 DJANGO_DEBUG=0, DJANGO_SECRET_KEY, DATABASE_URL; RENDER_EXTERNAL_HOSTNAME ni Render o‘zi beradi.
@@ -127,13 +127,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Do‘kon ma’lumotlari — shablonlarda {{ site.* }} orqali ishlatiladi.
 # Telefon, manzil va ijtimoiy tarmoqlarni o‘zingiznikiga almashtiring.
 SHOP = {
-    "name": "O’clock market",
+    "name": "Aevum",
     "tagline": "Har bir daqiqa uchun soat",
     "phone": "+998 90 000 00 00",
     "phone_raw": "+998900000000",
-    "email": "info@oclock.uz",
-    "telegram": "https://t.me/oclockmarket",
-    "instagram": "https://instagram.com/oclockmarket",
+    "email": "info@aevum.uz",
+    "telegram": "https://t.me/aevumuz",
+    "instagram": "https://instagram.com/aevum.uz",
     "address": "Toshkent sh., Yunusobod tumani, Amir Temur ko‘chasi, 108",
     "hours": "Har kuni 09:00 — 21:00",
     "return_days": 14,

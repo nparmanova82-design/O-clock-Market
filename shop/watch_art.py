@@ -12,7 +12,7 @@ from html import escape
 from .choices import DIAL_HEX, STRAP_HEX
 
 # Chizish kodi o‘zgarsa, shu raqamni oshiring: rasm manzili o‘zgarib, eski kesh ishlatilmaydi
-ART_VERSION = 4
+ART_VERSION = 5
 
 CX = CY = 200
 
@@ -114,7 +114,7 @@ DEFAULT_SPECS = {  # soat turi bo‘sh bo‘lsa, kategoriya rasmi uchun
 
 
 def default_spec(style, label=""):
-    base = dict(style=style, bezel="", brand="O’CLOCK", mechanism="quartz", size=40, water=50,
+    base = dict(style=style, bezel="", brand="AEVUM", mechanism="quartz", size=40, water=50,
                 features=set(), label=label)
     base.update(DEFAULT_SPECS.get(style, DEFAULT_SPECS["classic"]))
     if style == "smart":

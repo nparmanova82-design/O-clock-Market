@@ -75,7 +75,7 @@ BRANDS = [
     ("Charles-Hubert", "Fransiya", "Klassik cho‘ntak soatlari."),
     ("Hermle", "Germaniya", "Mexanik stol va devor soatlari, 1922-yildan beri."),
     ("Rhythm", "Yaponiya", "Devor soatlari va budilniklar."),
-    ("O’clock Home", "O‘zbekiston", "Do‘konimizning uy va ofis uchun soatlari."),
+    ("Aevum Home", "O‘zbekiston", "Do‘konimizning uy va ofis uchun soatlari."),
 ]
 
 
@@ -252,32 +252,32 @@ WATCHES = [
       size=48, water=0, finish="black", dial="black", strap_c="metal", new=True),
 
     # — Devor —
-    W("O’clock Home", "devor", "Oak 40 sm", 690_000, g="home", case="wood", strap="none", glass="glass",
+    W("Aevum Home", "devor", "Oak 40 sm", 690_000, g="home", case="wood", strap="none", glass="glass",
       size=400, water=0, feats=["ovozsiz"], finish="wood", dial="white", strap_c="metal", hit=True),
-    W("O’clock Home", "devor", "Nordic Black 30 sm", 420_000, old=520_000, g="home", case="aluminium",
+    W("Aevum Home", "devor", "Nordic Black 30 sm", 420_000, old=520_000, g="home", case="aluminium",
       strap="none", glass="glass", size=300, water=0, feats=["ovozsiz"], finish="black", dial="white",
       strap_c="black"),
-    W("O’clock Home", "devor", "Cream Minimal 35 sm", 480_000, g="home", case="resin", strap="none",
+    W("Aevum Home", "devor", "Cream Minimal 35 sm", 480_000, g="home", case="resin", strap="none",
       glass="glass", size=350, water=0, feats=["ovozsiz"], finish="white", dial="cream", strap_c="white",
       new=True),
-    W("O’clock Home", "devor", "Vokzal 45 sm", 890_000, g="home", case="aluminium", strap="none", glass="glass",
+    W("Aevum Home", "devor", "Vokzal 45 sm", 890_000, g="home", case="aluminium", strap="none", glass="glass",
       size=450, water=0, feats=["ovozsiz"], finish="steel", dial="black", strap_c="metal"),
 
     # — Stol —
-    W("O’clock Home", "stol", "Kamin Walnut", 890_000, g="home", case="wood", strap="none", glass="glass",
+    W("Aevum Home", "stol", "Kamin Walnut", 890_000, g="home", case="wood", strap="none", glass="glass",
       size=160, water=0, feats=["ovozsiz"], finish="wood", dial="cream", strap_c="metal", hit=True),
     W("Hermle", "stol", "Mantel Westminster", 6_900_000, g="home", mech="mechanical", case="wood", strap="none",
       glass="glass", size=180, water=0, finish="wood", dial="champagne", strap_c="metal", new=True,
       desc="Har chorak soatda Westminster kuyini chaladigan mexanik kamin soati."),
-    W("O’clock Home", "stol", "Desk Mint", 390_000, old=450_000, g="home", case="resin", strap="none",
+    W("Aevum Home", "stol", "Desk Mint", 390_000, old=450_000, g="home", case="resin", strap="none",
       glass="glass", size=120, water=0, feats=["ovozsiz"], finish="white", dial="white", strap_c="mint"),
 
     # — Budilnik —
     W("Rhythm", "budilnik", "Twin Bell Classic", 350_000, g="home", strap="none", glass="glass", size=110,
       water=0, feats=["budilnik", "yoritgich"], finish="steel", dial="white", strap_c="red", hit=True),
-    W("O’clock Home", "budilnik", "Retro Mint", 290_000, old=340_000, g="home", strap="none", glass="glass",
+    W("Aevum Home", "budilnik", "Retro Mint", 290_000, old=340_000, g="home", strap="none", glass="glass",
       size=100, water=0, feats=["budilnik"], finish="steel", dial="white", strap_c="mint"),
-    W("O’clock Home", "budilnik", "Black Bell", 320_000, g="home", strap="none", glass="glass", size=100,
+    W("Aevum Home", "budilnik", "Black Bell", 320_000, g="home", strap="none", glass="glass", size=100,
       water=0, feats=["budilnik"], finish="gold", dial="cream", strap_c="black", new=True),
 ]
 
@@ -495,7 +495,7 @@ BRAND_DESC_I18N = {  # nomi: (tavsif ru, tavsif en)
     "Charles-Hubert": ("Классические карманные часы.", "Classic pocket watches."),
     "Hermle": ("Механические настольные и настенные часы с 1922 года.", "Mechanical desk and wall clocks since 1922."),
     "Rhythm": ("Настенные часы и будильники.", "Wall clocks and alarm clocks."),
-    "O’clock Home": ("Часы нашего магазина для дома и офиса.", "Our store’s own clocks for home and office."),
+    "Aevum Home": ("Часы нашего магазина для дома и офиса.", "Our store’s own clocks for home and office."),
     "Hirsch": ("Ремешки из кожи и каучука с 1765 года.", "Leather and rubber straps since 1765."),
     "Barton": ("Силиконовые и нейлоновые ремешки с быстросъёмными шпильками.",
                "Silicone and nylon straps with quick-release spring bars."),
@@ -745,11 +745,11 @@ class Command(BaseCommand):
                 **texts, created_at=now - age, sold=(120 if watch.is_hit else 0) + (total - i) * 3 % 47)
 
         self.create_straps(brands)
-        PromoCode.objects.get_or_create(code="OCLOCK10", defaults={"percent": 10})
+        PromoCode.objects.get_or_create(code="AEVUM10", defaults={"percent": 10})
         PromoCode.objects.get_or_create(code="SOVGA15", defaults={"percent": 15, "min_total": 3_000_000})
         self.stdout.write(self.style.SUCCESS(
             f"Tayyor: {Watch.objects.count()} ta soat, {Strap.objects.count()} ta tasma, "
-            f"{Brand.objects.count()} ta brend, {Category.objects.count()} ta tur. Promokodlar: OCLOCK10, SOVGA15."))
+            f"{Brand.objects.count()} ta brend, {Category.objects.count()} ta tur. Promokodlar: AEVUM10, SOVGA15."))
 
     def create_straps(self, brands):
         now = timezone.now()

@@ -1,5 +1,5 @@
 {% extends "pages/_info.html" %}
-{% block description %}{% translate "O’clock market bilan bog‘lanish: telefon, Telegram, manzil va ish vaqti. Raqamingizni qoldiring — operator qo‘ng‘iroq qiladi." %}{% endblock %}
+{% block description %}{% translate "Aevum bilan bog‘lanish: telefon, Telegram, manzil va ish vaqti. Raqamingizni qoldiring — operator qo‘ng‘iroq qiladi." %}{% endblock %}
 {% block page_title %}{% translate "Aloqa" %}{% endblock %}
 {% block crumb %}{% translate "Aloqa" %}{% endblock %}
 {% block heading %}{% translate "Aloqa" %}{% endblock %}
@@ -8,7 +8,7 @@
 {% block body %}
 <div class="contact-cards">
   <a class="contact-card" href="tel:{{ site.phone_raw }}"><svg class="i"><use href="#i-phone"/></svg><span><small>{% translate "Telefon" %}</small><b>{{ site.phone }}</b></span></a>
-  <a class="contact-card" href="{{ site.telegram }}" target="_blank" rel="noopener"><svg class="i"><use href="#i-telegram"/></svg><span><small>Telegram</small><b>@oclockmarket</b></span></a>
+  <a class="contact-card" href="{{ site.telegram }}" target="_blank" rel="noopener"><svg class="i"><use href="#i-telegram"/></svg><span><small>Telegram</small><b>@aevumuz</b></span></a>
   <a class="contact-card" href="mailto:{{ site.email }}"><svg class="i"><use href="#i-mail"/></svg><span><small>Email</small><b>{{ site.email }}</b></span></a>
   <div class="contact-card"><svg class="i"><use href="#i-clock"/></svg><span><small>{% translate "Ish vaqti" %}</small><b>{{ site.hours }}</b></span></div>
   <div class="contact-card" style="grid-column: 1 / -1;"><svg class="i"><use href="#i-pin"/></svg><span><small>{% translate "Showroom" %}</small><b>{{ site.address }}</b></span></div>

@@ -101,13 +101,13 @@ def read_po(path):
 
 
 def header(lang):
-    return (f"Project-Id-Version: O’clock market\nLanguage: {lang}\nMIME-Version: 1.0\n"
+    return (f"Project-Id-Version: Aevum\nLanguage: {lang}\nMIME-Version: 1.0\n"
             f"Content-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
             f"Plural-Forms: {PLURAL_FORMS[lang]}\n")
 
 
 def write_po(path, lang, entries):
-    out = [f"# O’clock market — {lang} tarjimasi. Asl matn (msgid) — o‘zbekcha.",
+    out = [f"# Aevum — {lang} tarjimasi. Asl matn (msgid) — o‘zbekcha.",
            "# Yangi matnlar: python manage.py make_translations; keyin: python manage.py compile_translations",
            'msgid ""', f"msgstr {_quote(header(lang))}", ""]
     for e in entries:

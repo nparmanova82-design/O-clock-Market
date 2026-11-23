@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <script>try{if(localStorage.getItem("oclock.filters")==="0")document.documentElement.classList.add("filters-off")}catch(e){}</script>
+  <script>try{if(localStorage.getItem("aevum.filters")==="0")document.documentElement.classList.add("filters-off")}catch(e){}</script>
 </head>
 <body class="{% block body_class %}{% endblock %}">
 {% include "includes/icons.html" %}
@@ -64,7 +64,7 @@
         <g class="hand-s" data-c="20 20" transform="rotate(210 20 20)"><path d="M20 23V5.5" stroke="#a63a2c" stroke-width=".8" stroke-linecap="round"/></g>
         <circle cx="20" cy="20" r="1.6" fill="currentColor"/>
       </svg>
-      <span class="logo__text"><span class="logo__word">O’CLOCK</span><span class="logo__sub">market</span></span>
+      <span class="logo__text"><span class="logo__word">AEVUM</span></span>
     </a>
 
     <div class="header__actions">
@@ -135,7 +135,7 @@
     </div>
     <div class="footer__grid">
       <div class="footer__brand">
-        <a class="logo logo--footer" href="{% url 'shop:home' %}"><span class="logo__text"><span class="logo__word">O’CLOCK</span><span class="logo__sub">market</span></span></a>
+        <a class="logo logo--footer" href="{% url 'shop:home' %}"><span class="logo__text"><span class="logo__word">AEVUM</span></span></a>
         <p>{{ site.tagline }}. {% translate "Qo‘l soatlaridan devor soatlarigacha — hammasi bir joyda." %}</p>
         <div class="footer__social">
           <a href="{{ site.telegram }}" aria-label="Telegram" rel="noopener" target="_blank"><svg class="i"><use href="#i-telegram"/></svg></a>
